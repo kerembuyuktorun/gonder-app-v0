@@ -40,7 +40,8 @@ export function AppSelect({
   className,
   id,
 }: AppSelectProps) {
-  const selectId = id ?? React.useId();
+  const generatedId = React.useId();
+  const selectId = id ?? generatedId;
   return (
     <div className={cn("flex w-full flex-col gap-1.5", className)}>
       {label ? <Label htmlFor={selectId}>{label}</Label> : null}

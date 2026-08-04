@@ -14,7 +14,8 @@ export type AppInputProps = InputProps & {
 
 export const AppInput = React.forwardRef<HTMLInputElement, AppInputProps>(
   ({ label, hint, error, id, containerClassName, className, ...props }, ref) => {
-    const inputId = id ?? React.useId();
+    const generatedId = React.useId();
+    const inputId = id ?? generatedId;
     return (
       <div className={cn("flex w-full flex-col gap-1.5", containerClassName)}>
         {label ? (

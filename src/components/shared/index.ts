@@ -6,6 +6,7 @@ export { AppCombobox } from "./app-combobox";
 export { AppDatePicker } from "./app-date-picker";
 export { AppDateTimePicker } from "./app-date-time-picker";
 export { AddressInput } from "./address-input";
+export type { AddressValue } from "./address-input";
 export { PhoneInput } from "./phone-input";
 export { FileUploader } from "./file-uploader";
 export { StatusBadge } from "./status-badge";

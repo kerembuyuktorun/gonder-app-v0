@@ -15,7 +15,8 @@ export const AppTextarea = React.forwardRef<
   HTMLTextAreaElement,
   AppTextareaProps
 >(({ label, hint, error, id, className, ...props }, ref) => {
-  const inputId = id ?? React.useId();
+  const generatedId = React.useId();
+  const inputId = id ?? generatedId;
   return (
     <div className="flex w-full flex-col gap-1.5">
       {label ? <Label htmlFor={inputId}>{label}</Label> : null}

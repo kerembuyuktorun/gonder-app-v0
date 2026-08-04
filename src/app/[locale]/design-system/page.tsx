@@ -4,6 +4,7 @@ import * as React from "react";
 import { useTranslations } from "next-intl";
 import {
   AddressInput,
+  type AddressValue,
   AppButton,
   AppCombobox,
   AppDatePicker,
@@ -56,7 +57,7 @@ export default function DesignSystemPage() {
   const [city, setCity] = React.useState("istanbul");
   const [service, setService] = React.useState("parcel_1_30");
   const [search, setSearch] = React.useState("");
-  const [address, setAddress] = React.useState({
+  const [address, setAddress] = React.useState<AddressValue>({
     contactName: "",
     phone: "",
     line1: "",
