@@ -46,7 +46,7 @@ export const mockDashboardSnapshot: DashboardSnapshot = {
       serviceType: "spot",
       nameKey: "services.spot",
       descriptionKey: "dashboard.services.spotDesc",
-      href: "/app/requests/new?service=spot",
+      href: "/app/requests/spot",
     },
   ],
   quickActions: [

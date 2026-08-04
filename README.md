@@ -192,6 +192,17 @@ Shared freight flows at `/tr/app/requests/ftl`, `/tr/app/requests/ltl`, and mode
 - Manual quote lifecycle + in-request messaging; mock `freightRepository`
 - Dashboard FTL/LTL cards link to dedicated routes
 
+## Spot quotes & payments (Step 9)
+
+Spot workspace at `/tr/app/requests/spot`:
+
+- Open a transport request to invited suppliers (waiting / quoted / declined)
+- Comparison table with sort/filter, lowest/fastest/recommended badges, side-by-side compare, detail drawer, counter-offer modal
+- Explicit accept shows tax + surcharges; AI recommendation never auto-accepted
+- Checkout: saved/new card, 3DS mock, full/deposit, wallet, net terms, discount, invoice, contract
+- Payment outcomes: succeeded / failed / uncertain (poll only — no double charge via idempotency)
+- Mock `spotRepository` + `paymentRepository`
+
 ## Key routes
 
 | Path | Purpose |
@@ -210,6 +221,7 @@ Shared freight flows at `/tr/app/requests/ftl`, `/tr/app/requests/ltl`, and mode
 | `/tr/app/requests/freight` | FTL/LTL mode selection |
 | `/tr/app/requests/ftl` | FTL full-truck request |
 | `/tr/app/requests/ltl` | LTL partial-load request |
+| `/tr/app/requests/spot` | Spot quotes + payment checkout |
 | `/tr/design-system` | Shared component showcase |
 | `/tr/customer`, `/tr/ops` | Legacy demo panels (step 1) |
 

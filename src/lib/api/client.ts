@@ -10,6 +10,8 @@ import type { CourierRepository } from "@/lib/api/courier-repository";
 import type { ParcelRepository } from "@/lib/api/parcel-repository";
 import type { XlRepository } from "@/lib/api/xl-repository";
 import type { FreightRepository } from "@/lib/api/freight-repository";
+import type { SpotRepository } from "@/lib/api/spot-repository";
+import type { PaymentRepository } from "@/lib/api/payment-repository";
 import {
   mockQuoteRepository,
   mockServiceRepository,
@@ -22,6 +24,8 @@ import { mockCourierRepository } from "@/mocks/repositories/mock-courier-reposit
 import { mockParcelRepository } from "@/mocks/repositories/mock-parcel-repository";
 import { mockXlRepository } from "@/mocks/repositories/mock-xl-repository";
 import { mockFreightRepository } from "@/mocks/repositories/mock-freight-repository";
+import { mockSpotRepository } from "@/mocks/repositories/mock-spot-repository";
+import { mockPaymentRepository } from "@/mocks/repositories/mock-payment-repository";
 
 /**
  * Switch DATA_SOURCE to "api" when real backends are ready.
@@ -129,6 +133,25 @@ const apiFreightRepository: FreightRepository = {
   replyAsOps: () => notImplemented("FreightRepository.replyAsOps"),
 };
 
+const apiSpotRepository: SpotRepository = {
+  openRequest: () => notImplemented("SpotRepository.openRequest"),
+  getRequest: () => notImplemented("SpotRepository.getRequest"),
+  refreshOffers: () => notImplemented("SpotRepository.refreshOffers"),
+  sendCounterOffer: () => notImplemented("SpotRepository.sendCounterOffer"),
+  selectOffer: () => notImplemented("SpotRepository.selectOffer"),
+  markAccepted: () => notImplemented("SpotRepository.markAccepted"),
+};
+
+const apiPaymentRepository: PaymentRepository = {
+  listSavedCards: () => notImplemented("PaymentRepository.listSavedCards"),
+  getWalletBalance: () => notImplemented("PaymentRepository.getWalletBalance"),
+  validateDiscount: () => notImplemented("PaymentRepository.validateDiscount"),
+  getDefaultInvoice: () => notImplemented("PaymentRepository.getDefaultInvoice"),
+  checkout: () => notImplemented("PaymentRepository.checkout"),
+  confirm3ds: () => notImplemented("PaymentRepository.confirm3ds"),
+  getIntentStatus: () => notImplemented("PaymentRepository.getIntentStatus"),
+};
+
 export const serviceRepository: ServiceRepository =
   dataSource === "mock" ? mockServiceRepository : apiServiceRepository;
 
@@ -158,3 +181,9 @@ export const xlRepository: XlRepository =
 
 export const freightRepository: FreightRepository =
   dataSource === "mock" ? mockFreightRepository : apiFreightRepository;
+
+export const spotRepository: SpotRepository =
+  dataSource === "mock" ? mockSpotRepository : apiSpotRepository;
+
+export const paymentRepository: PaymentRepository =
+  dataSource === "mock" ? mockPaymentRepository : apiPaymentRepository;
