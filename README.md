@@ -181,6 +181,17 @@ XL wizard at `/tr/app/requests/xl`:
 - Quote detail with process/next-step copy; confirm & pay (invoice / balance / card)
 - Under-30 desi nudge back to parcel; dashboard Gönder XL card links here
 
+## FTL & LTL freight requests (Step 8)
+
+Shared freight flows at `/tr/app/requests/ftl`, `/tr/app/requests/ltl`, and mode picker `/tr/app/requests/freight`:
+
+- Selection screen explains FTL vs LTL with recommendation and mismatch warnings
+- Shared form: addresses, schedule, cargo table, vehicle/body cards, photos+docs, notes
+- FTL-specific: capacity, length, multi-vehicle, body flags, ADR
+- LTL-specific: m³, loading meters, stackability, hub transfer, flexible delivery
+- Manual quote lifecycle + in-request messaging; mock `freightRepository`
+- Dashboard FTL/LTL cards link to dedicated routes
+
 ## Key routes
 
 | Path | Purpose |
@@ -196,6 +207,9 @@ XL wizard at `/tr/app/requests/xl`:
 | `/tr/app/requests/courier` | City courier request wizard |
 | `/tr/app/requests/parcel` | 1–30 desi parcel + carrier comparison |
 | `/tr/app/requests/xl` | Gönder XL oversized shipment wizard |
+| `/tr/app/requests/freight` | FTL/LTL mode selection |
+| `/tr/app/requests/ftl` | FTL full-truck request |
+| `/tr/app/requests/ltl` | LTL partial-load request |
 | `/tr/design-system` | Shared component showcase |
 | `/tr/customer`, `/tr/ops` | Legacy demo panels (step 1) |
 

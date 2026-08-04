@@ -9,6 +9,7 @@ import type { AgentRepository } from "@/lib/api/agent-repository";
 import type { CourierRepository } from "@/lib/api/courier-repository";
 import type { ParcelRepository } from "@/lib/api/parcel-repository";
 import type { XlRepository } from "@/lib/api/xl-repository";
+import type { FreightRepository } from "@/lib/api/freight-repository";
 import {
   mockQuoteRepository,
   mockServiceRepository,
@@ -20,6 +21,7 @@ import { mockAgentRepository } from "@/mocks/repositories/mock-agent-repository"
 import { mockCourierRepository } from "@/mocks/repositories/mock-courier-repository";
 import { mockParcelRepository } from "@/mocks/repositories/mock-parcel-repository";
 import { mockXlRepository } from "@/mocks/repositories/mock-xl-repository";
+import { mockFreightRepository } from "@/mocks/repositories/mock-freight-repository";
 
 /**
  * Switch DATA_SOURCE to "api" when real backends are ready.
@@ -117,6 +119,16 @@ const apiXlRepository: XlRepository = {
   checkout: () => notImplemented("XlRepository.checkout"),
 };
 
+const apiFreightRepository: FreightRepository = {
+  submit: () => notImplemented("FreightRepository.submit"),
+  getRequest: () => notImplemented("FreightRepository.getRequest"),
+  advanceStatus: () => notImplemented("FreightRepository.advanceStatus"),
+  requestRevision: () => notImplemented("FreightRepository.requestRevision"),
+  acceptQuote: () => notImplemented("FreightRepository.acceptQuote"),
+  sendMessage: () => notImplemented("FreightRepository.sendMessage"),
+  replyAsOps: () => notImplemented("FreightRepository.replyAsOps"),
+};
+
 export const serviceRepository: ServiceRepository =
   dataSource === "mock" ? mockServiceRepository : apiServiceRepository;
 
@@ -143,3 +155,6 @@ export const parcelRepository: ParcelRepository =
 
 export const xlRepository: XlRepository =
   dataSource === "mock" ? mockXlRepository : apiXlRepository;
+
+export const freightRepository: FreightRepository =
+  dataSource === "mock" ? mockFreightRepository : apiFreightRepository;

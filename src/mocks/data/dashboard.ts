@@ -31,7 +31,7 @@ export const mockDashboardSnapshot: DashboardSnapshot = {
       nameKey: "services.ftl",
       descriptionKey: "dashboard.services.ftlDesc",
       helpKey: "dashboard.services.ftlHelp",
-      href: "/app/requests/new?service=ftl",
+      href: "/app/requests/ftl",
     },
     {
       id: "svc-ltl",
@@ -39,7 +39,7 @@ export const mockDashboardSnapshot: DashboardSnapshot = {
       nameKey: "services.ltl",
       descriptionKey: "dashboard.services.ltlDesc",
       helpKey: "dashboard.services.ltlHelp",
-      href: "/app/requests/new?service=ltl",
+      href: "/app/requests/ltl",
     },
     {
       id: "svc-spot",
