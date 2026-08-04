@@ -9,7 +9,7 @@ export const mockDashboardSnapshot: DashboardSnapshot = {
       serviceType: "courier",
       nameKey: "services.courier",
       descriptionKey: "dashboard.services.courierDesc",
-      href: "/app/requests/new?service=courier",
+      href: "/app/requests/courier",
     },
     {
       id: "svc-parcel",

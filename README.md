@@ -148,6 +148,17 @@ Channel-agnostic agent workspace at `/tr/app/agent` and `/tr/app/requests/new`:
 - WhatsApp → web handoff mock (`?from=whatsapp&conversationId=wa-handoff-001`)
 - Fallback detailed form at `/tr/app/requests/new/form`
 
+## City courier request (Step 5)
+
+Web-first courier wizard at `/tr/app/requests/courier`:
+
+- Multi-step form: addresses (+ optional stops), contacts, package, vehicle/service, schedule/extras, review
+- Desktop layout: form left/center, sticky mock map + live price summary on the right
+- Free navigation between steps; zone / moto suitability / multi-stop mock business rules
+- Service levels: express, same-day, scheduled; vehicles: moto / van
+- Mock quote statuses: ready, preparing, unavailable; confirm shows total + terms
+- Dashboard Kurye card links here; mock repository behind `courierRepository`
+
 ## Key routes
 
 | Path | Purpose |
@@ -160,6 +171,7 @@ Channel-agnostic agent workspace at `/tr/app/agent` and `/tr/app/requests/new`:
 | `/tr/app/agent` | AI Logistics Agent workspace |
 | `/tr/app/requests/new` | New request (AI agent) |
 | `/tr/app/requests/new/form` | Manual form fallback |
+| `/tr/app/requests/courier` | City courier request wizard |
 | `/tr/design-system` | Shared component showcase |
 | `/tr/customer`, `/tr/ops` | Legacy demo panels (step 1) |
 

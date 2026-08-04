@@ -6,6 +6,7 @@ import type {
 import type { AuthRepository } from "@/lib/api/auth-repository";
 import type { DashboardRepository } from "@/lib/api/dashboard-repository";
 import type { AgentRepository } from "@/lib/api/agent-repository";
+import type { CourierRepository } from "@/lib/api/courier-repository";
 import {
   mockQuoteRepository,
   mockServiceRepository,
@@ -14,6 +15,7 @@ import {
 import { mockAuthRepository } from "@/mocks/repositories/mock-auth-repository";
 import { mockDashboardRepository } from "@/mocks/repositories/mock-dashboard-repository";
 import { mockAgentRepository } from "@/mocks/repositories/mock-agent-repository";
+import { mockCourierRepository } from "@/mocks/repositories/mock-courier-repository";
 
 /**
  * Switch DATA_SOURCE to "api" when real backends are ready.
@@ -84,6 +86,12 @@ const apiAgentRepository: AgentRepository = {
     notImplemented("AgentRepository.getMissingFieldPrompt"),
 };
 
+const apiCourierRepository: CourierRepository = {
+  validate: () => notImplemented("CourierRepository.validate"),
+  getQuote: () => notImplemented("CourierRepository.getQuote"),
+  submit: () => notImplemented("CourierRepository.submit"),
+};
+
 export const serviceRepository: ServiceRepository =
   dataSource === "mock" ? mockServiceRepository : apiServiceRepository;
 
@@ -101,3 +109,6 @@ export const dashboardRepository: DashboardRepository =
 
 export const agentRepository: AgentRepository =
   dataSource === "mock" ? mockAgentRepository : apiAgentRepository;
+
+export const courierRepository: CourierRepository =
+  dataSource === "mock" ? mockCourierRepository : apiCourierRepository;

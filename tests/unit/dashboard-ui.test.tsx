@@ -48,7 +48,7 @@ describe("dashboard UI", () => {
     ).toBeInTheDocument();
     expect(
       screen.getByRole("link", { name: /Kurye/i }),
-    ).toHaveAttribute("href", "/app/requests/new?service=courier");
+    ).toHaveAttribute("href", "/app/requests/courier");
   });
 
   it("submits AI command to new request flow", async () => {
