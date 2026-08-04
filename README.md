@@ -24,6 +24,14 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000). You will be redirected to `/tr`.
 
+Before the first E2E run, install the browser once:
+
+```bash
+pnpm exec playwright install chromium
+```
+
+Playwright boots its own production server on port **3100**, so it never collides with `pnpm dev`.
+
 ### Useful scripts
 
 | Script | Description |
@@ -34,7 +42,10 @@ Open [http://localhost:3000](http://localhost:3000). You will be redirected to `
 | `pnpm lint` | ESLint |
 | `pnpm typecheck` | TypeScript check |
 | `pnpm test` | Unit / component tests (Vitest) |
-| `pnpm test:e2e` | Playwright smoke + demo scenarios |
+| `pnpm test:e2e` | Playwright smoke, demo scenarios, quality suite |
+| `pnpm verify` | All gates: lint → typecheck → test → build → e2e |
+| `pnpm smoke <url>` | HTTP health check of every key route |
+| `pnpm deploy:preview` / `pnpm deploy:prod` | Vercel deploy (needs `VERCEL_TOKEN`) |
 
 ## Documentation
 
@@ -155,3 +166,18 @@ Browse at `/tr/design-system`. Full list: [`docs/COMPONENT_INVENTORY.md`](docs/C
 - Prefer tables / split panels for dense operational screens
 - Wire real API repositories behind existing interfaces — see [`docs/PRODUCTION_API_CHECKLIST.md`](docs/PRODUCTION_API_CHECKLIST.md)
 - Known demo limits: [`docs/KNOWN_LIMITATIONS.md`](docs/KNOWN_LIMITATIONS.md)
+
+## Deploying to Vercel
+
+Full instructions: [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md).
+
+Git integration is the recommended path — import the repo in Vercel, set
+`NEXT_PUBLIC_DATA_SOURCE=mock`, and every push deploys. For CLI deploys:
+
+```bash
+export VERCEL_TOKEN=...     # vercel.com/account/tokens
+pnpm deploy:prod            # pull → build → deploy → route smoke check
+```
+
+Node 22 (`.nvmrc`), pnpm 10, build settings and security headers in `vercel.json`.
+CI (`.github/workflows/ci.yml`) runs the same gates on every push and pull request.

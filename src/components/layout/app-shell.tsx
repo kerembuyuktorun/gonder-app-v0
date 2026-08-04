@@ -1,6 +1,6 @@
 "use client";
 
-import { Menu, Moon, Sun, X } from "lucide-react";
+import { ChevronDown, Menu, Moon, Sun, X } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import { AppButton } from "@/components/shared/app-button";
@@ -91,8 +91,23 @@ export function AppShell({ children, navItems, panelTitle }: AppShellProps) {
             size="sm"
             className="w-full justify-start"
             onClick={toggleSidebar}
+            aria-label={
+              sidebarCollapsed
+                ? t("shell.expandSidebar")
+                : t("shell.collapseSidebar")
+            }
           >
-            {sidebarCollapsed ? "»" : "«"}
+            <ChevronDown
+              className={cn(
+                "size-4 transition-transform",
+                sidebarCollapsed ? "-rotate-90" : "rotate-90",
+              )}
+            />
+            {!sidebarCollapsed ? (
+              <span className="truncate text-xs">
+                {t("shell.collapseSidebar")}
+              </span>
+            ) : null}
           </AppButton>
         </div>
       </aside>
