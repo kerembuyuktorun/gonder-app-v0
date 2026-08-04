@@ -16,6 +16,9 @@ export type OnboardingStatus = "not_started" | "in_progress" | "completed";
 
 export type OrgRole = "owner" | "admin" | "member" | "viewer";
 
+/** Internal Gönder employee role for /operations panel */
+export type StaffRole = "ops_admin" | "ops_agent" | "ops_finance" | "ops_viewer";
+
 export type Permission =
   | "shipments:read"
   | "shipments:write"
@@ -26,7 +29,15 @@ export type Permission =
   | "reports:read"
   | "settings:manage"
   | "org:manage"
-  | "support:access";
+  | "support:access"
+  | "ops:access"
+  | "ops:requests:read"
+  | "ops:requests:write"
+  | "ops:quotes:write"
+  | "ops:assign"
+  | "ops:finance:read"
+  | "ops:partners:manage"
+  | "ops:audit:read";
 
 export type UserIdentity = {
   id: string;
@@ -51,6 +62,8 @@ export type UserProfile = {
   onboarding: OnboardingState;
   identities: UserIdentity[];
   createdAt: string;
+  /** Present only for Gönder employees with /operations access */
+  staffRole?: StaffRole;
 };
 
 export type OrganizationProfile = {

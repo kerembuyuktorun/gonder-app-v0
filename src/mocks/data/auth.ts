@@ -115,6 +115,29 @@ export const mockUsers: UserProfile[] = [
     ],
     createdAt: "2026-06-01T10:00:00.000Z",
   },
+  {
+    id: "user-ops",
+    firstName: "Selin",
+    lastName: "Ops",
+    email: "ops@gonder.com",
+    phone: "+905551234567",
+    accountStatus: "active",
+    staffRole: "ops_admin",
+    onboarding: {
+      status: "completed",
+      step: "complete",
+      accountType: "individual",
+    },
+    identities: [
+      {
+        id: "id-email-ops",
+        provider: "email",
+        identifier: "ops@gonder.com",
+        verifiedAt: "2026-01-01T10:00:00.000Z",
+      },
+    ],
+    createdAt: "2026-01-01T10:00:00.000Z",
+  },
 ];
 
 export const mockOrganizations: OrganizationProfile[] = [
@@ -170,6 +193,7 @@ export const mockPasswords: Record<string, string> = {
   "ayse@example.com": "Password1!",
   "mehmet@example.com": "Password1!",
   "suspended@example.com": "Password1!",
+  "ops@gonder.com": "Password1!",
 };
 
 /** Valid OTP for demos; 000000 simulates expiry */

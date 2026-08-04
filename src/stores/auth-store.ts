@@ -98,6 +98,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   postAuthRedirectPath: () => {
     const user = get().user;
     if (!user) return "/welcome";
+    if (user.staffRole) return "/operations";
     if (user.onboarding.status !== "completed") {
       return pathForOnboardingStep(user.onboarding.step);
     }

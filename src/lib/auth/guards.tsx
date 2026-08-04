@@ -6,6 +6,7 @@ import { useRouter } from "@/lib/i18n/navigation";
 import { useAuthStore } from "@/stores/auth-store";
 import { pathForOnboardingStep } from "@/lib/auth/onboarding-paths";
 import { hasPermission } from "@/lib/auth/permissions";
+import { staffPermissions } from "@/lib/auth/staff";
 import type { Permission } from "@/types/auth";
 import { ErrorState } from "@/components/shared/error-state";
 import { LoadingSkeleton } from "@/components/shared/loading-skeleton";
@@ -170,12 +171,72 @@ export function OrganizationGuard({ children }: GuardProps) {
 
 export function useEffectivePermissions(): Permission[] {
   const session = useAuthStore((s) => s.session);
+  const user = useAuthStore((s) => s.user);
   const activeMembership = useAuthStore((s) => s.activeMembership);
-  if (!session) return [];
+  if (!session || !user) return [];
+  const staff = staffPermissions(user.staffRole);
+  if (user.staffRole) return staff;
   if (session.activeContext.type === "individual") {
     return INDIVIDUAL_PERMISSIONS;
   }
   return activeMembership()?.permissions ?? [];
+}
+
+export function OpsStaffGuard({ children }: GuardProps) {
+  const status = useAuthStore((s) => s.status);
+  const user = useAuthStore((s) => s.user);
+  const router = useRouter();
+  const t = useTranslations("authStates");
+
+  React.useEffect(() => {
+    if (status === "unauthenticated") {
+      router.replace("/welcome");
+    }
+  }, [status, router]);
+
+  if (status !== "authenticated" || !user) {
+    return (
+      <div className="p-6">
+        <LoadingSkeleton rows={3} />
+      </div>
+    );
+  }
+
+  if (!user.staffRole) {
+    return (
+      <ErrorState
+        title={t("unauthorizedTitle")}
+        description={t("unauthorizedDescription")}
+      />
+    );
+  }
+
+  return <>{children}</>;
+}
+
+export function OpsPermissionGuard({
+  children,
+  permission,
+  fallback,
+}: GuardProps & {
+  permission: Permission;
+  fallback?: React.ReactNode;
+}) {
+  const permissions = useEffectivePermissions();
+  const t = useTranslations("authStates");
+
+  if (!permissions.includes(permission)) {
+    return (
+      fallback ?? (
+        <ErrorState
+          title={t("unauthorizedTitle")}
+          description={t("unauthorizedDescription")}
+        />
+      )
+    );
+  }
+
+  return <>{children}</>;
 }
 
 export function PermissionGuard({

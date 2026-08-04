@@ -29,9 +29,11 @@ import { mockXlRepository } from "@/mocks/repositories/mock-xl-repository";
 import { mockFreightRepository } from "@/mocks/repositories/mock-freight-repository";
 import { mockSpotRepository } from "@/mocks/repositories/mock-spot-repository";
 import { mockPaymentRepository } from "@/mocks/repositories/mock-payment-repository";
+import type { OperationsRepository } from "@/lib/api/operations-repository";
 import { mockOrdersRepository } from "@/mocks/repositories/mock-orders-repository";
 import { mockIntegrationsRepository } from "@/mocks/repositories/mock-integrations-repository";
 import { mockSettingsRepository } from "@/mocks/repositories/mock-settings-repository";
+import { mockOperationsRepository } from "@/mocks/repositories/mock-operations-repository";
 
 /**
  * Switch DATA_SOURCE to "api" when real backends are ready.
@@ -275,3 +277,30 @@ export const integrationsRepository: IntegrationsRepository =
 
 export const settingsRepository: SettingsRepository =
   dataSource === "mock" ? mockSettingsRepository : apiSettingsRepository;
+
+const apiOperationsRepository: OperationsRepository = {
+  getMetrics: () => notImplemented("OperationsRepository.getMetrics"),
+  getFinance: () => notImplemented("OperationsRepository.getFinance"),
+  listRequests: () => notImplemented("OperationsRepository.listRequests"),
+  getRequest: () => notImplemented("OperationsRepository.getRequest"),
+  listPartners: () => notImplemented("OperationsRepository.listPartners"),
+  listPriceLists: () => notImplemented("OperationsRepository.listPriceLists"),
+  listStaff: () => notImplemented("OperationsRepository.listStaff"),
+  createManualQuote: () =>
+    notImplemented("OperationsRepository.createManualQuote"),
+  assignPartner: () => notImplemented("OperationsRepository.assignPartner"),
+  assignVehicle: () => notImplemented("OperationsRepository.assignVehicle"),
+  changeStatus: () => notImplemented("OperationsRepository.changeStatus"),
+  requestMissingInfo: () =>
+    notImplemented("OperationsRepository.requestMissingInfo"),
+  changeServiceType: () =>
+    notImplemented("OperationsRepository.changeServiceType"),
+  uploadDocument: () => notImplemented("OperationsRepository.uploadDocument"),
+  addOpsNote: () => notImplemented("OperationsRepository.addOpsNote"),
+  bulkAssign: () => notImplemented("OperationsRepository.bulkAssign"),
+  resolveException: () =>
+    notImplemented("OperationsRepository.resolveException"),
+};
+
+export const operationsRepository: OperationsRepository =
+  dataSource === "mock" ? mockOperationsRepository : apiOperationsRepository;

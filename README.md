@@ -122,6 +122,7 @@ Feature code should depend on repositories / query hooks, never on fetch calls i
 
 - Email: `ayse@example.com` / `Password1!` (completed onboarding)
 - Email: `mehmet@example.com` / `Password1!` (resumes at company tax step)
+- Email: `ops@gonder.com` / `Password1!` (Gönder ops staff → `/operations`)
 - OTP: `123456` (valid), `000000` (expired)
 
 ## Dashboard (Step 3)
@@ -221,6 +222,21 @@ Unified orders module at `/tr/app/orders` (detail `/tr/app/orders/[id]`; `/tr/ap
 - **Settings** `/tr/app/settings`: profile, organization, org switch, team, roles (admin/ops/finance/requester/viewer), address book, payment methods, invoice, notifications, locale/theme, sessions
 - Mock `integrationsRepository` + `settingsRepository`
 
+## Internal operations panel (Step 12)
+
+Desktop-first Gönder employee panel at `/tr/operations` (legacy `/tr/ops` redirects here):
+
+- Staff-only access (`OpsStaffGuard`) with roles: ops_admin / ops_agent / ops_finance / ops_viewer
+- Nav queues: summary, new, missing info, quote prep, approval, payment, active, delayed, problematic, completed, partners, price lists, finance, documents, reports
+- Dashboard metrics: new requests, first-quote time, pending quotes, active/delayed/problematic, daily volume, est. gross profit
+- Dense request table: columns, filters, sort, saved views, bulk assign, SLA / priority / assignee
+- Split-panel request workspace: AI fields, missing info, manual quote (lines, partner cost, margin, tax, validity), partner & vehicle assignment, status/service changes, docs, exceptions, audit (old→new + reason + confirm)
+- Mock `operationsRepository`
+
+### Ops demo login
+
+- Email: `ops@gonder.com` / `Password1!`
+
 ## Key routes
 
 | Path | Purpose |
@@ -246,6 +262,11 @@ Unified orders module at `/tr/app/orders` (detail `/tr/app/orders/[id]`; `/tr/ap
 | `/tr/app/integrations` | Integration marketplace, Excel, templates |
 | `/tr/app/integrations/[id]` | Integration detail & connect |
 | `/tr/app/settings` | Account, org, team & preferences |
+| `/tr/operations` | Internal ops dashboard |
+| `/tr/operations/queue/[view]` | Ops request queues |
+| `/tr/operations/requests/[id]` | Ops request workspace |
+| `/tr/operations/partners` | Partner management |
+| `/tr/ops` | Redirects to `/operations` |
 | `/tr/design-system` | Shared component showcase |
 | `/tr/customer`, `/tr/ops` | Legacy demo panels (step 1) |
 
