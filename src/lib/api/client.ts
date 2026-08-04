@@ -8,6 +8,7 @@ import type { DashboardRepository } from "@/lib/api/dashboard-repository";
 import type { AgentRepository } from "@/lib/api/agent-repository";
 import type { CourierRepository } from "@/lib/api/courier-repository";
 import type { ParcelRepository } from "@/lib/api/parcel-repository";
+import type { XlRepository } from "@/lib/api/xl-repository";
 import {
   mockQuoteRepository,
   mockServiceRepository,
@@ -18,6 +19,7 @@ import { mockDashboardRepository } from "@/mocks/repositories/mock-dashboard-rep
 import { mockAgentRepository } from "@/mocks/repositories/mock-agent-repository";
 import { mockCourierRepository } from "@/mocks/repositories/mock-courier-repository";
 import { mockParcelRepository } from "@/mocks/repositories/mock-parcel-repository";
+import { mockXlRepository } from "@/mocks/repositories/mock-xl-repository";
 
 /**
  * Switch DATA_SOURCE to "api" when real backends are ready.
@@ -106,6 +108,15 @@ const apiParcelRepository: ParcelRepository = {
   parseExcelUpload: () => notImplemented("ParcelRepository.parseExcelUpload"),
 };
 
+const apiXlRepository: XlRepository = {
+  getQuote: () => notImplemented("XlRepository.getQuote"),
+  getQuoteWithCalculating: () =>
+    notImplemented("XlRepository.getQuoteWithCalculating"),
+  getWalletBalance: () => notImplemented("XlRepository.getWalletBalance"),
+  submitForOpsReview: () => notImplemented("XlRepository.submitForOpsReview"),
+  checkout: () => notImplemented("XlRepository.checkout"),
+};
+
 export const serviceRepository: ServiceRepository =
   dataSource === "mock" ? mockServiceRepository : apiServiceRepository;
 
@@ -129,3 +140,6 @@ export const courierRepository: CourierRepository =
 
 export const parcelRepository: ParcelRepository =
   dataSource === "mock" ? mockParcelRepository : apiParcelRepository;
+
+export const xlRepository: XlRepository =
+  dataSource === "mock" ? mockXlRepository : apiXlRepository;

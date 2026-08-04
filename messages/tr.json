@@ -707,5 +707,163 @@
     "printLabel": "Etiketi yazdır",
     "exportPdf": "PDF dışa aktar",
     "newShipment": "Yeni gönderi"
+  },
+  "xl": {
+    "title": "Gönder XL",
+    "subtitle": "30 desi üzeri büyük ve ağır gönderiler için özel taşıma",
+    "steps": {
+      "form": "Gönderi",
+      "quote": "Fiyat / teklif",
+      "checkout": "Onay ve ödeme",
+      "success": "Tamamlandı"
+    },
+    "addressesTitle": "Alım ve teslimat",
+    "pickupAddress": "Alım adresi",
+    "deliveryAddress": "Teslimat adresi",
+    "floor": "Kat",
+    "hasElevator": "Asansör var",
+    "productTitle": "Ürün bilgisi",
+    "productHint": "Kategori, açıklama, paketleme ve taşıma tarihini girin.",
+    "category": "Ürün kategorisi",
+    "categories": {
+      "furniture": "Mobilya",
+      "appliance": "Beyaz eşya",
+      "electronics": "Elektronik",
+      "machinery": "Makine / ekipman",
+      "palletized": "Paletli yük",
+      "other": "Diğer"
+    },
+    "description": "Ürün açıklaması",
+    "packaging": "Paketleme şekli",
+    "packagingOptions": {
+      "original": "Orijinal ambalaj",
+      "pallet": "Palet",
+      "crate": "Sandık",
+      "blanket": "Battaniye / koruma",
+      "none": "Paketsiz"
+    },
+    "declaredValue": "Sigorta değeri (TRY)",
+    "transportDate": "Taşıma tarihi",
+    "piecesTitle": "Parçalar",
+    "piecesHint": "Her parça için ölçü ve ağırlığı tabloya girin.",
+    "pieceName": "Parça adı",
+    "length": "En (cm)",
+    "width": "Boy (cm)",
+    "height": "Yükseklik (cm)",
+    "weight": "Ağırlık (kg)",
+    "volume": "Hacim / desi",
+    "actions": "İşlem",
+    "addPiece": "Parça ekle",
+    "remove": "Kaldır",
+    "photosSection": "Ürün fotoğrafları",
+    "photosTitle": "Fotoğrafları sürükleyip bırakın",
+    "photosHint": "JPG veya PNG · birden fazla dosya",
+    "browsePhotos": "Dosya seç",
+    "extrasTitle": "Ek hizmetler",
+    "extrasHint": "Ek personel, montaj, sigorta ve diğer hizmetler.",
+    "extras": {
+      "extra_crew": "Ek personel",
+      "assembly": "Montaj / kurulum",
+      "disassembly": "Demontaj",
+      "insurance": "Sigorta",
+      "floor_protection": "Zemin koruma",
+      "weekend": "Hafta sonu taşıma"
+    },
+    "notes": "Özel notlar",
+    "sidebarPieces": "Ürün listesi",
+    "sidebarServices": "Hizmetler",
+    "sidebarPrice": "Tahmini fiyat",
+    "totalWeight": "Toplam ağırlık",
+    "totalVolume": "Toplam hacim",
+    "chargeableDesi": "Ücretli desi",
+    "noExtras": "Ek hizmet seçilmedi",
+    "pricePending": "Teklif almak için formu tamamlayıp devam edin.",
+    "parcelNudgeTitle": "30 desi altı görünüyor",
+    "parcelNudgeBody": "Bu gönderi standart 1-30 desi kargo için daha uygun olabilir.",
+    "parcelNudgeCta": "1-30 desi kargoya geç",
+    "getQuote": "Fiyat / teklif al",
+    "back": "Geri",
+    "quoteTitle": "Teklif detayı",
+    "processLabel": "Süreç",
+    "nextLabel": "Sonraki adım",
+    "states": {
+      "calculating": "Fiyat hesaplanıyor",
+      "instant_ready": "Anlık fiyat hazır",
+      "ops_review_required": "Operasyon incelemesi gerekiyor",
+      "awaiting_info": "Ek bilgi bekleniyor",
+      "quote_preparing": "Teklif hazırlanıyor",
+      "quote_ready": "Teklif hazır",
+      "service_unavailable": "Hizmet bulunamadı"
+    },
+    "models": {
+      "partner_list": "Partner fiyat listesi (anlık)",
+      "rule_based": "Kurallara dayalı yarı otomatik",
+      "manual_ops": "Operasyon manuel teklifi"
+    },
+    "modelsLabel": "Fiyatlandırma modeli",
+    "partners": {
+      "listPartner": "XL Liste Partneri",
+      "regionPartner": "Bölge XL Partneri",
+      "opsDesk": "Gönder Operasyon"
+    },
+    "process": {
+      "awaitingInfo": "Eksik alanlar tamamlanmadan fiyat üretilemez.",
+      "unavailable": "Gönderi verisi fiyatlandırmaya uygun değil.",
+      "opsReview": "Ağırlık veya karmaşıklık nedeniyle operasyon ekibi inceleyecek.",
+      "preparing": "Erişim koşulları değerlendiriliyor; yarı otomatik teklif hazırlanıyor.",
+      "quoteReady": "Teklif hazır; onay ve ödemeye geçebilirsiniz.",
+      "instantReady": "Partner listesinden anlık fiyat üretildi."
+    },
+    "next": {
+      "awaitingInfo": "Eksik alanları doldurup tekrar fiyat isteyin.",
+      "unavailable": "Parça ve ağırlık bilgilerini kontrol edin.",
+      "opsReview": "İncelemeye gönderin; e-posta ile teklif iletilecek.",
+      "preparing": "Teklifi yenileyerek sonucu görün.",
+      "quoteReady": "Ödeme veya faturalı onay adımına geçin.",
+      "instantReady": "Ödeme adımına geçerek siparişi tamamlayın."
+    },
+    "warnings": {
+      "emptyShipment": "Parça veya ağırlık eksik.",
+      "heavyOrComplex": "400 desi veya 500 kg üzeri / özel ekipman — manuel inceleme.",
+      "noElevator": "Yüksek kat ve asansör yok; ek personel maliyeti yansıtılabilir."
+    },
+    "missing": {
+      "description": "Ürün açıklaması",
+      "pieces": "En az bir parça",
+      "dimensions": "Parça ölçü / ağırlık",
+      "transportDate": "Taşıma tarihi",
+      "photos": "Makine kategorisi için fotoğraf",
+      "addresses": "Alım ve teslimat adresi"
+    },
+    "price": {
+      "transport": "Taşıma ücreti",
+      "extras": "Ek hizmetler",
+      "floorAccess": "Kat / erişim"
+    },
+    "total": "Toplam",
+    "etaDays": "Tahmini teslimat: {min}–{max} gün",
+    "validUntil": "Geçerlilik: {time}",
+    "refreshQuote": "Teklifi yenile",
+    "submitOps": "Operasyona gönder",
+    "continuePayment": "Onay ve ödemeye geç",
+    "opsSubmittedTitle": "İnceleme talebi alındı",
+    "opsSubmittedBody": "Talep no {id}. Operasyon yaklaşık {hours} saat içinde dönüş yapacak.",
+    "checkoutTitle": "Teklif özeti",
+    "paymentTitle": "Ödeme yöntemi",
+    "payment": {
+      "card": "Kart",
+      "balance": "Bakiye",
+      "invoice": "Faturalı (vadeli)"
+    },
+    "insufficientBalance": "Yetersiz bakiye.",
+    "checkoutError": "Sipariş tamamlanamadı.",
+    "confirmOrder": "Onayla ve oluştur",
+    "successTitle": "Gönder XL siparişi oluşturuldu",
+    "successBody": "Taşıma planı için referans numaranız hazır.",
+    "orderId": "Sipariş no",
+    "reference": "Referans",
+    "paidWith": "Ödeme",
+    "backHome": "Ana sayfa",
+    "newRequest": "Yeni talep"
   }
 }

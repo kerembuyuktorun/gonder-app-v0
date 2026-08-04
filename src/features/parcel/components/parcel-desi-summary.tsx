@@ -52,7 +52,7 @@ export function ParcelXlNudge({ show }: { show: boolean }) {
       <p className="text-sm font-semibold text-warning-fg">{t("xlTitle")}</p>
       <p className="mt-1 text-sm text-warning-fg/90">{t("xlBody")}</p>
       <div className="mt-3">
-        <Link href="/app/requests/new?service=gonder_xl">
+        <Link href="/app/requests/xl">
           <AppButton type="button" size="sm" variant="secondary">
             {t("xlCta")}
           </AppButton>

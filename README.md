@@ -170,6 +170,17 @@ Parcel wizard at `/tr/app/requests/parcel`:
 - Mock carriers: Yurtiçi, Aras, MNG, PTT, Sürat, Horoz via `parcelRepository`
 - Dashboard 1-30 Desi Kargo card links here
 
+## Gönder XL oversized shipments (Step 7)
+
+XL wizard at `/tr/app/requests/xl`:
+
+- Sectioned form: addresses (floor/elevator), product, multi-piece table, drag-drop photos, extras, schedule
+- Sticky right panel: piece list, services, estimated price / pricing state
+- Pricing models: partner list (instant), rule-based semi-auto, manual ops review
+- States: calculating, instant ready, ops review, awaiting info, preparing, quote ready, unavailable
+- Quote detail with process/next-step copy; confirm & pay (invoice / balance / card)
+- Under-30 desi nudge back to parcel; dashboard Gönder XL card links here
+
 ## Key routes
 
 | Path | Purpose |
@@ -184,6 +195,7 @@ Parcel wizard at `/tr/app/requests/parcel`:
 | `/tr/app/requests/new/form` | Manual form fallback |
 | `/tr/app/requests/courier` | City courier request wizard |
 | `/tr/app/requests/parcel` | 1–30 desi parcel + carrier comparison |
+| `/tr/app/requests/xl` | Gönder XL oversized shipment wizard |
 | `/tr/design-system` | Shared component showcase |
 | `/tr/customer`, `/tr/ops` | Legacy demo panels (step 1) |
 

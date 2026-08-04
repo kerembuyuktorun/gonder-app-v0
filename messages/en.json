@@ -707,5 +707,163 @@
     "printLabel": "Print label",
     "exportPdf": "Export PDF",
     "newShipment": "New shipment"
+  },
+  "xl": {
+    "title": "Gönder XL",
+    "subtitle": "Specialized transport for oversized shipments over 30 desi",
+    "steps": {
+      "form": "Shipment",
+      "quote": "Price / quote",
+      "checkout": "Confirm & pay",
+      "success": "Done"
+    },
+    "addressesTitle": "Pickup & delivery",
+    "pickupAddress": "Pickup address",
+    "deliveryAddress": "Delivery address",
+    "floor": "Floor",
+    "hasElevator": "Elevator available",
+    "productTitle": "Product details",
+    "productHint": "Enter category, description, packaging and transport date.",
+    "category": "Product category",
+    "categories": {
+      "furniture": "Furniture",
+      "appliance": "Appliance",
+      "electronics": "Electronics",
+      "machinery": "Machinery / equipment",
+      "palletized": "Palletized cargo",
+      "other": "Other"
+    },
+    "description": "Product description",
+    "packaging": "Packaging",
+    "packagingOptions": {
+      "original": "Original packaging",
+      "pallet": "Pallet",
+      "crate": "Crate",
+      "blanket": "Blanket / protection",
+      "none": "Unpacked"
+    },
+    "declaredValue": "Insurance value (TRY)",
+    "transportDate": "Transport date",
+    "piecesTitle": "Pieces",
+    "piecesHint": "Enter dimensions and weight for each piece in the table.",
+    "pieceName": "Piece name",
+    "length": "Length (cm)",
+    "width": "Width (cm)",
+    "height": "Height (cm)",
+    "weight": "Weight (kg)",
+    "volume": "Volume / desi",
+    "actions": "Actions",
+    "addPiece": "Add piece",
+    "remove": "Remove",
+    "photosSection": "Product photos",
+    "photosTitle": "Drag and drop photos",
+    "photosHint": "JPG or PNG · multiple files",
+    "browsePhotos": "Browse files",
+    "extrasTitle": "Add-on services",
+    "extrasHint": "Extra crew, assembly, insurance and more.",
+    "extras": {
+      "extra_crew": "Extra crew",
+      "assembly": "Assembly / install",
+      "disassembly": "Disassembly",
+      "insurance": "Insurance",
+      "floor_protection": "Floor protection",
+      "weekend": "Weekend transport"
+    },
+    "notes": "Special notes",
+    "sidebarPieces": "Product list",
+    "sidebarServices": "Services",
+    "sidebarPrice": "Estimated price",
+    "totalWeight": "Total weight",
+    "totalVolume": "Total volume",
+    "chargeableDesi": "Chargeable desi",
+    "noExtras": "No add-ons selected",
+    "pricePending": "Complete the form and continue to get a quote.",
+    "parcelNudgeTitle": "Looks under 30 desi",
+    "parcelNudgeBody": "This shipment may fit standard 1–30 desi parcel better.",
+    "parcelNudgeCta": "Go to 1–30 desi parcel",
+    "getQuote": "Get price / quote",
+    "back": "Back",
+    "quoteTitle": "Quote details",
+    "processLabel": "Process",
+    "nextLabel": "Next step",
+    "states": {
+      "calculating": "Calculating price",
+      "instant_ready": "Instant price ready",
+      "ops_review_required": "Operations review required",
+      "awaiting_info": "Awaiting more information",
+      "quote_preparing": "Quote being prepared",
+      "quote_ready": "Quote ready",
+      "service_unavailable": "Service unavailable"
+    },
+    "models": {
+      "partner_list": "Partner price list (instant)",
+      "rule_based": "Rule-based semi-automatic",
+      "manual_ops": "Manual ops quote"
+    },
+    "modelsLabel": "Pricing model",
+    "partners": {
+      "listPartner": "XL List Partner",
+      "regionPartner": "Regional XL Partner",
+      "opsDesk": "Gönder Operations"
+    },
+    "process": {
+      "awaitingInfo": "Price cannot be produced until missing fields are completed.",
+      "unavailable": "Shipment data is not suitable for pricing.",
+      "opsReview": "Ops will review due to weight or complexity.",
+      "preparing": "Access conditions are being evaluated; semi-auto quote in progress.",
+      "quoteReady": "Quote is ready; continue to confirm and pay.",
+      "instantReady": "Instant price generated from the partner list."
+    },
+    "next": {
+      "awaitingInfo": "Fill missing fields and request a price again.",
+      "unavailable": "Check piece and weight details.",
+      "opsReview": "Submit for review; quote will be emailed.",
+      "preparing": "Refresh the quote to see the result.",
+      "quoteReady": "Continue to payment or invoiced confirmation.",
+      "instantReady": "Continue to payment to complete the order."
+    },
+    "warnings": {
+      "emptyShipment": "Pieces or weight missing.",
+      "heavyOrComplex": "Over 400 desi or 500 kg / special equipment — manual review.",
+      "noElevator": "High floor without elevator; extra crew cost may apply."
+    },
+    "missing": {
+      "description": "Product description",
+      "pieces": "At least one piece",
+      "dimensions": "Piece dimensions / weight",
+      "transportDate": "Transport date",
+      "photos": "Photos required for machinery",
+      "addresses": "Pickup and delivery addresses"
+    },
+    "price": {
+      "transport": "Transport fee",
+      "extras": "Add-ons",
+      "floorAccess": "Floor / access"
+    },
+    "total": "Total",
+    "etaDays": "Estimated delivery: {min}–{max} days",
+    "validUntil": "Valid until: {time}",
+    "refreshQuote": "Refresh quote",
+    "submitOps": "Send to operations",
+    "continuePayment": "Continue to confirm & pay",
+    "opsSubmittedTitle": "Review request received",
+    "opsSubmittedBody": "Request {id}. Operations will respond in about {hours} hours.",
+    "checkoutTitle": "Quote summary",
+    "paymentTitle": "Payment method",
+    "payment": {
+      "card": "Card",
+      "balance": "Wallet",
+      "invoice": "Invoice (net terms)"
+    },
+    "insufficientBalance": "Insufficient balance.",
+    "checkoutError": "Could not complete the order.",
+    "confirmOrder": "Confirm and create",
+    "successTitle": "Gönder XL order created",
+    "successBody": "Your transport reference is ready.",
+    "orderId": "Order ID",
+    "reference": "Reference",
+    "paidWith": "Paid with",
+    "backHome": "Home",
+    "newRequest": "New request"
   }
 }

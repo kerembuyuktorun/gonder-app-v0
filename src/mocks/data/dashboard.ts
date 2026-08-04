@@ -23,7 +23,7 @@ export const mockDashboardSnapshot: DashboardSnapshot = {
       serviceType: "gonder_xl",
       nameKey: "services.gonder_xl",
       descriptionKey: "dashboard.services.xlDesc",
-      href: "/app/requests/new?service=gonder_xl",
+      href: "/app/requests/xl",
     },
     {
       id: "svc-ftl",
