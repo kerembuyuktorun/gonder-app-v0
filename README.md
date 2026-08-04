@@ -109,14 +109,32 @@ NEXT_PUBLIC_DATA_SOURCE=api    # throws until real clients are added
 
 Feature code should depend on repositories / query hooks, never on fetch calls inside components.
 
+## Auth & onboarding (Step 2)
+
+- Splash `/tr/splash`, welcome `/tr/welcome`
+- Phone OTP, email/password, password reset, Google/Apple (mock)
+- Onboarding: account type → personal info → organization → tax → address → complete
+- Persisted mock session in `localStorage`
+- Guards: authenticated, unauthenticated, onboarding, completed onboarding, organization, permission
+- App shell at `/tr/app/*` with sidebar, org switcher, search, new request, notifications, language, user menu
+
+### Demo credentials
+
+- Email: `ayse@example.com` / `Password1!` (completed onboarding)
+- Email: `mehmet@example.com` / `Password1!` (resumes at company tax step)
+- OTP: `123456` (valid), `000000` (expired)
+
 ## Key routes
 
 | Path | Purpose |
 | --- | --- |
 | `/tr` or `/en` | Marketing home |
-| `/tr/customer` | Customer panel shell + mock shipments table |
-| `/tr/ops` | Operations panel shell + mock quotes + timeline |
+| `/tr/welcome` | Auth welcome |
+| `/tr/login/email` | Email login |
+| `/tr/onboarding/*` | Onboarding steps |
+| `/tr/app/home` | Authenticated app home |
 | `/tr/design-system` | Shared component showcase |
+| `/tr/customer`, `/tr/ops` | Legacy demo panels (step 1) |
 
 ## Shared components
 

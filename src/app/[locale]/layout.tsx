@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { AppProviders } from "@/providers/app-providers";
+import { AuthBootstrap } from "@/lib/auth/auth-bootstrap";
 import { routing } from "@/lib/i18n/routing";
 import "../globals.css";
 
@@ -48,7 +49,9 @@ export default async function LocaleLayout({
     >
       <body className="min-h-full">
         <NextIntlClientProvider messages={messages}>
-          <AppProviders>{children}</AppProviders>
+          <AppProviders>
+            <AuthBootstrap>{children}</AuthBootstrap>
+          </AppProviders>
         </NextIntlClientProvider>
       </body>
     </html>

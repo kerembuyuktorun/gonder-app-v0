@@ -3,11 +3,13 @@ import type {
   ServiceRepository,
   ShipmentRepository,
 } from "@/lib/api/repositories";
+import type { AuthRepository } from "@/lib/api/auth-repository";
 import {
   mockQuoteRepository,
   mockServiceRepository,
   mockShipmentRepository,
 } from "@/mocks/repositories/mock-repositories";
+import { mockAuthRepository } from "@/mocks/repositories/mock-auth-repository";
 
 /**
  * Switch DATA_SOURCE to "api" when real backends are ready.
@@ -39,6 +41,28 @@ const apiShipmentRepository: ShipmentRepository = {
   getShipmentById: () => notImplemented("ShipmentRepository.getShipmentById"),
 };
 
+const apiAuthRepository: AuthRepository = {
+  getSession: () => notImplemented("AuthRepository.getSession"),
+  signOut: () => notImplemented("AuthRepository.signOut"),
+  requestPhoneOtp: () => notImplemented("AuthRepository.requestPhoneOtp"),
+  verifyPhoneOtp: () => notImplemented("AuthRepository.verifyPhoneOtp"),
+  signInWithEmail: () => notImplemented("AuthRepository.signInWithEmail"),
+  requestPasswordReset: () =>
+    notImplemented("AuthRepository.requestPasswordReset"),
+  resetPassword: () => notImplemented("AuthRepository.resetPassword"),
+  signInWithGoogle: () => notImplemented("AuthRepository.signInWithGoogle"),
+  signInWithApple: () => notImplemented("AuthRepository.signInWithApple"),
+  setAccountType: () => notImplemented("AuthRepository.setAccountType"),
+  updatePersonalInfo: () => notImplemented("AuthRepository.updatePersonalInfo"),
+  createOrganization: () => notImplemented("AuthRepository.createOrganization"),
+  updateCompanyTax: () => notImplemented("AuthRepository.updateCompanyTax"),
+  setDefaultSenderAddress: () =>
+    notImplemented("AuthRepository.setDefaultSenderAddress"),
+  completeOnboarding: () => notImplemented("AuthRepository.completeOnboarding"),
+  setActiveContext: () => notImplemented("AuthRepository.setActiveContext"),
+  getOnboardingStep: () => notImplemented("AuthRepository.getOnboardingStep"),
+};
+
 export const serviceRepository: ServiceRepository =
   dataSource === "mock" ? mockServiceRepository : apiServiceRepository;
 
@@ -47,3 +71,6 @@ export const quoteRepository: QuoteRepository =
 
 export const shipmentRepository: ShipmentRepository =
   dataSource === "mock" ? mockShipmentRepository : apiShipmentRepository;
+
+export const authRepository: AuthRepository =
+  dataSource === "mock" ? mockAuthRepository : apiAuthRepository;

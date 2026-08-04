@@ -10,6 +10,15 @@ export async function withMockLatency<T>(
   return value;
 }
 
+/** Runs a factory after mock latency so thrown AuthErrors stay typed. */
+export async function runWithMockLatency<T>(
+  factory: () => T,
+  ms = 250,
+): Promise<T> {
+  await delay(ms);
+  return factory();
+}
+
 export function paginate<T>(
   items: T[],
   page = 1,

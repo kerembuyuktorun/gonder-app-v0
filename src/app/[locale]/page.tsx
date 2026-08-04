@@ -52,7 +52,7 @@ export default async function MarketingHomePage({
           >
             {t("nav.designSystem")}
           </Link>
-          <Link href="/customer">
+          <Link href="/welcome">
             <AppButton size="sm">{t("auth.signIn")}</AppButton>
           </Link>
         </nav>
@@ -70,12 +70,12 @@ export default async function MarketingHomePage({
             {t("home.subtitle")}
           </p>
           <div className="flex flex-wrap gap-3 pt-2">
-            <Link href="/customer">
-              <AppButton size="lg">{t("home.ctaCustomer")}</AppButton>
+            <Link href="/splash">
+              <AppButton size="lg">{t("auth.signIn")}</AppButton>
             </Link>
-            <Link href="/ops">
+            <Link href="/welcome">
               <AppButton size="lg" variant="secondary">
-                {t("home.ctaOps")}
+                {t("auth.welcomeTitle")}
               </AppButton>
             </Link>
             <Link href="/design-system">
