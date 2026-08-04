@@ -1203,5 +1203,231 @@
     "tryAgain": "Başa dön",
     "backHome": "Ana sayfa",
     "newSpot": "Yeni spot talep"
+  },
+  "orders": {
+    "title": "Siparişler",
+    "subtitle": "Kurye, kargo, XL, FTL, LTL ve spot taleplerini tek yerden yönetin",
+    "detailTitle": "Sipariş detayı",
+    "detailSubtitle": "Takip, belgeler ve teslimat kanıtı",
+    "drawerTitle": "Hızlı inceleme",
+    "backToList": "Listeye dön",
+    "openFull": "Tam sayfa aç",
+    "emptyTitle": "Sipariş bulunamadı",
+    "emptyDescription": "Filtreleri değiştirin veya yeni bir talep oluşturun.",
+    "notFoundTitle": "Sipariş yok",
+    "notFoundDescription": "Bu sipariş bulunamadı veya erişiminiz yok.",
+    "errorTitle": "Sipariş yüklenemedi",
+    "errorDescription": "Veriler alınamadı. Lütfen tekrar deneyin.",
+    "views": {
+      "all": "Tüm talepler",
+      "awaiting_quote": "Teklif bekleyenler",
+      "awaiting_approval": "Kullanıcı onayı bekleyenler",
+      "awaiting_payment": "Ödeme bekleyenler",
+      "active": "Aktif taşıma",
+      "completed": "Tamamlananlar",
+      "cancelled": "İptal edilenler",
+      "problematic": "Sorunlu siparişler"
+    },
+    "status": {
+      "draft": "Taslak",
+      "quote_pending": "Teklif bekliyor",
+      "awaiting_approval": "Onay bekliyor",
+      "awaiting_payment": "Ödeme bekliyor",
+      "confirmed": "Onaylandı",
+      "picked_up": "Alındı",
+      "in_transit": "Yolda",
+      "out_for_delivery": "Dağıtımda",
+      "delivered": "Teslim edildi",
+      "cancelled": "İptal",
+      "issue": "Sorunlu",
+      "critical": "Kritik"
+    },
+    "flags": {
+      "issue": "Açık sorun"
+    },
+    "fields": {
+      "reference": "Referans",
+      "tracking": "Takip no",
+      "route": "Güzergâh",
+      "updated": "Güncelleme",
+      "providerStatus": "Sağlayıcı durumu → Gönder",
+      "pickup": "Alım",
+      "delivery": "Teslimat",
+      "quoteRef": "Teklif ref.",
+      "quoteAmount": "Teklif tutarı",
+      "amount": "Tutar",
+      "paymentStatus": "Ödeme durumu",
+      "paymentMethod": "Ödeme yöntemi",
+      "provider": "Sağlayıcı",
+      "vehicle": "Araç",
+      "driver": "Sürücü",
+      "driverPhone": "Sürücü telefonu",
+      "receivedBy": "Teslim alan",
+      "deliveredAt": "Teslim zamanı",
+      "podPhoto": "Teslimat fotoğrafı",
+      "signature": "İmza",
+      "notes": "Notlar"
+    },
+    "payment": {
+      "unpaid": "Ödenmedi",
+      "partial": "Kısmi",
+      "paid": "Ödendi",
+      "refunded": "İade edildi"
+    },
+    "sections": {
+      "summary": "Sipariş özeti",
+      "timeline": "Durum zaman çizelgesi",
+      "addresses": "Alım ve teslimat",
+      "cargo": "Paket / yük bilgileri",
+      "quote": "Teklif",
+      "payment": "Fiyat ve ödeme",
+      "provider": "Hizmet sağlayıcı / araç / sürücü",
+      "map": "Konum",
+      "tracking": "Takip hareketleri",
+      "documents": "Belgeler",
+      "messages": "Mesajlaşma",
+      "pod": "Teslimat kanıtı",
+      "openIssues": "Açık sorunlar",
+      "reportIssue": "Sorun bildir",
+      "cancel": "İptal ve iade"
+    },
+    "timeline": {
+      "created": "Talep oluşturuldu",
+      "paid": "Ödeme alındı",
+      "pickedUp": "Kargo alındı",
+      "outForDelivery": "Dağıtıma çıktı",
+      "inTransit": "Taşıma devam ediyor",
+      "quoteReady": "Teklif hazır",
+      "quotePending": "Teklif bekleniyor",
+      "delivered": "Teslim edildi",
+      "issue": "Sorun bildirildi",
+      "issueReported": "Kullanıcı sorun kaydı açtı",
+      "cancelled": "Sipariş iptal edildi"
+    },
+    "tracking": {
+      "empty": "Henüz takip hareketi yok",
+      "hub": "Hub taraması",
+      "ofd": "Dağıtımda",
+      "accepted": "Kabul edildi",
+      "loaded": "Yüklendi",
+      "enRoute": "Yolda",
+      "delivered": "Teslim edildi",
+      "exception": "İstisna / sorun"
+    },
+    "map": {
+      "unknown": "Konum henüz yok",
+      "hint": "Sağlayıcı paneline gitmenize gerek yok — konum burada güncellenir.",
+      "live": "Canlı",
+      "lastKnown": "Son bilinen"
+    },
+    "documents": {
+      "empty": "Belge yok",
+      "open": "Aç / indir",
+      "types": {
+        "label": "Kargo etiketi",
+        "barcode": "Barkod",
+        "waybill": "İrsaliye",
+        "invoice": "Fatura",
+        "contract": "Taşıma sözleşmesi",
+        "cargo_photo": "Yük fotoğrafı",
+        "delivery_photo": "Teslimat fotoğrafı",
+        "signature": "İmza",
+        "damage_report": "Hasar tutanağı"
+      }
+    },
+    "messages": {
+      "empty": "Henüz mesaj yok",
+      "placeholder": "Operasyon veya sağlayıcıya yazın…",
+      "send": "Gönder"
+    },
+    "issue": {
+      "placeholder": "Sorunu kısaca anlatın…",
+      "submit": "Sorun bildir",
+      "submitting": "Gönderiliyor…",
+      "error": "Sorun kaydı oluşturulamadı",
+      "categories": {
+        "delay": "Gecikme",
+        "damage": "Hasar",
+        "missing": "Eksik / kayıp",
+        "address": "Adres sorunu",
+        "other": "Diğer"
+      },
+      "severity": {
+        "warning": "Uyarı",
+        "critical": "Kritik"
+      },
+      "status": {
+        "open": "Açık",
+        "investigating": "İnceleniyor",
+        "resolved": "Çözüldü"
+      }
+    },
+    "cancel": {
+      "placeholder": "İptal nedeni…",
+      "submit": "Siparişi iptal et",
+      "submitting": "İptal ediliyor…",
+      "error": "İptal işlemi başarısız",
+      "refunded": "Ödeme iade sürecine alındı"
+    },
+    "filters": {
+      "service": "Hizmet",
+      "allServices": "Tüm hizmetler",
+      "sort": "Sıralama",
+      "advanced": "Gelişmiş filtre",
+      "criticalOnly": "Yalnızca kritik / sorunlu",
+      "providers": "Sağlayıcılar"
+    },
+    "sort": {
+      "updatedDesc": "Güncelleme (yeni)",
+      "updatedAsc": "Güncelleme (eski)",
+      "createdDesc": "Oluşturma (yeni)",
+      "amountDesc": "Tutar (yüksek)",
+      "amountAsc": "Tutar (düşük)",
+      "referenceAsc": "Referans (A-Z)"
+    },
+    "columns": {
+      "title": "Kolonlar",
+      "reference": "Referans",
+      "tracking": "Takip",
+      "service": "Hizmet",
+      "status": "Durum",
+      "route": "Güzergâh",
+      "provider": "Sağlayıcı",
+      "amount": "Tutar",
+      "updatedAt": "Güncelleme",
+      "createdAt": "Oluşturma",
+      "eta": "ETA",
+      "actions": "İşlem"
+    },
+    "savedViews": {
+      "label": "Kayıtlı görünümler",
+      "save": "Görünümü kaydet",
+      "prompt": "Görünüm adı"
+    },
+    "bulk": {
+      "selected": "{count} satır seçildi",
+      "clear": "Seçimi temizle",
+      "selectAll": "Tümünü seç"
+    },
+    "actions": {
+      "peek": "Hızlı incele",
+      "open": "Detay"
+    },
+    "pagination": {
+      "summary": "{from}–{to} / {total}",
+      "prev": "Önceki",
+      "next": "Sonraki"
+    },
+    "notifications": {
+      "title": "Bildirimler",
+      "markAll": "Tümünü okundu say",
+      "empty": "Bildirim yok",
+      "ofdTitle": "Dağıtıma çıktı",
+      "ofdBody": "Kurye siparişiniz dağıtımda — kritik gecikme riski.",
+      "issueTitle": "Sorun bildirildi",
+      "issueBody": "Hasar tutanağı açıldı; takip Gönder üzerinden sürüyor.",
+      "approvalTitle": "Onay bekleniyor",
+      "approvalBody": "Spot teklif kullanıcı onayınızı bekliyor."
+    }
   }
 }

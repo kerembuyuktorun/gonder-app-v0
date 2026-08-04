@@ -203,6 +203,16 @@ Spot workspace at `/tr/app/requests/spot`:
 - Payment outcomes: succeeded / failed / uncertain (poll only — no double charge via idempotency)
 - Mock `spotRepository` + `paymentRepository`
 
+## Shared order management (Step 10)
+
+Unified orders module at `/tr/app/orders` (detail `/tr/app/orders/[id]`; `/tr/app/shipments` redirects here):
+
+- List views: all / awaiting quote / approval / payment / active / completed / cancelled / problematic
+- Table: global search, advanced filters, sort, column picker & width, saved views, bulk select, CSV export, pagination, URL filter state
+- Full-page detail + quick-peek drawer: summary, timeline, addresses, cargo, quote, payment, provider/driver, map, tracking, documents, messaging, POD, issue report, cancel/refund
+- Provider raw statuses mapped to shared Gönder lifecycle; critical/issue rows highlighted
+- Notification center in app shell; mock `ordersRepository` / tracking data
+
 ## Key routes
 
 | Path | Purpose |
@@ -222,6 +232,9 @@ Spot workspace at `/tr/app/requests/spot`:
 | `/tr/app/requests/ftl` | FTL full-truck request |
 | `/tr/app/requests/ltl` | LTL partial-load request |
 | `/tr/app/requests/spot` | Spot quotes + payment checkout |
+| `/tr/app/orders` | Shared order management |
+| `/tr/app/orders/[id]` | Order detail (timeline, map, docs) |
+| `/tr/app/shipments` | Redirects to `/app/orders` |
 | `/tr/design-system` | Shared component showcase |
 | `/tr/customer`, `/tr/ops` | Legacy demo panels (step 1) |
 

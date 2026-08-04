@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  Bell,
   ChevronDown,
   Home,
   BarChart3,
@@ -20,6 +19,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import { AppButton } from "@/components/shared/app-button";
 import { SearchInput } from "@/components/shared/search-input";
+import { NotificationCenter } from "@/features/orders/components/notification-center";
 import { OrganizationSwitcher } from "@/components/layout/organization-switcher";
 import { UserMenu } from "@/components/layout/user-menu";
 import { Link, usePathname } from "@/lib/i18n/navigation";
@@ -29,7 +29,7 @@ import * as React from "react";
 
 const navItems = [
   { href: "/app/home", labelKey: "shell.home", icon: Home },
-  { href: "/app/shipments", labelKey: "shell.shipments", icon: Package },
+  { href: "/app/orders", labelKey: "shell.shipments", icon: Package },
   { href: "/app/quotes", labelKey: "shell.quotes", icon: FileText },
   { href: "/app/requests/new", labelKey: "shell.newRequest", icon: Plus },
   { href: "/app/integrations", labelKey: "shell.integrations", icon: Link2 },
@@ -207,13 +207,7 @@ export function WebAppShell({ children }: { children: React.ReactNode }) {
                 <span className="hidden sm:inline">{t("auth.newRequest")}</span>
               </AppButton>
             </Link>
-            <AppButton
-              variant="ghost"
-              size="icon"
-              aria-label={t("auth.notifications")}
-            >
-              <Bell className="size-4" />
-            </AppButton>
+            <NotificationCenter />
             <Link
               href={pathname}
               locale={nextLocale}

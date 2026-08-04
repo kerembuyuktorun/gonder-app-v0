@@ -1203,5 +1203,231 @@
     "tryAgain": "Start over",
     "backHome": "Home",
     "newSpot": "New spot request"
+  },
+  "orders": {
+    "title": "Orders",
+    "subtitle": "Manage courier, parcel, XL, FTL, LTL and spot requests in one place",
+    "detailTitle": "Order detail",
+    "detailSubtitle": "Tracking, documents and proof of delivery",
+    "drawerTitle": "Quick preview",
+    "backToList": "Back to list",
+    "openFull": "Open full page",
+    "emptyTitle": "No orders found",
+    "emptyDescription": "Change filters or create a new request.",
+    "notFoundTitle": "Order not found",
+    "notFoundDescription": "This order does not exist or you lack access.",
+    "errorTitle": "Could not load order",
+    "errorDescription": "Please try again.",
+    "views": {
+      "all": "All requests",
+      "awaiting_quote": "Awaiting quote",
+      "awaiting_approval": "Awaiting approval",
+      "awaiting_payment": "Awaiting payment",
+      "active": "Active transport",
+      "completed": "Completed",
+      "cancelled": "Cancelled",
+      "problematic": "Problematic"
+    },
+    "status": {
+      "draft": "Draft",
+      "quote_pending": "Quote pending",
+      "awaiting_approval": "Awaiting approval",
+      "awaiting_payment": "Awaiting payment",
+      "confirmed": "Confirmed",
+      "picked_up": "Picked up",
+      "in_transit": "In transit",
+      "out_for_delivery": "Out for delivery",
+      "delivered": "Delivered",
+      "cancelled": "Cancelled",
+      "issue": "Issue",
+      "critical": "Critical"
+    },
+    "flags": {
+      "issue": "Open issue"
+    },
+    "fields": {
+      "reference": "Reference",
+      "tracking": "Tracking no",
+      "route": "Route",
+      "updated": "Updated",
+      "providerStatus": "Provider status → Gönder",
+      "pickup": "Pickup",
+      "delivery": "Delivery",
+      "quoteRef": "Quote ref.",
+      "quoteAmount": "Quote amount",
+      "amount": "Amount",
+      "paymentStatus": "Payment status",
+      "paymentMethod": "Payment method",
+      "provider": "Provider",
+      "vehicle": "Vehicle",
+      "driver": "Driver",
+      "driverPhone": "Driver phone",
+      "receivedBy": "Received by",
+      "deliveredAt": "Delivered at",
+      "podPhoto": "Delivery photo",
+      "signature": "Signature",
+      "notes": "Notes"
+    },
+    "payment": {
+      "unpaid": "Unpaid",
+      "partial": "Partial",
+      "paid": "Paid",
+      "refunded": "Refunded"
+    },
+    "sections": {
+      "summary": "Order summary",
+      "timeline": "Status timeline",
+      "addresses": "Pickup & delivery",
+      "cargo": "Package / cargo",
+      "quote": "Quote",
+      "payment": "Price & payment",
+      "provider": "Provider / vehicle / driver",
+      "map": "Location",
+      "tracking": "Tracking events",
+      "documents": "Documents",
+      "messages": "Messaging",
+      "pod": "Proof of delivery",
+      "openIssues": "Open issues",
+      "reportIssue": "Report an issue",
+      "cancel": "Cancel & refund"
+    },
+    "timeline": {
+      "created": "Request created",
+      "paid": "Payment received",
+      "pickedUp": "Picked up",
+      "outForDelivery": "Out for delivery",
+      "inTransit": "In transit",
+      "quoteReady": "Quote ready",
+      "quotePending": "Quote pending",
+      "delivered": "Delivered",
+      "issue": "Issue reported",
+      "issueReported": "Customer opened an issue",
+      "cancelled": "Order cancelled"
+    },
+    "tracking": {
+      "empty": "No tracking events yet",
+      "hub": "Hub scan",
+      "ofd": "Out for delivery",
+      "accepted": "Accepted",
+      "loaded": "Loaded",
+      "enRoute": "En route",
+      "delivered": "Delivered",
+      "exception": "Exception"
+    },
+    "map": {
+      "unknown": "No location yet",
+      "hint": "No need to leave Gönder — location updates here.",
+      "live": "Live",
+      "lastKnown": "Last known"
+    },
+    "documents": {
+      "empty": "No documents",
+      "open": "Open / download",
+      "types": {
+        "label": "Shipping label",
+        "barcode": "Barcode",
+        "waybill": "Waybill",
+        "invoice": "Invoice",
+        "contract": "Transport contract",
+        "cargo_photo": "Cargo photo",
+        "delivery_photo": "Delivery photo",
+        "signature": "Signature",
+        "damage_report": "Damage report"
+      }
+    },
+    "messages": {
+      "empty": "No messages yet",
+      "placeholder": "Message ops or provider…",
+      "send": "Send"
+    },
+    "issue": {
+      "placeholder": "Describe the issue…",
+      "submit": "Report issue",
+      "submitting": "Submitting…",
+      "error": "Could not create issue",
+      "categories": {
+        "delay": "Delay",
+        "damage": "Damage",
+        "missing": "Missing / lost",
+        "address": "Address issue",
+        "other": "Other"
+      },
+      "severity": {
+        "warning": "Warning",
+        "critical": "Critical"
+      },
+      "status": {
+        "open": "Open",
+        "investigating": "Investigating",
+        "resolved": "Resolved"
+      }
+    },
+    "cancel": {
+      "placeholder": "Cancellation reason…",
+      "submit": "Cancel order",
+      "submitting": "Cancelling…",
+      "error": "Cancellation failed",
+      "refunded": "Refund is being processed"
+    },
+    "filters": {
+      "service": "Service",
+      "allServices": "All services",
+      "sort": "Sort",
+      "advanced": "Advanced filter",
+      "criticalOnly": "Critical / issues only",
+      "providers": "Providers"
+    },
+    "sort": {
+      "updatedDesc": "Updated (newest)",
+      "updatedAsc": "Updated (oldest)",
+      "createdDesc": "Created (newest)",
+      "amountDesc": "Amount (high)",
+      "amountAsc": "Amount (low)",
+      "referenceAsc": "Reference (A-Z)"
+    },
+    "columns": {
+      "title": "Columns",
+      "reference": "Reference",
+      "tracking": "Tracking",
+      "service": "Service",
+      "status": "Status",
+      "route": "Route",
+      "provider": "Provider",
+      "amount": "Amount",
+      "updatedAt": "Updated",
+      "createdAt": "Created",
+      "eta": "ETA",
+      "actions": "Actions"
+    },
+    "savedViews": {
+      "label": "Saved views",
+      "save": "Save view",
+      "prompt": "View name"
+    },
+    "bulk": {
+      "selected": "{count} rows selected",
+      "clear": "Clear selection",
+      "selectAll": "Select all"
+    },
+    "actions": {
+      "peek": "Quick peek",
+      "open": "Open"
+    },
+    "pagination": {
+      "summary": "{from}–{to} of {total}",
+      "prev": "Previous",
+      "next": "Next"
+    },
+    "notifications": {
+      "title": "Notifications",
+      "markAll": "Mark all read",
+      "empty": "No notifications",
+      "ofdTitle": "Out for delivery",
+      "ofdBody": "Your courier order is out for delivery — delay risk.",
+      "issueTitle": "Issue reported",
+      "issueBody": "Damage report opened; tracking continues in Gönder.",
+      "approvalTitle": "Approval needed",
+      "approvalBody": "Spot quote awaits your approval."
+    }
   }
 }

@@ -12,6 +12,7 @@ import type { XlRepository } from "@/lib/api/xl-repository";
 import type { FreightRepository } from "@/lib/api/freight-repository";
 import type { SpotRepository } from "@/lib/api/spot-repository";
 import type { PaymentRepository } from "@/lib/api/payment-repository";
+import type { OrdersRepository } from "@/lib/api/orders-repository";
 import {
   mockQuoteRepository,
   mockServiceRepository,
@@ -26,6 +27,7 @@ import { mockXlRepository } from "@/mocks/repositories/mock-xl-repository";
 import { mockFreightRepository } from "@/mocks/repositories/mock-freight-repository";
 import { mockSpotRepository } from "@/mocks/repositories/mock-spot-repository";
 import { mockPaymentRepository } from "@/mocks/repositories/mock-payment-repository";
+import { mockOrdersRepository } from "@/mocks/repositories/mock-orders-repository";
 
 /**
  * Switch DATA_SOURCE to "api" when real backends are ready.
@@ -152,6 +154,22 @@ const apiPaymentRepository: PaymentRepository = {
   getIntentStatus: () => notImplemented("PaymentRepository.getIntentStatus"),
 };
 
+const apiOrdersRepository: OrdersRepository = {
+  list: () => notImplemented("OrdersRepository.list"),
+  getById: () => notImplemented("OrdersRepository.getById"),
+  reportIssue: () => notImplemented("OrdersRepository.reportIssue"),
+  cancelOrder: () => notImplemented("OrdersRepository.cancelOrder"),
+  sendMessage: () => notImplemented("OrdersRepository.sendMessage"),
+  listNotifications: () => notImplemented("OrdersRepository.listNotifications"),
+  markNotificationRead: () =>
+    notImplemented("OrdersRepository.markNotificationRead"),
+  markAllNotificationsRead: () =>
+    notImplemented("OrdersRepository.markAllNotificationsRead"),
+  listSavedViews: () => notImplemented("OrdersRepository.listSavedViews"),
+  saveView: () => notImplemented("OrdersRepository.saveView"),
+  exportCsv: () => notImplemented("OrdersRepository.exportCsv"),
+};
+
 export const serviceRepository: ServiceRepository =
   dataSource === "mock" ? mockServiceRepository : apiServiceRepository;
 
@@ -187,3 +205,6 @@ export const spotRepository: SpotRepository =
 
 export const paymentRepository: PaymentRepository =
   dataSource === "mock" ? mockPaymentRepository : apiPaymentRepository;
+
+export const ordersRepository: OrdersRepository =
+  dataSource === "mock" ? mockOrdersRepository : apiOrdersRepository;
