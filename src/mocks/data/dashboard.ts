@@ -1,4 +1,52 @@
 import type { DashboardSnapshot } from "@/types/dashboard";
+import { MOCK_ORDERS } from "@/mocks/data/orders";
+import type { OrderDetail, OrderLifecycleStatus } from "@/types/orders";
+import type { QuoteStatus, ShipmentStatus } from "@/types/domain";
+
+function mapShipmentStatus(status: OrderLifecycleStatus): ShipmentStatus {
+  if (status === "issue") return "failed";
+  if (status === "quote_pending" || status === "awaiting_approval") return "quoted";
+  if (status === "awaiting_payment" || status === "draft") return "draft";
+  return status as ShipmentStatus;
+}
+
+function mapQuoteStatus(status: OrderLifecycleStatus): QuoteStatus {
+  if (status === "quote_pending") return "pending";
+  if (status === "awaiting_approval") return "ready";
+  if (status === "cancelled") return "rejected";
+  return "ready";
+}
+
+function toActive(order: OrderDetail) {
+  return {
+    id: order.id,
+    orderId: order.id,
+    trackingNumber: order.trackingNumber,
+    serviceType: order.serviceType,
+    status: mapShipmentStatus(order.status),
+    originCity: order.originCity,
+    destinationCity: order.destinationCity,
+    updatedAt: order.updatedAt,
+    total: order.total,
+  };
+}
+
+const activeStatuses: OrderLifecycleStatus[] = [
+  "confirmed",
+  "picked_up",
+  "in_transit",
+  "out_for_delivery",
+];
+
+const ACTIVE = MOCK_ORDERS.filter((o) => activeStatuses.includes(o.status));
+const COMPLETED = MOCK_ORDERS.filter((o) => o.status === "delivered");
+const QUOTE_PENDING = MOCK_ORDERS.filter((o) => o.status === "quote_pending");
+const AWAITING_APPROVAL = MOCK_ORDERS.filter(
+  (o) => o.status === "awaiting_approval",
+);
+const AWAITING_PAYMENT = MOCK_ORDERS.filter(
+  (o) => o.status === "awaiting_payment",
+);
 
 export const mockDashboardSnapshot: DashboardSnapshot = {
   greetingName: "Ayşe",
@@ -71,19 +119,19 @@ export const mockDashboardSnapshot: DashboardSnapshot = {
     {
       id: "qa-copy",
       labelKey: "dashboard.quickActions.copyPrevious",
-      href: "/app/shipments?action=copy",
+      href: "/app/orders?action=copy&peek=ord_p1",
       icon: "copy",
     },
     {
       id: "qa-quotes",
       labelKey: "dashboard.quickActions.viewQuotes",
-      href: "/app/quotes",
+      href: "/app/orders?view=awaiting_approval",
       icon: "quotes",
     },
     {
       id: "qa-track",
       labelKey: "dashboard.quickActions.trackShipment",
-      href: "/app/shipments",
+      href: "/app/orders?view=active",
       icon: "track",
     },
     {
@@ -93,117 +141,41 @@ export const mockDashboardSnapshot: DashboardSnapshot = {
       icon: "plug",
     },
   ],
-  activeShipments: [
-    {
-      id: "s-2001",
-      trackingNumber: "GND2608001",
-      serviceType: "parcel_1_30",
-      status: "in_transit",
-      originCity: "İstanbul",
-      destinationCity: "Bursa",
-      updatedAt: "2026-08-04T09:20:00.000Z",
-    },
-    {
-      id: "s-2002",
-      trackingNumber: "GND2608002",
-      serviceType: "ltl",
-      status: "picked_up",
-      originCity: "Kocaeli",
-      destinationCity: "Adana",
-      updatedAt: "2026-08-04T08:05:00.000Z",
-    },
-    {
-      id: "s-2010",
-      trackingNumber: "GND2608010",
-      serviceType: "courier",
-      status: "out_for_delivery",
-      originCity: "Ankara",
-      destinationCity: "Ankara",
-      updatedAt: "2026-08-04T10:40:00.000Z",
-    },
-  ],
-  pendingQuoteRequests: [
-    {
-      id: "q-1002",
-      reference: "QT-2026-1002",
-      serviceType: "ftl",
-      status: "pending",
-      originCity: "İzmir",
-      destinationCity: "Gaziantep",
-      total: { amount: 18500, currency: "TRY" },
-      validUntil: "2026-08-05T14:30:00.000Z",
-    },
-    {
-      id: "q-1010",
-      reference: "QT-2026-1010",
-      serviceType: "spot",
-      status: "pending",
-      originCity: "İstanbul",
-      destinationCity: "Mersin",
-      total: { amount: 0, currency: "TRY" },
-      validUntil: "2026-08-06T12:00:00.000Z",
-    },
-  ],
-  awaitingUserApproval: [
-    {
-      id: "q-1001",
-      reference: "QT-2026-1001",
-      serviceType: "parcel_1_30",
-      status: "ready",
-      originCity: "İstanbul",
-      destinationCity: "Ankara",
-      total: { amount: 189.5, currency: "TRY" },
-      validUntil: "2026-08-08T09:12:00.000Z",
-    },
-    {
-      id: "q-1011",
-      reference: "QT-2026-1011",
-      serviceType: "gonder_xl",
-      status: "ready",
-      originCity: "Bursa",
-      destinationCity: "Antalya",
-      total: { amount: 2450, currency: "TRY" },
-      validUntil: "2026-08-07T18:00:00.000Z",
-    },
-  ],
-  awaitingPayment: [
-    {
-      id: "p-3001",
-      reference: "ORD-2026-3001",
-      serviceType: "courier",
-      amount: { amount: 249, currency: "TRY" },
-      dueAt: "2026-08-04T23:59:00.000Z",
-    },
-    {
-      id: "p-3002",
-      reference: "ORD-2026-3002",
-      serviceType: "ftl",
-      amount: { amount: 16200, currency: "TRY" },
-      dueAt: "2026-08-05T18:00:00.000Z",
-    },
-  ],
-  recentlyCompleted: [
-    {
-      id: "s-2003",
-      trackingNumber: "GND2608003",
-      serviceType: "courier",
-      status: "delivered",
-      originCity: "Ankara",
-      destinationCity: "Ankara",
-      updatedAt: "2026-07-30T16:10:00.000Z",
-      total: { amount: 129, currency: "TRY" },
-    },
-    {
-      id: "s-1990",
-      trackingNumber: "GND2607990",
-      serviceType: "parcel_1_30",
-      status: "delivered",
-      originCity: "İstanbul",
-      destinationCity: "İzmir",
-      updatedAt: "2026-07-28T11:45:00.000Z",
-      total: { amount: 210.4, currency: "TRY" },
-    },
-  ],
+  activeShipments: ACTIVE.map(toActive),
+  pendingQuoteRequests: QUOTE_PENDING.map((o) => ({
+    id: o.id,
+    orderId: o.id,
+    reference: o.reference,
+    serviceType: o.serviceType,
+    status: mapQuoteStatus(o.status),
+    originCity: o.originCity,
+    destinationCity: o.destinationCity,
+    total: o.total,
+    validUntil: o.updatedAt,
+  })),
+  awaitingUserApproval: AWAITING_APPROVAL.map((o) => ({
+    id: o.id,
+    orderId: o.id,
+    reference: o.reference,
+    serviceType: o.serviceType,
+    status: mapQuoteStatus(o.status),
+    originCity: o.originCity,
+    destinationCity: o.destinationCity,
+    total: o.quoteAmount ?? o.total,
+    validUntil: o.updatedAt,
+  })),
+  awaitingPayment: AWAITING_PAYMENT.map((o) => ({
+    id: o.id,
+    orderId: o.id,
+    reference: o.reference,
+    serviceType: o.serviceType,
+    amount: o.total,
+    dueAt: o.updatedAt,
+  })),
+  recentlyCompleted: COMPLETED.map((o) => ({
+    ...toActive(o),
+    total: o.total,
+  })),
   integrations: [
     {
       id: "int-trendyol",
@@ -225,15 +197,25 @@ export const mockDashboardSnapshot: DashboardSnapshot = {
     {
       id: "int-shopify",
       nameKey: "dashboard.integrations.shopify",
-      status: "disconnected",
+      status: "connected",
+      lastSyncedAt: "2026-08-04T08:30:00.000Z",
     },
   ],
   usage: {
     periodLabelKey: "dashboard.usage.thisMonth",
-    shipmentCount: 128,
-    spend: { amount: 86450.75, currency: "TRY" },
-    quoteCount: 41,
-    avgCost: { amount: 675.4, currency: "TRY" },
+    shipmentCount: MOCK_ORDERS.length,
+    spend: {
+      amount: MOCK_ORDERS.reduce((s, o) => s + o.total.amount, 0),
+      currency: "TRY",
+    },
+    quoteCount: QUOTE_PENDING.length + AWAITING_APPROVAL.length,
+    avgCost: {
+      amount: Math.round(
+        MOCK_ORDERS.reduce((s, o) => s + o.total.amount, 0) /
+          Math.max(1, MOCK_ORDERS.length),
+      ),
+      currency: "TRY",
+    },
   },
 };
 

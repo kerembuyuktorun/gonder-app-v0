@@ -33,6 +33,7 @@ import { Link } from "@/lib/i18n/navigation";
 import type { OrderSummary } from "@/types/orders";
 import type { ServiceType } from "@/types/domain";
 import { cn } from "@/lib/utils/cn";
+import { useSearchParams } from "next/navigation";
 
 const SERVICE_OPTIONS: Array<ServiceType | "all"> = [
   "all",
@@ -68,6 +69,10 @@ export function OrdersWorkspace() {
   const [showFilters, setShowFilters] = React.useState(false);
   const [showColumns, setShowColumns] = React.useState(false);
   const [colWidths, setColWidths] = React.useState<Record<string, number>>({});
+  const [copyDismissed, setCopyDismissed] = React.useState(false);
+  const searchParams = useSearchParams();
+  const copyBanner =
+    !copyDismissed && searchParams.get("action") === "copy";
 
   const items = data?.items ?? [];
   const total = data?.total ?? 0;
@@ -172,6 +177,24 @@ export function OrdersWorkspace() {
           </button>
         ))}
       </div>
+
+      {copyBanner ? (
+        <div className="flex flex-wrap items-center justify-between gap-2 rounded-xl border border-info/40 bg-info-bg/40 px-3 py-2 text-sm">
+          <p>{t("copyBanner")}</p>
+          <div className="flex gap-2">
+            <Link href="/app/requests/parcel?from=ord_p1">
+              <AppButton size="sm">{t("copyContinue")}</AppButton>
+            </Link>
+            <AppButton
+              size="sm"
+              variant="ghost"
+              onClick={() => setCopyDismissed(true)}
+            >
+              {t("copyDismiss")}
+            </AppButton>
+          </div>
+        </div>
+      ) : null}
 
       <FilterBar
         search={state.search}

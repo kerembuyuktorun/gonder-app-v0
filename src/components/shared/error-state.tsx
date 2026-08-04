@@ -19,6 +19,7 @@ export function ErrorState({
 }: ErrorStateProps) {
   return (
     <div
+      role="alert"
       className={cn(
         "flex flex-col items-center justify-center gap-3 rounded-xl border border-error/30 bg-error-bg px-6 py-10 text-center",
         className,

@@ -433,7 +433,9 @@
       "desiMismatch": "Deci is over 30; Gönder XL may fit better than parcel."
     },
     "formFallbackTitle": "Detailed request form",
-    "formFallbackDescription": "Fill fields manually without the AI Agent. This flow will expand in later steps."
+    "formFallbackDescription": "Fill basic fields without AI; you will be routed to the matching service wizard.",
+    "formValidation": "Origin and destination are required.",
+    "formContinue": "Continue to service wizard"
   },
   "courier": {
     "title": "City courier request",
@@ -1428,7 +1430,10 @@
       "issueBody": "Damage report opened; tracking continues in Gönder.",
       "approvalTitle": "Approval needed",
       "approvalBody": "Spot quote awaits your approval."
-    }
+    },
+    "copyBanner": "Sample order opened for copy. Continue in the parcel wizard.",
+    "copyContinue": "Continue to parcel",
+    "copyDismiss": "Dismiss"
   },
   "integrations": {
     "title": "Integration center",
@@ -1864,5 +1869,38 @@
       "subtitle": "Operations summary report",
       "line": "New {newCount}, active {active}, delayed {delayed}, est. profit {profit} TRY"
     }
+  },
+  "reportsPage": {
+    "title": "Reports",
+    "subtitle": "Usage, spend and active shipment summary",
+    "errorTitle": "Could not load reports",
+    "errorDescription": "Summary data is unavailable.",
+    "shipments": "Shipments",
+    "spend": "Spend",
+    "quotes": "Quotes",
+    "active": "Active transport",
+    "emptyTitle": "No data yet",
+    "emptyDescription": "Summaries appear after your first shipments.",
+    "openOrders": "Go to orders"
+  },
+  "supportPage": {
+    "title": "Support",
+    "subtitle": "Get help or open a problematic order",
+    "chatTitle": "Ask AI",
+    "chatBody": "Use the AI Agent for shipment or process questions.",
+    "chatCta": "Open agent",
+    "docsTitle": "Manage orders",
+    "docsBody": "Tracking, documents and POD live in order detail.",
+    "docsCta": "Orders",
+    "issueTitle": "Problematic orders",
+    "issueBody": "Review damage, delay or exception records.",
+    "issueCta": "Open issues",
+    "contact": "Email support"
+  },
+  "quotesPage": {
+    "subtitle": "Orders awaiting quote or approval",
+    "openOrders": "Orders view",
+    "emptyTitle": "No pending quotes",
+    "emptyDescription": "Quotes appear here after you create requests."
   }
 }

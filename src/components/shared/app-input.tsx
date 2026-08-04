@@ -34,7 +34,11 @@ export const AppInput = React.forwardRef<HTMLInputElement, AppInputProps>(
           {...props}
         />
         {error ? (
-          <p id={`${inputId}-error`} className="text-xs text-error-fg">
+          <p
+            id={`${inputId}-error`}
+            className="text-xs text-error-fg"
+            role="alert"
+          >
             {error}
           </p>
         ) : hint ? (

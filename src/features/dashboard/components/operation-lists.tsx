@@ -5,6 +5,7 @@ import { formatDateTime } from "@/lib/utils/format";
 import { ServiceBadge } from "@/components/shared/service-badge";
 import { StatusBadge } from "@/components/shared/status-badge";
 import { MoneyDisplay } from "@/components/shared/money-display";
+import { Link } from "@/lib/i18n/navigation";
 import type {
   DashboardPaymentItem,
   DashboardQuoteItem,
@@ -49,6 +50,24 @@ function DenseTable({
   );
 }
 
+function RefLink({
+  orderId,
+  label,
+}: {
+  orderId?: string;
+  label: string;
+}) {
+  if (!orderId) return <span className="font-medium">{label}</span>;
+  return (
+    <Link
+      href={`/app/orders/${orderId}`}
+      className="font-medium text-primary hover:underline"
+    >
+      {label}
+    </Link>
+  );
+}
+
 export function ActiveShipmentsList({
   items,
 }: {
@@ -62,9 +81,7 @@ export function ActiveShipmentsList({
     <DenseTable
       headers={[t("reference"), t("route"), t("status"), t("updated")]}
       rows={items.map((item) => [
-        <span key="ref" className="font-medium">
-          {item.trackingNumber}
-        </span>,
+        <RefLink key="ref" orderId={item.orderId} label={item.trackingNumber} />,
         `${item.originCity} → ${item.destinationCity}`,
         <StatusBadge key="status" status={item.status} />,
         <span key="date" className="text-muted-foreground">
@@ -92,9 +109,7 @@ export function QuoteList({
       headers={headers}
       rows={items.map((item) => {
         const base = [
-          <span key="ref" className="font-medium">
-            {item.reference}
-          </span>,
+          <RefLink key="ref" orderId={item.orderId} label={item.reference} />,
           `${item.originCity} → ${item.destinationCity}`,
         ];
         if (showAmount) {
@@ -123,9 +138,7 @@ export function PaymentList({ items }: { items: DashboardPaymentItem[] }) {
     <DenseTable
       headers={[t("reference"), t("service"), t("amount"), t("due")]}
       rows={items.map((item) => [
-        <span key="ref" className="font-medium">
-          {item.reference}
-        </span>,
+        <RefLink key="ref" orderId={item.orderId} label={item.reference} />,
         <ServiceBadge key="service" type={item.serviceType} />,
         <MoneyDisplay key="amount" value={item.amount} size="sm" />,
         <span key="due" className="text-warning-fg">
@@ -147,9 +160,7 @@ export function CompletedShipmentsList({
     <DenseTable
       headers={[t("reference"), t("route"), t("status"), t("amount")]}
       rows={items.map((item) => [
-        <span key="ref" className="font-medium">
-          {item.trackingNumber}
-        </span>,
+        <RefLink key="ref" orderId={item.orderId} label={item.trackingNumber} />,
         `${item.originCity} → ${item.destinationCity}`,
         <StatusBadge key="status" status={item.status} />,
         item.total ? (

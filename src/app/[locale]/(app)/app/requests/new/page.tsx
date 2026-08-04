@@ -1,10 +1,12 @@
 "use client";
 
+import * as React from "react";
 import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { PermissionGuard } from "@/lib/auth/guards";
 import { AgentWorkspace } from "@/features/agent/components/agent-workspace";
 import { LoadingSkeleton } from "@/components/shared/loading-skeleton";
+import { useRouter } from "@/lib/i18n/navigation";
 import type { ServiceType } from "@/types/domain";
 
 const SERVICES: ServiceType[] = [
@@ -16,8 +18,9 @@ const SERVICES: ServiceType[] = [
   "spot",
 ];
 
-function NewRequestAgent() {
+function NewRequestRouter() {
   const params = useSearchParams();
+  const router = useRouter();
   const mode = params.get("mode");
   const prompt = params.get("prompt");
   const serviceParam = params.get("service");
@@ -25,8 +28,15 @@ function NewRequestAgent() {
     ? (serviceParam as ServiceType)
     : null;
 
-  // Default new request experience is the AI agent; mode=form goes elsewhere
-  void mode;
+  React.useEffect(() => {
+    if (mode === "form") {
+      router.replace("/app/requests/new/form");
+    }
+  }, [mode, router]);
+
+  if (mode === "form") {
+    return <LoadingSkeleton rows={4} />;
+  }
 
   return (
     <AgentWorkspace initialPrompt={prompt} serviceHint={serviceHint} />
@@ -37,7 +47,7 @@ export default function NewRequestPage() {
   return (
     <PermissionGuard permission="requests:create">
       <Suspense fallback={<LoadingSkeleton rows={6} />}>
-        <NewRequestAgent />
+        <NewRequestRouter />
       </Suspense>
     </PermissionGuard>
   );

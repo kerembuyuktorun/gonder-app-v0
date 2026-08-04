@@ -15,6 +15,8 @@ export type DashboardShipmentItem = {
   destinationCity: string;
   updatedAt: string;
   total?: Money;
+  /** Deep-link into unified orders module when available */
+  orderId?: string;
 };
 
 export type DashboardQuoteItem = {
@@ -26,6 +28,7 @@ export type DashboardQuoteItem = {
   destinationCity: string;
   total: Money;
   validUntil: string;
+  orderId?: string;
 };
 
 export type DashboardPaymentItem = {
@@ -34,6 +37,7 @@ export type DashboardPaymentItem = {
   serviceType: ServiceType;
   amount: Money;
   dueAt: string;
+  orderId?: string;
 };
 
 export type DashboardIntegrationItem = {

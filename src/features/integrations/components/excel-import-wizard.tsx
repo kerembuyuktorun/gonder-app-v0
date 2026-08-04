@@ -108,16 +108,33 @@ export function ExcelImportWizard() {
             onChange={(e) => setFileName(e.target.value)}
           />
           <div className="flex flex-wrap gap-2">
-            <AppButton size="sm" onClick={() => void onPickFile()} disabled={start.isPending}>
+            <AppButton
+              size="sm"
+              onClick={() => void onPickFile()}
+              disabled={start.isPending}
+            >
               {t("selectFile")}
             </AppButton>
-            <a
-              href="#"
-              className="inline-flex h-9 items-center text-sm font-medium text-primary hover:underline"
-              onClick={(e) => e.preventDefault()}
+            <AppButton
+              size="sm"
+              variant="ghost"
+              type="button"
+              onClick={() => {
+                const csv =
+                  "Alıcı Adı,Telefon,Adres,İlçe,İl,Desi,Kg,Referans,Not\nCan Demir,05551112233,Moda Cad. 12,Kadıköy,İstanbul,3,2,ORD-1,\n";
+                const blob = new Blob([csv], {
+                  type: "text/csv;charset=utf-8",
+                });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = "gonder-toplu-sablon.csv";
+                a.click();
+                URL.revokeObjectURL(url);
+              }}
             >
               {t("downloadTemplate")}
-            </a>
+            </AppButton>
           </div>
         </section>
       ) : null}

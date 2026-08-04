@@ -6,41 +6,87 @@ import { EmptyState } from "@/components/shared/empty-state";
 import { PermissionGuard } from "@/lib/auth/guards";
 import { LoadingSkeleton } from "@/components/shared/loading-skeleton";
 import { DataTable } from "@/components/shared/data-table";
-import { StatusBadge } from "@/components/shared/status-badge";
 import { MoneyDisplay } from "@/components/shared/money-display";
-import { useQuotesQuery } from "@/features/services/hooks";
-import type { QuoteSummary } from "@/types/domain";
+import { ServiceBadge } from "@/components/shared/service-badge";
+import { OrderStatusBadge } from "@/features/orders/components/order-status-badge";
+import { useOrdersQuery } from "@/features/orders/hooks/use-orders";
+import { Link } from "@/lib/i18n/navigation";
+import { AppButton } from "@/components/shared/app-button";
+import type { OrderSummary } from "@/types/orders";
 
 export default function AppQuotesPage() {
   const t = useTranslations();
-  const { data, isLoading } = useQuotesQuery();
+  const pending = useOrdersQuery({
+    view: "awaiting_quote",
+    pageSize: 50,
+  });
+  const approval = useOrdersQuery({
+    view: "awaiting_approval",
+    pageSize: 50,
+  });
+  const isLoading = pending.isLoading || approval.isLoading;
+  const items = [
+    ...(pending.data?.items ?? []),
+    ...(approval.data?.items ?? []),
+  ];
 
   return (
     <PermissionGuard permission="quotes:read">
       <div className="mx-auto w-full max-w-[90rem] space-y-6">
-        <PageHeader title={t("shell.quotes")} />
+        <PageHeader
+          title={t("shell.quotes")}
+          description={t("quotesPage.subtitle")}
+          actions={
+            <Link href="/app/orders?view=awaiting_approval">
+              <AppButton size="sm" variant="secondary">
+                {t("quotesPage.openOrders")}
+              </AppButton>
+            </Link>
+          }
+        />
         {isLoading ? <LoadingSkeleton rows={3} /> : null}
-        {data && data.items.length === 0 ? (
+        {!isLoading && items.length === 0 ? (
           <EmptyState
-            title={t("empty.defaultTitle")}
-            description={t("empty.defaultDescription")}
+            title={t("quotesPage.emptyTitle")}
+            description={t("quotesPage.emptyDescription")}
+            action={
+              <Link href="/app/requests/new">
+                <AppButton>{t("shell.newRequest")}</AppButton>
+              </Link>
+            }
           />
         ) : null}
-        {data && data.items.length > 0 ? (
-          <DataTable<QuoteSummary>
-            data={data.items}
+        {!isLoading && items.length > 0 ? (
+          <DataTable<OrderSummary>
+            data={items}
             columns={[
               {
                 id: "reference",
                 header: t("table.reference"),
-                accessor: (row) => row.reference,
+                accessor: (row) => (
+                  <Link
+                    href={`/app/orders/${row.id}`}
+                    className="font-medium text-primary hover:underline"
+                  >
+                    {row.reference}
+                  </Link>
+                ),
+              },
+              {
+                id: "service",
+                header: t("table.service"),
+                accessor: (row) => <ServiceBadge type={row.serviceType} />,
               },
               {
                 id: "status",
                 header: t("table.status"),
-                accessor: (row) => (
-                  <StatusBadge status={row.status} kind="quote" />
-                ),
+                accessor: (row) => <OrderStatusBadge status={row.status} />,
+              },
+              {
+                id: "route",
+                header: t("table.origin"),
+                accessor: (row) =>
+                  `${row.originCity} → ${row.destinationCity}`,
               },
               {
                 id: "amount",

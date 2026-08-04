@@ -433,7 +433,9 @@
       "desiMismatch": "Desi 30 üzeri; Kargo yerine Gönder XL daha uygun olabilir."
     },
     "formFallbackTitle": "Detaylı talep formu",
-    "formFallbackDescription": "AI Agent kullanmadan alanları manuel doldurun. Bu akış daha sonraki adımlarda genişletilecek."
+    "formFallbackDescription": "AI kullanmadan temel alanları doldurun; ilgili hizmet sihirbazına yönlendirilirsiniz.",
+    "formValidation": "Çıkış ve varış alanları zorunludur.",
+    "formContinue": "Hizmet sihirbazına devam"
   },
   "courier": {
     "title": "Şehir içi kurye talebi",
@@ -1428,7 +1430,10 @@
       "issueBody": "Hasar tutanağı açıldı; takip Gönder üzerinden sürüyor.",
       "approvalTitle": "Onay bekleniyor",
       "approvalBody": "Spot teklif kullanıcı onayınızı bekliyor."
-    }
+    },
+    "copyBanner": "Önceki gönderiyi kopyalamak için örnek sipariş açıldı. Parcel sihirbazına devam edebilirsiniz.",
+    "copyContinue": "Parcel’a devam",
+    "copyDismiss": "Kapat"
   },
   "integrations": {
     "title": "Entegrasyon merkezi",
@@ -1864,5 +1869,38 @@
       "subtitle": "Operasyon özet raporu",
       "line": "Yeni {newCount}, aktif {active}, geciken {delayed}, tahmini kâr {profit} TRY"
     }
+  },
+  "reportsPage": {
+    "title": "Raporlar",
+    "subtitle": "Kullanım, harcama ve aktif gönderi özeti",
+    "errorTitle": "Raporlar yüklenemedi",
+    "errorDescription": "Özet veriler alınamadı.",
+    "shipments": "Gönderi sayısı",
+    "spend": "Harcama",
+    "quotes": "Teklifler",
+    "active": "Aktif taşıma",
+    "emptyTitle": "Henüz veri yok",
+    "emptyDescription": "İlk gönderileriniz oluşunca özet burada görünür.",
+    "openOrders": "Siparişlere git"
+  },
+  "supportPage": {
+    "title": "Destek",
+    "subtitle": "Yardım alın veya sorunlu siparişi açın",
+    "chatTitle": "AI ile sor",
+    "chatBody": "Taşıma talebi veya süreç sorularınız için AI Agent.",
+    "chatCta": "Agent’ı aç",
+    "docsTitle": "Siparişleri yönet",
+    "docsBody": "Takip, belgeler ve teslimat kanıtı sipariş detayında.",
+    "docsCta": "Siparişler",
+    "issueTitle": "Sorunlu siparişler",
+    "issueBody": "Hasar, gecikme veya istisna kayıtlarını inceleyin.",
+    "issueCta": "Sorunluları aç",
+    "contact": "E-posta destek"
+  },
+  "quotesPage": {
+    "subtitle": "Teklif bekleyen ve onay bekleyen siparişler",
+    "openOrders": "Sipariş görünümü",
+    "emptyTitle": "Bekleyen teklif yok",
+    "emptyDescription": "Yeni talep oluşturduğunuzda teklifler burada listelenir."
   }
 }

@@ -85,7 +85,7 @@ export default function AppHomePage() {
         <div className="grid gap-4 xl:grid-cols-2">
           <DashboardWidget
             title={t("dashboard.widgets.activeShipments")}
-            href="/app/shipments"
+            href="/app/orders?view=active"
             count={data.activeShipments.length}
             isLoading={isFetching && !data.activeShipments.length}
             isError={false}
@@ -98,7 +98,7 @@ export default function AppHomePage() {
 
           <DashboardWidget
             title={t("dashboard.widgets.pendingQuotes")}
-            href="/app/quotes"
+            href="/app/orders?view=awaiting_quote"
             count={data.pendingQuoteRequests.length}
             isEmpty={data.pendingQuoteRequests.length === 0}
             emptyTitle={t("dashboard.empty.pendingQuotes")}
@@ -109,7 +109,7 @@ export default function AppHomePage() {
 
           <DashboardWidget
             title={t("dashboard.widgets.awaitingApproval")}
-            href="/app/quotes"
+            href="/app/orders?view=awaiting_approval"
             count={data.awaitingUserApproval.length}
             isEmpty={data.awaitingUserApproval.length === 0}
             emptyTitle={t("dashboard.empty.awaitingApproval")}
@@ -120,7 +120,7 @@ export default function AppHomePage() {
 
           <DashboardWidget
             title={t("dashboard.widgets.awaitingPayment")}
-            href="/app/quotes"
+            href="/app/orders?view=awaiting_payment"
             count={data.awaitingPayment.length}
             isEmpty={data.awaitingPayment.length === 0}
             emptyTitle={t("dashboard.empty.awaitingPayment")}
@@ -137,7 +137,7 @@ export default function AppHomePage() {
       <div className="grid gap-4 lg:grid-cols-2 xl:grid-cols-3">
         <DashboardWidget
           title={t("dashboard.widgets.completed")}
-          href="/app/shipments"
+          href="/app/orders?view=completed"
           count={data.recentlyCompleted.length}
           isEmpty={data.recentlyCompleted.length === 0}
           emptyTitle={t("dashboard.empty.completed")}
