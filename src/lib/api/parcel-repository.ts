@@ -1,6 +1,5 @@
 import type {
   ParcelDesiSummary,
-  ParcelLabel,
   ParcelOrderResult,
   ParcelQuoteOffer,
   ParcelShipmentDraft,
