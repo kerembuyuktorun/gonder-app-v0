@@ -213,6 +213,14 @@ Unified orders module at `/tr/app/orders` (detail `/tr/app/orders/[id]`; `/tr/ap
 - Provider raw statuses mapped to shared Gönder lifecycle; critical/issue rows highlighted
 - Notification center in app shell; mock `ordersRepository` / tracking data
 
+## Integrations, Excel & settings (Step 11)
+
+- **Integrations** `/tr/app/integrations`: marketplace by category (ecommerce, marketplace, ERP, WMS, accounting, e-invoice, carriers, API, webhook, messaging), detail/connect screens with connection states
+- **Excel wizard** tab: file → sheet → column mapping → validation table → fix rows → import → bulk quotes → report + import history
+- **Templates** tab: copy previous, save/use templates, favorite addresses, package presets, carrier rules
+- **Settings** `/tr/app/settings`: profile, organization, org switch, team, roles (admin/ops/finance/requester/viewer), address book, payment methods, invoice, notifications, locale/theme, sessions
+- Mock `integrationsRepository` + `settingsRepository`
+
 ## Key routes
 
 | Path | Purpose |
@@ -235,6 +243,9 @@ Unified orders module at `/tr/app/orders` (detail `/tr/app/orders/[id]`; `/tr/ap
 | `/tr/app/orders` | Shared order management |
 | `/tr/app/orders/[id]` | Order detail (timeline, map, docs) |
 | `/tr/app/shipments` | Redirects to `/app/orders` |
+| `/tr/app/integrations` | Integration marketplace, Excel, templates |
+| `/tr/app/integrations/[id]` | Integration detail & connect |
+| `/tr/app/settings` | Account, org, team & preferences |
 | `/tr/design-system` | Shared component showcase |
 | `/tr/customer`, `/tr/ops` | Legacy demo panels (step 1) |
 

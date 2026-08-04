@@ -13,6 +13,8 @@ import type { FreightRepository } from "@/lib/api/freight-repository";
 import type { SpotRepository } from "@/lib/api/spot-repository";
 import type { PaymentRepository } from "@/lib/api/payment-repository";
 import type { OrdersRepository } from "@/lib/api/orders-repository";
+import type { IntegrationsRepository } from "@/lib/api/integrations-repository";
+import type { SettingsRepository } from "@/lib/api/settings-repository";
 import {
   mockQuoteRepository,
   mockServiceRepository,
@@ -28,6 +30,8 @@ import { mockFreightRepository } from "@/mocks/repositories/mock-freight-reposit
 import { mockSpotRepository } from "@/mocks/repositories/mock-spot-repository";
 import { mockPaymentRepository } from "@/mocks/repositories/mock-payment-repository";
 import { mockOrdersRepository } from "@/mocks/repositories/mock-orders-repository";
+import { mockIntegrationsRepository } from "@/mocks/repositories/mock-integrations-repository";
+import { mockSettingsRepository } from "@/mocks/repositories/mock-settings-repository";
 
 /**
  * Switch DATA_SOURCE to "api" when real backends are ready.
@@ -170,6 +174,61 @@ const apiOrdersRepository: OrdersRepository = {
   exportCsv: () => notImplemented("OrdersRepository.exportCsv"),
 };
 
+const apiIntegrationsRepository: IntegrationsRepository = {
+  listProviders: () => notImplemented("IntegrationsRepository.listProviders"),
+  listConnections: () => notImplemented("IntegrationsRepository.listConnections"),
+  getDetail: () => notImplemented("IntegrationsRepository.getDetail"),
+  connect: () => notImplemented("IntegrationsRepository.connect"),
+  disconnect: () => notImplemented("IntegrationsRepository.disconnect"),
+  retrySync: () => notImplemented("IntegrationsRepository.retrySync"),
+  disable: () => notImplemented("IntegrationsRepository.disable"),
+  listImportHistory: () =>
+    notImplemented("IntegrationsRepository.listImportHistory"),
+  getImportJob: () => notImplemented("IntegrationsRepository.getImportJob"),
+  startExcelImport: () =>
+    notImplemented("IntegrationsRepository.startExcelImport"),
+  listSheets: () => notImplemented("IntegrationsRepository.listSheets"),
+  applyMapping: () => notImplemented("IntegrationsRepository.applyMapping"),
+  fixRow: () => notImplemented("IntegrationsRepository.fixRow"),
+  importValidRows: () =>
+    notImplemented("IntegrationsRepository.importValidRows"),
+  requestBulkQuotes: () =>
+    notImplemented("IntegrationsRepository.requestBulkQuotes"),
+  listTemplates: () => notImplemented("IntegrationsRepository.listTemplates"),
+  saveTemplate: () => notImplemented("IntegrationsRepository.saveTemplate"),
+  deleteTemplate: () => notImplemented("IntegrationsRepository.deleteTemplate"),
+  listFavoriteAddresses: () =>
+    notImplemented("IntegrationsRepository.listFavoriteAddresses"),
+  listPackagePresets: () =>
+    notImplemented("IntegrationsRepository.listPackagePresets"),
+  listCarrierRules: () =>
+    notImplemented("IntegrationsRepository.listCarrierRules"),
+  copyPreviousShipment: () =>
+    notImplemented("IntegrationsRepository.copyPreviousShipment"),
+};
+
+const apiSettingsRepository: SettingsRepository = {
+  getSnapshot: () => notImplemented("SettingsRepository.getSnapshot"),
+  updateProfile: () => notImplemented("SettingsRepository.updateProfile"),
+  updateOrganization: () =>
+    notImplemented("SettingsRepository.updateOrganization"),
+  inviteMember: () => notImplemented("SettingsRepository.inviteMember"),
+  updateMemberRole: () => notImplemented("SettingsRepository.updateMemberRole"),
+  removeMember: () => notImplemented("SettingsRepository.removeMember"),
+  saveAddress: () => notImplemented("SettingsRepository.saveAddress"),
+  deleteAddress: () => notImplemented("SettingsRepository.deleteAddress"),
+  listPaymentMethods: () =>
+    notImplemented("SettingsRepository.listPaymentMethods"),
+  removePaymentMethod: () =>
+    notImplemented("SettingsRepository.removePaymentMethod"),
+  updateInvoice: () => notImplemented("SettingsRepository.updateInvoice"),
+  updateNotifications: () =>
+    notImplemented("SettingsRepository.updateNotifications"),
+  updateLocaleTheme: () =>
+    notImplemented("SettingsRepository.updateLocaleTheme"),
+  revokeSession: () => notImplemented("SettingsRepository.revokeSession"),
+};
+
 export const serviceRepository: ServiceRepository =
   dataSource === "mock" ? mockServiceRepository : apiServiceRepository;
 
@@ -208,3 +267,11 @@ export const paymentRepository: PaymentRepository =
 
 export const ordersRepository: OrdersRepository =
   dataSource === "mock" ? mockOrdersRepository : apiOrdersRepository;
+
+export const integrationsRepository: IntegrationsRepository =
+  dataSource === "mock"
+    ? mockIntegrationsRepository
+    : apiIntegrationsRepository;
+
+export const settingsRepository: SettingsRepository =
+  dataSource === "mock" ? mockSettingsRepository : apiSettingsRepository;

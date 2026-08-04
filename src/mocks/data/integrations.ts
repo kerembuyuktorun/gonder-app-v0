@@ -1,0 +1,363 @@
+import type {
+  CarrierSelectionRule,
+  ExcelImportJob,
+  ExcelSheet,
+  FavoriteAddress,
+  IntegrationConnection,
+  IntegrationProvider,
+  PackagePreset,
+  ShipmentTemplate,
+} from "@/types/integrations";
+
+function hoursAgo(h: number) {
+  return new Date(Date.now() - h * 60 * 60 * 1000).toISOString();
+}
+
+export const MOCK_PROVIDERS: IntegrationProvider[] = [
+  {
+    id: "prov_shopify",
+    slug: "shopify",
+    name: "Shopify",
+    category: "ecommerce",
+    descriptionKey: "integrations.providers.shopify",
+    website: "https://shopify.com",
+    popular: true,
+  },
+  {
+    id: "prov_woo",
+    slug: "woocommerce",
+    name: "WooCommerce",
+    category: "ecommerce",
+    descriptionKey: "integrations.providers.woocommerce",
+    popular: true,
+  },
+  {
+    id: "prov_ikas",
+    slug: "ikas",
+    name: "İkas",
+    category: "ecommerce",
+    descriptionKey: "integrations.providers.ikas",
+    popular: true,
+  },
+  {
+    id: "prov_ticimax",
+    slug: "ticimax",
+    name: "Ticimax",
+    category: "ecommerce",
+    descriptionKey: "integrations.providers.ticimax",
+  },
+  {
+    id: "prov_trendyol",
+    slug: "trendyol",
+    name: "Trendyol",
+    category: "marketplace",
+    descriptionKey: "integrations.providers.trendyol",
+    popular: true,
+  },
+  {
+    id: "prov_hb",
+    slug: "hepsiburada",
+    name: "Hepsiburada",
+    category: "marketplace",
+    descriptionKey: "integrations.providers.hepsiburada",
+    popular: true,
+  },
+  {
+    id: "prov_amazon",
+    slug: "amazon",
+    name: "Amazon",
+    category: "marketplace",
+    descriptionKey: "integrations.providers.amazon",
+  },
+  {
+    id: "prov_n11",
+    slug: "n11",
+    name: "N11",
+    category: "marketplace",
+    descriptionKey: "integrations.providers.n11",
+  },
+  {
+    id: "prov_logo",
+    slug: "logo",
+    name: "Logo ERP",
+    category: "erp",
+    descriptionKey: "integrations.providers.logo",
+  },
+  {
+    id: "prov_wms",
+    slug: "gonder-wms",
+    name: "Gönder WMS",
+    category: "wms",
+    descriptionKey: "integrations.providers.wms",
+  },
+  {
+    id: "prov_parasut",
+    slug: "parasut",
+    name: "Paraşüt",
+    category: "accounting",
+    descriptionKey: "integrations.providers.parasut",
+  },
+  {
+    id: "prov_einvoice",
+    slug: "efatura",
+    name: "e-Fatura",
+    category: "einvoice",
+    descriptionKey: "integrations.providers.einvoice",
+  },
+  {
+    id: "prov_yurtici",
+    slug: "yurtici",
+    name: "Yurtiçi Kargo API",
+    category: "carrier",
+    descriptionKey: "integrations.providers.yurtici",
+  },
+  {
+    id: "prov_api",
+    slug: "gonder-api",
+    name: "Gönder API",
+    category: "api",
+    descriptionKey: "integrations.providers.api",
+    popular: true,
+  },
+  {
+    id: "prov_webhook",
+    slug: "webhooks",
+    name: "Webhooks",
+    category: "webhook",
+    descriptionKey: "integrations.providers.webhook",
+  },
+  {
+    id: "prov_wa",
+    slug: "whatsapp",
+    name: "WhatsApp Business",
+    category: "messaging",
+    descriptionKey: "integrations.providers.whatsapp",
+    popular: true,
+  },
+];
+
+export const MOCK_CONNECTIONS: IntegrationConnection[] = [
+  {
+    id: "conn_1",
+    providerId: "prov_shopify",
+    status: "connected",
+    connectedAt: hoursAgo(240),
+    lastSyncAt: hoursAgo(2),
+    storeName: "Arf Demo Store",
+    syncOrders: true,
+    syncProducts: true,
+    syncInventory: false,
+  },
+  {
+    id: "conn_2",
+    providerId: "prov_trendyol",
+    status: "sync_error",
+    connectedAt: hoursAgo(120),
+    lastSyncAt: hoursAgo(18),
+    errorMessage: "API rate limit aşıldı",
+    storeName: "Arf TY",
+    syncOrders: true,
+    syncProducts: false,
+    syncInventory: false,
+  },
+  {
+    id: "conn_3",
+    providerId: "prov_wa",
+    status: "auth_expired",
+    connectedAt: hoursAgo(720),
+    lastSyncAt: hoursAgo(96),
+    errorMessage: "OAuth token süresi doldu",
+    syncOrders: false,
+    syncProducts: false,
+    syncInventory: false,
+  },
+  {
+    id: "conn_4",
+    providerId: "prov_api",
+    status: "setup_pending",
+    syncOrders: true,
+    syncProducts: false,
+    syncInventory: false,
+  },
+  {
+    id: "conn_5",
+    providerId: "prov_parasut",
+    status: "syncing",
+    connectedAt: hoursAgo(48),
+    lastSyncAt: hoursAgo(0.1),
+    storeName: "Arf Muhasebe",
+    syncOrders: false,
+    syncProducts: false,
+    syncInventory: false,
+  },
+  {
+    id: "conn_6",
+    providerId: "prov_n11",
+    status: "disabled",
+    connectedAt: hoursAgo(400),
+    lastSyncAt: hoursAgo(200),
+    storeName: "Eski N11",
+    syncOrders: false,
+    syncProducts: false,
+    syncInventory: false,
+  },
+];
+
+export function createMockSheets(fileName: string): ExcelSheet[] {
+  const headers = [
+    "Alıcı Adı",
+    "Telefon",
+    "Adres",
+    "İlçe",
+    "İl",
+    "Desi",
+    "Kg",
+    "Referans",
+    "Not",
+  ];
+  return [
+    {
+      name: "Gönderiler",
+      rowCount: 48,
+      headers,
+      previewRows: [
+        ["Can Demir", "05551112233", "Moda Cad. 12", "Kadıköy", "İstanbul", "3", "2", "ORD-1", ""],
+        ["", "05559998877", "Atatürk 45", "Çankaya", "Ankara", "5", "4", "ORD-2", "eksik ad"],
+        ["Elif Kaya", "05553334455", "", "Konak", "İzmir", "2", "1.5", "ORD-3", ""],
+        ["Mehmet Ak", "05554445566", "OSB 2", "Nilüfer", "Bursa", "abc", "8", "ORD-4", "desi hatalı"],
+        ["Zeynep Su", "05556667788", "Alsancak 9", "Konak", "İzmir", "4", "3", "ORD-5", ""],
+      ],
+    },
+    {
+      name: "Adresler",
+      rowCount: 12,
+      headers: ["Etiket", "Adres", "İl"],
+      previewRows: [
+        ["Merkez", "Moda Cad.", "İstanbul"],
+        ["Depo", "OSB", "Bursa"],
+      ],
+    },
+  ].map((s) => ({ ...s, name: s.name === "Gönderiler" ? `${s.name}` : s.name }));
+  void fileName;
+}
+
+export const MOCK_IMPORT_HISTORY: ExcelImportJob[] = [
+  {
+    id: "xls_hist_1",
+    fileName: "mart-gonderiler.xlsx",
+    sheetName: "Gönderiler",
+    status: "completed",
+    createdAt: hoursAgo(72),
+    completedAt: hoursAgo(71),
+    totalRows: 120,
+    validRows: 118,
+    errorRows: 2,
+    importedCount: 118,
+    quotesRequested: 118,
+    mapping: {},
+    rows: [],
+    reportSummary: "118 kayıt içe aktarıldı, 118 teklif istendi.",
+  },
+  {
+    id: "xls_hist_2",
+    fileName: "subat-iade.xlsx",
+    sheetName: "Sayfa1",
+    status: "failed",
+    createdAt: hoursAgo(200),
+    totalRows: 40,
+    validRows: 10,
+    errorRows: 30,
+    importedCount: 0,
+    quotesRequested: 0,
+    mapping: {},
+    rows: [],
+    reportSummary: "Çok fazla hatalı satır; içe aktarma iptal.",
+  },
+];
+
+export const MOCK_TEMPLATES: ShipmentTemplate[] = [
+  {
+    id: "tpl_1",
+    name: "Kadıköy → Ankara evrak",
+    serviceType: "courier",
+    originLabel: "Kadıköy Depo",
+    destinationLabel: "Ankara Ofis",
+    defaultDesi: 1,
+    defaultWeightKg: 0.5,
+    carrierRule: "En hızlı kurye",
+    favoriteAddressId: "addr_1",
+    createdAt: hoursAgo(300),
+    updatedAt: hoursAgo(40),
+  },
+  {
+    id: "tpl_2",
+    name: "Standart 1-30 koli",
+    serviceType: "parcel_1_30",
+    originLabel: "Merkez",
+    destinationLabel: "Müşteri",
+    defaultDesi: 5,
+    defaultWeightKg: 3,
+    carrierRule: "En ucuz + max 2 gün",
+    createdAt: hoursAgo(500),
+    updatedAt: hoursAgo(100),
+  },
+];
+
+export const MOCK_FAVORITE_ADDRESSES: FavoriteAddress[] = [
+  {
+    id: "addr_1",
+    label: "Kadıköy Depo",
+    contactName: "Ayşe Yılmaz",
+    phone: "+905551112233",
+    line1: "Moda Cad. No:12",
+    district: "Kadıköy",
+    city: "İstanbul",
+    isDefault: true,
+  },
+  {
+    id: "addr_2",
+    label: "Ankara Ofis",
+    contactName: "Mehmet Demir",
+    phone: "+905557778899",
+    line1: "Atatürk Blv. 45",
+    district: "Çankaya",
+    city: "Ankara",
+  },
+];
+
+export const MOCK_PACKAGE_PRESETS: PackagePreset[] = [
+  {
+    id: "pkg_1",
+    name: "Küçük koli",
+    lengthCm: 30,
+    widthCm: 20,
+    heightCm: 10,
+    weightKg: 2,
+    isDefault: true,
+  },
+  {
+    id: "pkg_2",
+    name: "Orta koli",
+    lengthCm: 40,
+    widthCm: 30,
+    heightCm: 25,
+    weightKg: 5,
+  },
+];
+
+export const MOCK_CARRIER_RULES: CarrierSelectionRule[] = [
+  {
+    id: "rule_1",
+    name: "En ucuz (max 3 gün)",
+    preferCheapest: true,
+    maxEtaDays: 3,
+    serviceType: "parcel_1_30",
+  },
+  {
+    id: "rule_2",
+    name: "Tercih: Yurtiçi",
+    preferCheapest: false,
+    preferredCarrier: "Yurtiçi Kargo",
+    serviceType: "all",
+  },
+];

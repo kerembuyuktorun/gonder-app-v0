@@ -1,23 +1,17 @@
 "use client";
 
-import { useTranslations } from "next-intl";
-import { PageHeader } from "@/components/shared/page-header";
-import { EmptyState } from "@/components/shared/empty-state";
+import { Suspense } from "react";
 import { OrganizationGuard, PermissionGuard } from "@/lib/auth/guards";
+import { LoadingSkeleton } from "@/components/shared/loading-skeleton";
+import { IntegrationsWorkspace } from "@/features/integrations/components/integrations-workspace";
 
 export default function IntegrationsPage() {
-  const t = useTranslations();
-
   return (
     <PermissionGuard permission="integrations:manage">
       <OrganizationGuard>
-        <div className="mx-auto w-full max-w-[90rem] space-y-6">
-          <PageHeader title={t("shell.integrations")} />
-          <EmptyState
-            title={t("empty.defaultTitle")}
-            description={t("empty.defaultDescription")}
-          />
-        </div>
+        <Suspense fallback={<LoadingSkeleton rows={4} />}>
+          <IntegrationsWorkspace />
+        </Suspense>
       </OrganizationGuard>
     </PermissionGuard>
   );

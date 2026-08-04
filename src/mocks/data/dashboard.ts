@@ -65,7 +65,7 @@ export const mockDashboardSnapshot: DashboardSnapshot = {
     {
       id: "qa-excel",
       labelKey: "dashboard.quickActions.uploadExcel",
-      href: "/app/requests/new?mode=excel",
+      href: "/app/integrations?tab=excel",
       icon: "upload",
     },
     {
