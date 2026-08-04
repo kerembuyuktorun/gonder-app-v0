@@ -290,7 +290,86 @@
   },
   "appHome": {
     "title": "Home",
-    "subtitle": "Overview of your shipments and quotes",
-    "welcomeBack": "Welcome back, {name}"
+    "subtitle": "Pick a service to start a transport request.",
+    "welcomeBack": "Hello, {name}"
+  },
+  "dashboard": {
+    "title": "Home",
+    "welcome": "Hello, {name}",
+    "welcomeOrg": "{org} · {name}",
+    "individualContext": "Individual profile",
+    "aiTitle": "Create a shipment request with AI",
+    "aiPlaceholder": "e.g. Send a 12 deci parcel from Istanbul to Ankara tomorrow",
+    "aiSubmit": "Create request",
+    "aiHint": "Describe route, package and timing in natural language; Gönder prepares the form for you.",
+    "servicesTitle": "Choose a service",
+    "servicesSubtitle": "Pick a service to start a transport request.",
+    "services": {
+      "courierDesc": "Urban express, same-day or scheduled delivery",
+      "parcelDesc": "Carrier comparison for 1-30 deci parcels",
+      "xlDesc": "Large or heavy shipments over 30 deci",
+      "ftlDesc": "Full truckload or exclusive vehicle transport",
+      "ftlHelp": "FTL: You use the full vehicle. Best for a single drop and high volume.",
+      "ltlDesc": "Partial load sharing vehicle capacity",
+      "ltlHelp": "LTL: You share the vehicle with other shipments. Lower cost, flexible pickup/delivery.",
+      "spotDesc": "Collect quotes from multiple logistics suppliers"
+    },
+    "startService": "Start",
+    "widgets": {
+      "activeShipments": "Active shipments",
+      "pendingQuotes": "Requests awaiting quotes",
+      "awaitingApproval": "Quotes awaiting your approval",
+      "awaitingPayment": "Orders awaiting payment",
+      "completed": "Recently completed shipments",
+      "integrations": "Integration status",
+      "usage": "Usage and spend",
+      "quickActions": "Quick actions"
+    },
+    "empty": {
+      "activeShipments": "No active shipments",
+      "pendingQuotes": "No requests awaiting quotes",
+      "awaitingApproval": "No quotes awaiting approval",
+      "awaitingPayment": "No orders awaiting payment",
+      "completed": "No completed shipments yet",
+      "integrations": "No connected integrations"
+    },
+    "quickActions": {
+      "newShipment": "Create new shipment",
+      "aiRequest": "Create request with AI",
+      "uploadExcel": "Upload Excel",
+      "copyPrevious": "Copy previous shipment",
+      "viewQuotes": "View quotes",
+      "trackShipment": "Track shipment",
+      "connectIntegration": "Connect integration"
+    },
+    "integrations": {
+      "trendyol": "Trendyol",
+      "n11": "n11",
+      "erp": "ERP",
+      "shopify": "Shopify",
+      "connected": "Connected",
+      "disconnected": "Not connected",
+      "error": "Error",
+      "pending": "Pending",
+      "lastSynced": "Last sync: {date}"
+    },
+    "usage": {
+      "thisMonth": "This month",
+      "shipments": "Shipments",
+      "spend": "Spend",
+      "quotes": "Quotes",
+      "avgCost": "Avg. cost"
+    },
+    "columns": {
+      "reference": "Reference",
+      "route": "Route",
+      "status": "Status",
+      "service": "Service",
+      "amount": "Amount",
+      "updated": "Updated",
+      "due": "Due"
+    },
+    "errorTitle": "Dashboard could not load",
+    "errorDescription": "Summary data could not be fetched. Please try again."
   }
 }

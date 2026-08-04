@@ -2,98 +2,164 @@
 
 import { useTranslations } from "next-intl";
 import { PageHeader } from "@/components/shared/page-header";
-import { useAuthStore } from "@/stores/auth-store";
-import { useShipmentsQuery, useQuotesQuery } from "@/features/services/hooks";
-import { LoadingSkeleton } from "@/components/shared/loading-skeleton";
-import { MoneyDisplay } from "@/components/shared/money-display";
-import { StatusBadge } from "@/components/shared/status-badge";
-import { Link } from "@/lib/i18n/navigation";
 import { AppButton } from "@/components/shared/app-button";
+import { ErrorState } from "@/components/shared/error-state";
+import { LoadingSkeleton } from "@/components/shared/loading-skeleton";
+import { Link } from "@/lib/i18n/navigation";
+import { useAuthStore } from "@/stores/auth-store";
+import { useDashboardQuery } from "@/features/dashboard/hooks/use-dashboard-query";
+import { AiCommandBar } from "@/features/dashboard/components/ai-command-bar";
+import { ServiceCards } from "@/features/dashboard/components/service-cards";
+import { QuickActions } from "@/features/dashboard/components/quick-actions";
+import { DashboardWidget } from "@/features/dashboard/components/dashboard-widget";
+import {
+  ActiveShipmentsList,
+  CompletedShipmentsList,
+  PaymentList,
+  QuoteList,
+} from "@/features/dashboard/components/operation-lists";
+import { IntegrationStatusList } from "@/features/dashboard/components/integration-status";
+import { UsageSummaryCard } from "@/features/dashboard/components/usage-summary";
 
 export default function AppHomePage() {
   const t = useTranslations();
   const user = useAuthStore((s) => s.user);
-  const { data: shipments, isLoading: loadingShipments } = useShipmentsQuery();
-  const { data: quotes, isLoading: loadingQuotes } = useQuotesQuery();
+  const session = useAuthStore((s) => s.session);
+  const activeOrganization = useAuthStore((s) => s.activeOrganization);
+  const org = activeOrganization();
+  const { data, isLoading, isError, refetch, isFetching } = useDashboardQuery();
+
+  const name = data?.greetingName ?? user?.firstName ?? t("meta.appName");
+  const orgLabel =
+    session?.activeContext.type === "organization"
+      ? (data?.contextLabel || org?.name)
+      : null;
+
+  const welcomeDescription = orgLabel
+    ? t("dashboard.welcomeOrg", { org: orgLabel, name })
+    : t("dashboard.welcome", { name });
+
+  if (isLoading && !data) {
+    return (
+      <div className="mx-auto w-full max-w-[90rem] space-y-6">
+        <LoadingSkeleton rows={2} variant="form" />
+        <LoadingSkeleton rows={3} variant="cards" />
+        <LoadingSkeleton rows={4} />
+      </div>
+    );
+  }
+
+  if (isError && !data) {
+    return (
+      <div className="mx-auto w-full max-w-[90rem]">
+        <ErrorState
+          title={t("dashboard.errorTitle")}
+          description={t("dashboard.errorDescription")}
+          onRetry={() => refetch()}
+          retryLabel={t("common.retry")}
+        />
+      </div>
+    );
+  }
+
+  if (!data) return null;
 
   return (
     <div className="mx-auto w-full max-w-[90rem] space-y-6">
-      <PageHeader
-        title={t("appHome.title")}
-        description={t("appHome.welcomeBack", {
-          name: user?.firstName ?? t("meta.appName"),
-        })}
-        actions={
-          <Link href="/app/requests/new">
-            <AppButton>{t("shell.newRequest")}</AppButton>
-          </Link>
-        }
-      />
-
-      <div className="grid gap-4 md:grid-cols-2">
-        <section className="rounded-xl border border-border bg-card p-4">
-          <div className="mb-3 flex items-center justify-between">
-            <h2 className="text-sm font-semibold">{t("shell.shipments")}</h2>
-            <Link
-              href="/app/shipments"
-              className="text-xs font-medium text-primary hover:underline"
-            >
-              {t("common.viewAll")}
+      {/* First viewport: greeting, AI, services, critical ops */}
+      <div className="space-y-5 xl:min-h-[calc(100dvh-var(--topbar-height)-4rem)] xl:space-y-6">
+        <PageHeader
+          title={t("dashboard.title")}
+          description={welcomeDescription}
+          actions={
+            <Link href="/app/requests/new">
+              <AppButton>{t("shell.newRequest")}</AppButton>
             </Link>
-          </div>
-          {loadingShipments ? (
-            <LoadingSkeleton rows={2} />
-          ) : (
-            <ul className="space-y-3">
-              {(shipments?.items ?? []).slice(0, 3).map((item) => (
-                <li
-                  key={item.id}
-                  className="flex items-center justify-between gap-3 text-sm"
-                >
-                  <div className="min-w-0">
-                    <p className="truncate font-medium">{item.trackingNumber}</p>
-                    <p className="truncate text-muted-foreground">
-                      {item.originCity} → {item.destinationCity}
-                    </p>
-                  </div>
-                  <StatusBadge status={item.status} />
-                </li>
-              ))}
-            </ul>
-          )}
-        </section>
+          }
+        />
 
-        <section className="rounded-xl border border-border bg-card p-4">
-          <div className="mb-3 flex items-center justify-between">
-            <h2 className="text-sm font-semibold">{t("shell.quotes")}</h2>
-            <Link
-              href="/app/quotes"
-              className="text-xs font-medium text-primary hover:underline"
-            >
-              {t("common.viewAll")}
-            </Link>
-          </div>
-          {loadingQuotes ? (
-            <LoadingSkeleton rows={2} />
-          ) : (
-            <ul className="space-y-3">
-              {(quotes?.items ?? []).slice(0, 3).map((item) => (
-                <li
-                  key={item.id}
-                  className="flex items-center justify-between gap-3 text-sm"
-                >
-                  <div className="min-w-0">
-                    <p className="truncate font-medium">{item.reference}</p>
-                    <p className="truncate text-muted-foreground">
-                      {item.originCity} → {item.destinationCity}
-                    </p>
-                  </div>
-                  <MoneyDisplay value={item.total} size="sm" />
-                </li>
-              ))}
-            </ul>
-          )}
-        </section>
+        <AiCommandBar />
+
+        <ServiceCards services={data.services} />
+
+        <div className="grid gap-4 xl:grid-cols-2">
+          <DashboardWidget
+            title={t("dashboard.widgets.activeShipments")}
+            href="/app/shipments"
+            count={data.activeShipments.length}
+            isLoading={isFetching && !data.activeShipments.length}
+            isError={false}
+            isEmpty={data.activeShipments.length === 0}
+            emptyTitle={t("dashboard.empty.activeShipments")}
+            dense
+          >
+            <ActiveShipmentsList items={data.activeShipments} />
+          </DashboardWidget>
+
+          <DashboardWidget
+            title={t("dashboard.widgets.pendingQuotes")}
+            href="/app/quotes"
+            count={data.pendingQuoteRequests.length}
+            isEmpty={data.pendingQuoteRequests.length === 0}
+            emptyTitle={t("dashboard.empty.pendingQuotes")}
+            dense
+          >
+            <QuoteList items={data.pendingQuoteRequests} showAmount={false} />
+          </DashboardWidget>
+
+          <DashboardWidget
+            title={t("dashboard.widgets.awaitingApproval")}
+            href="/app/quotes"
+            count={data.awaitingUserApproval.length}
+            isEmpty={data.awaitingUserApproval.length === 0}
+            emptyTitle={t("dashboard.empty.awaitingApproval")}
+            dense
+          >
+            <QuoteList items={data.awaitingUserApproval} />
+          </DashboardWidget>
+
+          <DashboardWidget
+            title={t("dashboard.widgets.awaitingPayment")}
+            href="/app/quotes"
+            count={data.awaitingPayment.length}
+            isEmpty={data.awaitingPayment.length === 0}
+            emptyTitle={t("dashboard.empty.awaitingPayment")}
+            dense
+          >
+            <PaymentList items={data.awaitingPayment} />
+          </DashboardWidget>
+        </div>
+      </div>
+
+      {/* Below first viewport */}
+      <QuickActions actions={data.quickActions} />
+
+      <div className="grid gap-4 lg:grid-cols-2 xl:grid-cols-3">
+        <DashboardWidget
+          title={t("dashboard.widgets.completed")}
+          href="/app/shipments"
+          count={data.recentlyCompleted.length}
+          isEmpty={data.recentlyCompleted.length === 0}
+          emptyTitle={t("dashboard.empty.completed")}
+          dense
+          className="xl:col-span-1 lg:col-span-2"
+        >
+          <CompletedShipmentsList items={data.recentlyCompleted} />
+        </DashboardWidget>
+
+        <DashboardWidget
+          title={t("dashboard.widgets.integrations")}
+          href="/app/integrations"
+          count={data.integrations.length}
+          isEmpty={data.integrations.length === 0}
+          emptyTitle={t("dashboard.empty.integrations")}
+        >
+          <IntegrationStatusList items={data.integrations} />
+        </DashboardWidget>
+
+        <DashboardWidget title={t("dashboard.widgets.usage")}>
+          <UsageSummaryCard usage={data.usage} />
+        </DashboardWidget>
       </div>
     </div>
   );

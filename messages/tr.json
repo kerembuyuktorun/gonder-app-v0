@@ -290,7 +290,86 @@
   },
   "appHome": {
     "title": "Ana sayfa",
-    "subtitle": "Gönderileriniz ve tekliflerinizin özeti",
-    "welcomeBack": "Tekrar hoş geldiniz, {name}"
+    "subtitle": "Taşıma talebini başlatmak için bir hizmet seçin.",
+    "welcomeBack": "Merhaba, {name}"
+  },
+  "dashboard": {
+    "title": "Ana sayfa",
+    "welcome": "Merhaba, {name}",
+    "welcomeOrg": "{org} · {name}",
+    "individualContext": "Bireysel profil",
+    "aiTitle": "AI ile taşıma talebi oluştur",
+    "aiPlaceholder": "Örn. Yarın İstanbul'dan Ankara'ya 12 desi koli gönder",
+    "aiSubmit": "Talep oluştur",
+    "aiHint": "Doğal dilde rota, paket ve zaman bilgisini yazın; Gönder formu sizin için hazırlanır.",
+    "servicesTitle": "Hizmet seçin",
+    "servicesSubtitle": "Taşıma talebini başlatmak için bir hizmet seçin.",
+    "services": {
+      "courierDesc": "Şehir içi express, aynı gün veya planlı teslimat",
+      "parcelDesc": "1-30 desi paketler için kargo şirketi karşılaştırma",
+      "xlDesc": "30 desi üzerindeki büyük veya ağır gönderiler",
+      "ftlDesc": "Komple araç veya komple yük taşıması",
+      "ftlHelp": "FTL: Aracın tamamını siz kullanırsınız. Tek teslim noktası ve yüksek hacim için uygundur.",
+      "ltlDesc": "Parsiyel yük ve ortak araç kapasitesi kullanımı",
+      "ltlHelp": "LTL: Aracı başka gönderilerle paylaşırsınız. Daha düşük maliyet, esnek toplama/teslim.",
+      "spotDesc": "Birden fazla lojistik tedarikçisinden teklif toplama"
+    },
+    "startService": "Başlat",
+    "widgets": {
+      "activeShipments": "Aktif gönderiler",
+      "pendingQuotes": "Teklif bekleyen talepler",
+      "awaitingApproval": "Onayınızı bekleyen teklifler",
+      "awaitingPayment": "Ödeme bekleyen siparişler",
+      "completed": "Son tamamlanan gönderiler",
+      "integrations": "Entegrasyon durumu",
+      "usage": "Kullanım ve harcama",
+      "quickActions": "Hızlı işlemler"
+    },
+    "empty": {
+      "activeShipments": "Aktif gönderiniz yok",
+      "pendingQuotes": "Teklif bekleyen talep yok",
+      "awaitingApproval": "Onay bekleyen teklif yok",
+      "awaitingPayment": "Ödeme bekleyen sipariş yok",
+      "completed": "Henüz tamamlanan gönderi yok",
+      "integrations": "Bağlı entegrasyon yok"
+    },
+    "quickActions": {
+      "newShipment": "Yeni taşıma oluştur",
+      "aiRequest": "AI ile talep oluştur",
+      "uploadExcel": "Excel yükle",
+      "copyPrevious": "Önceki gönderiyi kopyala",
+      "viewQuotes": "Teklifleri görüntüle",
+      "trackShipment": "Gönderi takip et",
+      "connectIntegration": "Entegrasyon bağla"
+    },
+    "integrations": {
+      "trendyol": "Trendyol",
+      "n11": "n11",
+      "erp": "ERP",
+      "shopify": "Shopify",
+      "connected": "Bağlı",
+      "disconnected": "Bağlı değil",
+      "error": "Hata",
+      "pending": "Beklemede",
+      "lastSynced": "Son senkron: {date}"
+    },
+    "usage": {
+      "thisMonth": "Bu ay",
+      "shipments": "Gönderi",
+      "spend": "Harcama",
+      "quotes": "Teklif",
+      "avgCost": "Ort. maliyet"
+    },
+    "columns": {
+      "reference": "Referans",
+      "route": "Rota",
+      "status": "Durum",
+      "service": "Hizmet",
+      "amount": "Tutar",
+      "updated": "Güncelleme",
+      "due": "Son ödeme"
+    },
+    "errorTitle": "Dashboard yüklenemedi",
+    "errorDescription": "Özet veriler alınamadı. Lütfen tekrar deneyin."
   }
 }

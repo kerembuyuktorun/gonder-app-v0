@@ -124,6 +124,17 @@ Feature code should depend on repositories / query hooks, never on fetch calls i
 - Email: `mehmet@example.com` / `Password1!` (resumes at company tax step)
 - OTP: `123456` (valid), `000000` (expired)
 
+## Dashboard (Step 3)
+
+Authenticated home at `/tr/app/home` includes:
+
+- Personalized greeting (user / organization context)
+- AI shipment request command bar (primary action)
+- Functional service cards: Kurye, Kargo, Gönder XL, FTL, LTL, Spot (with FTL/LTL help copy)
+- Critical ops widgets in first viewport: active shipments, pending quotes, awaiting approval, awaiting payment
+- Quick actions, integration status, usage/spend summary
+- Loading / empty / error / populated widget states via mock dashboard repository
+
 ## Key routes
 
 | Path | Purpose |
@@ -132,7 +143,7 @@ Feature code should depend on repositories / query hooks, never on fetch calls i
 | `/tr/welcome` | Auth welcome |
 | `/tr/login/email` | Email login |
 | `/tr/onboarding/*` | Onboarding steps |
-| `/tr/app/home` | Authenticated app home |
+| `/tr/app/home` | Authenticated dashboard |
 | `/tr/design-system` | Shared component showcase |
 | `/tr/customer`, `/tr/ops` | Legacy demo panels (step 1) |
 

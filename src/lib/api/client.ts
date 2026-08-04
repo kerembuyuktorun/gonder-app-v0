@@ -4,12 +4,14 @@ import type {
   ShipmentRepository,
 } from "@/lib/api/repositories";
 import type { AuthRepository } from "@/lib/api/auth-repository";
+import type { DashboardRepository } from "@/lib/api/dashboard-repository";
 import {
   mockQuoteRepository,
   mockServiceRepository,
   mockShipmentRepository,
 } from "@/mocks/repositories/mock-repositories";
 import { mockAuthRepository } from "@/mocks/repositories/mock-auth-repository";
+import { mockDashboardRepository } from "@/mocks/repositories/mock-dashboard-repository";
 
 /**
  * Switch DATA_SOURCE to "api" when real backends are ready.
@@ -63,6 +65,10 @@ const apiAuthRepository: AuthRepository = {
   getOnboardingStep: () => notImplemented("AuthRepository.getOnboardingStep"),
 };
 
+const apiDashboardRepository: DashboardRepository = {
+  getDashboard: () => notImplemented("DashboardRepository.getDashboard"),
+};
+
 export const serviceRepository: ServiceRepository =
   dataSource === "mock" ? mockServiceRepository : apiServiceRepository;
 
@@ -74,3 +80,6 @@ export const shipmentRepository: ShipmentRepository =
 
 export const authRepository: AuthRepository =
   dataSource === "mock" ? mockAuthRepository : apiAuthRepository;
+
+export const dashboardRepository: DashboardRepository =
+  dataSource === "mock" ? mockDashboardRepository : apiDashboardRepository;
