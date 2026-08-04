@@ -7,6 +7,7 @@ import type { AuthRepository } from "@/lib/api/auth-repository";
 import type { DashboardRepository } from "@/lib/api/dashboard-repository";
 import type { AgentRepository } from "@/lib/api/agent-repository";
 import type { CourierRepository } from "@/lib/api/courier-repository";
+import type { ParcelRepository } from "@/lib/api/parcel-repository";
 import {
   mockQuoteRepository,
   mockServiceRepository,
@@ -16,6 +17,7 @@ import { mockAuthRepository } from "@/mocks/repositories/mock-auth-repository";
 import { mockDashboardRepository } from "@/mocks/repositories/mock-dashboard-repository";
 import { mockAgentRepository } from "@/mocks/repositories/mock-agent-repository";
 import { mockCourierRepository } from "@/mocks/repositories/mock-courier-repository";
+import { mockParcelRepository } from "@/mocks/repositories/mock-parcel-repository";
 
 /**
  * Switch DATA_SOURCE to "api" when real backends are ready.
@@ -92,6 +94,18 @@ const apiCourierRepository: CourierRepository = {
   submit: () => notImplemented("CourierRepository.submit"),
 };
 
+const apiParcelRepository: ParcelRepository = {
+  listTemplates: () => notImplemented("ParcelRepository.listTemplates"),
+  listPreviousShipments: () =>
+    notImplemented("ParcelRepository.listPreviousShipments"),
+  listIntegrationOrders: () =>
+    notImplemented("ParcelRepository.listIntegrationOrders"),
+  getQuotes: () => notImplemented("ParcelRepository.getQuotes"),
+  getWalletBalance: () => notImplemented("ParcelRepository.getWalletBalance"),
+  checkout: () => notImplemented("ParcelRepository.checkout"),
+  parseExcelUpload: () => notImplemented("ParcelRepository.parseExcelUpload"),
+};
+
 export const serviceRepository: ServiceRepository =
   dataSource === "mock" ? mockServiceRepository : apiServiceRepository;
 
@@ -112,3 +126,6 @@ export const agentRepository: AgentRepository =
 
 export const courierRepository: CourierRepository =
   dataSource === "mock" ? mockCourierRepository : apiCourierRepository;
+
+export const parcelRepository: ParcelRepository =
+  dataSource === "mock" ? mockParcelRepository : apiParcelRepository;

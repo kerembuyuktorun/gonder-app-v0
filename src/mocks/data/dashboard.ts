@@ -16,7 +16,7 @@ export const mockDashboardSnapshot: DashboardSnapshot = {
       serviceType: "parcel_1_30",
       nameKey: "services.parcel_1_30",
       descriptionKey: "dashboard.services.parcelDesc",
-      href: "/app/requests/new?service=parcel_1_30",
+      href: "/app/requests/parcel",
     },
     {
       id: "svc-xl",

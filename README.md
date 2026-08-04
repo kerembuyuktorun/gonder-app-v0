@@ -159,6 +159,17 @@ Web-first courier wizard at `/tr/app/requests/courier`:
 - Mock quote statuses: ready, preparing, unavailable; confirm shows total + terms
 - Dashboard Kurye card links here; mock repository behind `courierRepository`
 
+## 1–30 desi parcel & carrier comparison (Step 6)
+
+Parcel wizard at `/tr/app/requests/parcel`:
+
+- Creation methods: manual, copy previous, template, Excel bulk, integration order
+- Multi-package editor with live desi calculator; Gönder XL nudge when chargeable desi > 30
+- Carrier quote table + card views; sort by price / ETA / carrier; multi-select side-by-side compare; detail drawer
+- Checkout with wallet or card (mock); label preview, barcode, tracking, print & PDF export
+- Mock carriers: Yurtiçi, Aras, MNG, PTT, Sürat, Horoz via `parcelRepository`
+- Dashboard 1-30 Desi Kargo card links here
+
 ## Key routes
 
 | Path | Purpose |
@@ -172,6 +183,7 @@ Web-first courier wizard at `/tr/app/requests/courier`:
 | `/tr/app/requests/new` | New request (AI agent) |
 | `/tr/app/requests/new/form` | Manual form fallback |
 | `/tr/app/requests/courier` | City courier request wizard |
+| `/tr/app/requests/parcel` | 1–30 desi parcel + carrier comparison |
 | `/tr/design-system` | Shared component showcase |
 | `/tr/customer`, `/tr/ops` | Legacy demo panels (step 1) |
 
