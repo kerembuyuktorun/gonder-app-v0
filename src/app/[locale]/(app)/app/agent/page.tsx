@@ -16,28 +16,31 @@ const SERVICES: ServiceType[] = [
   "spot",
 ];
 
-function NewRequestAgent() {
+function AgentPageContent() {
   const params = useSearchParams();
-  const mode = params.get("mode");
   const prompt = params.get("prompt");
   const serviceParam = params.get("service");
   const serviceHint = SERVICES.includes(serviceParam as ServiceType)
     ? (serviceParam as ServiceType)
     : null;
-
-  // Default new request experience is the AI agent; mode=form goes elsewhere
-  void mode;
+  const conversationId = params.get("conversationId");
+  const fromWhatsApp = params.get("from") === "whatsapp";
 
   return (
-    <AgentWorkspace initialPrompt={prompt} serviceHint={serviceHint} />
+    <AgentWorkspace
+      initialPrompt={prompt}
+      serviceHint={serviceHint}
+      conversationId={conversationId}
+      fromWhatsApp={fromWhatsApp}
+    />
   );
 }
 
-export default function NewRequestPage() {
+export default function AgentPage() {
   return (
     <PermissionGuard permission="requests:create">
       <Suspense fallback={<LoadingSkeleton rows={6} />}>
-        <NewRequestAgent />
+        <AgentPageContent />
       </Suspense>
     </PermissionGuard>
   );

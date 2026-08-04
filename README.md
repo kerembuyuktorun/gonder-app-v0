@@ -135,6 +135,19 @@ Authenticated home at `/tr/app/home` includes:
 - Quick actions, integration status, usage/spend summary
 - Loading / empty / error / populated widget states via mock dashboard repository
 
+## AI Logistics Agent (Step 4)
+
+Channel-agnostic agent workspace at `/tr/app/agent` and `/tr/app/requests/new`:
+
+- Shared conversation models: Conversation, Message, Participant, Channel (`web` | `mobile` | `whatsapp` | `api` | `operator`)
+- Desktop split: chat left / live editable draft right (resizable)
+- Mobile: chat ↔ draft tabs
+- Intent classification, field extraction, missing-field questions, conflict checks
+- Voice input button, quick replies, confidence indicator, channel badge
+- Safety: no order/quote accept/payment without explicit confirm
+- WhatsApp → web handoff mock (`?from=whatsapp&conversationId=wa-handoff-001`)
+- Fallback detailed form at `/tr/app/requests/new/form`
+
 ## Key routes
 
 | Path | Purpose |
@@ -144,6 +157,9 @@ Authenticated home at `/tr/app/home` includes:
 | `/tr/login/email` | Email login |
 | `/tr/onboarding/*` | Onboarding steps |
 | `/tr/app/home` | Authenticated dashboard |
+| `/tr/app/agent` | AI Logistics Agent workspace |
+| `/tr/app/requests/new` | New request (AI agent) |
+| `/tr/app/requests/new/form` | Manual form fallback |
 | `/tr/design-system` | Shared component showcase |
 | `/tr/customer`, `/tr/ops` | Legacy demo panels (step 1) |
 

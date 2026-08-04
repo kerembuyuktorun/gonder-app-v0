@@ -5,6 +5,7 @@ import type {
 } from "@/lib/api/repositories";
 import type { AuthRepository } from "@/lib/api/auth-repository";
 import type { DashboardRepository } from "@/lib/api/dashboard-repository";
+import type { AgentRepository } from "@/lib/api/agent-repository";
 import {
   mockQuoteRepository,
   mockServiceRepository,
@@ -12,6 +13,7 @@ import {
 } from "@/mocks/repositories/mock-repositories";
 import { mockAuthRepository } from "@/mocks/repositories/mock-auth-repository";
 import { mockDashboardRepository } from "@/mocks/repositories/mock-dashboard-repository";
+import { mockAgentRepository } from "@/mocks/repositories/mock-agent-repository";
 
 /**
  * Switch DATA_SOURCE to "api" when real backends are ready.
@@ -69,6 +71,19 @@ const apiDashboardRepository: DashboardRepository = {
   getDashboard: () => notImplemented("DashboardRepository.getDashboard"),
 };
 
+const apiAgentRepository: AgentRepository = {
+  listConversations: () => notImplemented("AgentRepository.listConversations"),
+  getConversation: () => notImplemented("AgentRepository.getConversation"),
+  startConversation: () => notImplemented("AgentRepository.startConversation"),
+  sendMessage: () => notImplemented("AgentRepository.sendMessage"),
+  updateDraft: () => notImplemented("AgentRepository.updateDraft"),
+  confirmDraft: () => notImplemented("AgentRepository.confirmDraft"),
+  continueFromWhatsApp: () =>
+    notImplemented("AgentRepository.continueFromWhatsApp"),
+  getMissingFieldPrompt: () =>
+    notImplemented("AgentRepository.getMissingFieldPrompt"),
+};
+
 export const serviceRepository: ServiceRepository =
   dataSource === "mock" ? mockServiceRepository : apiServiceRepository;
 
@@ -83,3 +98,6 @@ export const authRepository: AuthRepository =
 
 export const dashboardRepository: DashboardRepository =
   dataSource === "mock" ? mockDashboardRepository : apiDashboardRepository;
+
+export const agentRepository: AgentRepository =
+  dataSource === "mock" ? mockAgentRepository : apiAgentRepository;
