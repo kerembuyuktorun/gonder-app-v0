@@ -1,0 +1,198 @@
+{
+  "meta": {
+    "appName": "Gönder",
+    "tagline": "Lojistik, kargo ve kurye süper platformu",
+    "operatedBy": "Arf tarafından işletilir"
+  },
+  "common": {
+    "loading": "Yükleniyor…",
+    "retry": "Tekrar dene",
+    "cancel": "İptal",
+    "confirm": "Onayla",
+    "save": "Kaydet",
+    "continue": "Devam et",
+    "back": "Geri",
+    "search": "Ara",
+    "filter": "Filtrele",
+    "reset": "Sıfırla",
+    "actions": "İşlemler",
+    "details": "Detay",
+    "close": "Kapat",
+    "yes": "Evet",
+    "no": "Hayır",
+    "optional": "Opsiyonel",
+    "required": "Zorunlu",
+    "notFound": "Bulunamadı",
+    "viewAll": "Tümünü gör",
+    "theme": "Tema",
+    "language": "Dil",
+    "light": "Açık",
+    "dark": "Koyu",
+    "system": "Sistem"
+  },
+  "nav": {
+    "home": "Ana sayfa",
+    "dashboard": "Panel",
+    "shipments": "Gönderiler",
+    "quotes": "Teklifler",
+    "services": "Hizmetler",
+    "designSystem": "Tasarım sistemi",
+    "customerPanel": "Müşteri paneli",
+    "opsPanel": "Operasyon paneli",
+    "settings": "Ayarlar",
+    "help": "Yardım",
+    "openMenu": "Menüyü aç",
+    "closeMenu": "Menüyü kapat"
+  },
+  "auth": {
+    "signIn": "Giriş yap",
+    "signOut": "Çıkış yap",
+    "account": "Hesap"
+  },
+  "home": {
+    "title": "Gönder ile gönderilerinizi yönetin",
+    "subtitle": "Kurye, kargo, XL, FTL, LTL ve spot teklif taleplerini tek platformda oluşturun, takip edin ve teslim edin.",
+    "ctaCustomer": "Müşteri paneline git",
+    "ctaOps": "Operasyon paneline git",
+    "ctaDesign": "Bileşenleri incele"
+  },
+  "customer": {
+    "title": "Müşteri paneli",
+    "subtitle": "Talepleriniz, teklifleriniz ve gönderileriniz",
+    "emptyTitle": "Henüz gönderi yok",
+    "emptyDescription": "İlk taşıma talebinizi oluşturduğunuzda burada görünecek."
+  },
+  "ops": {
+    "title": "Operasyon paneli",
+    "subtitle": "İç operasyon ve takip ekranları",
+    "emptyTitle": "Operasyon kuyruğu boş",
+    "emptyDescription": "Yeni talepler geldiğinde burada listelenecek."
+  },
+  "services": {
+    "courier": "Kurye",
+    "parcel_1_30": "1-30 Desi Kargo",
+    "gonder_xl": "Gönder XL",
+    "ftl": "FTL",
+    "ltl": "LTL",
+    "spot": "Spot Teklif",
+    "courierDesc": "Aynı gün ve hızlı şehir içi teslimat",
+    "parcelDesc": "1-30 desi arası standart kargo",
+    "xlDesc": "Hacimli ve büyük paket gönderileri",
+    "ftlDesc": "Tam araç yükü taşımacılığı",
+    "ltlDesc": "Parsiyel araç yükü taşımacılığı",
+    "spotDesc": "Özel fiyatlı spot teklif talebi",
+    "etaSameDay": "Aynı gün",
+    "eta1_3": "1-3 iş günü",
+    "eta2_5": "2-5 iş günü",
+    "etaOnDemand": "Talebe göre"
+  },
+  "channels": {
+    "b2b": "B2B",
+    "b2c": "B2C",
+    "ops": "Operasyon"
+  },
+  "status": {
+    "draft": "Taslak",
+    "quoted": "Tekliflendi",
+    "confirmed": "Onaylandı",
+    "picked_up": "Alındı",
+    "in_transit": "Yolda",
+    "out_for_delivery": "Dağıtımda",
+    "delivered": "Teslim edildi",
+    "cancelled": "İptal",
+    "failed": "Başarısız",
+    "pending": "Bekliyor",
+    "ready": "Hazır",
+    "accepted": "Kabul edildi",
+    "expired": "Süresi doldu",
+    "rejected": "Reddedildi"
+  },
+  "fields": {
+    "searchPlaceholder": "Ara…",
+    "email": "E-posta",
+    "password": "Şifre",
+    "fullName": "Ad soyad",
+    "phone": "Telefon",
+    "address": "Adres",
+    "addressLine1": "Adres satırı 1",
+    "addressLine2": "Adres satırı 2",
+    "city": "Şehir",
+    "district": "İlçe",
+    "postalCode": "Posta kodu",
+    "country": "Ülke",
+    "notes": "Notlar",
+    "date": "Tarih",
+    "dateTime": "Tarih ve saat",
+    "selectPlaceholder": "Seçin",
+    "upload": "Dosya yükle",
+    "uploadHint": "Sürükleyip bırakın veya seçin",
+    "from": "Nereden",
+    "to": "Nereye"
+  },
+  "price": {
+    "summary": "Fiyat özeti",
+    "subtotal": "Ara toplam",
+    "tax": "KDV",
+    "discount": "İndirim",
+    "total": "Toplam",
+    "shipping": "Taşıma ücreti",
+    "serviceFee": "Hizmet bedeli"
+  },
+  "table": {
+    "noResults": "Sonuç bulunamadı",
+    "rowsSelected": "{count} satır seçildi",
+    "reference": "Referans",
+    "tracking": "Takip no",
+    "service": "Hizmet",
+    "status": "Durum",
+    "channel": "Kanal",
+    "origin": "Çıkış",
+    "destination": "Varış",
+    "amount": "Tutar",
+    "createdAt": "Oluşturma"
+  },
+  "empty": {
+    "defaultTitle": "Henüz içerik yok",
+    "defaultDescription": "Burada gösterilecek veri bulunamadı."
+  },
+  "error": {
+    "defaultTitle": "Bir şeyler ters gitti",
+    "defaultDescription": "İsteğiniz tamamlanamadı. Lütfen tekrar deneyin.",
+    "network": "Bağlantı hatası"
+  },
+  "confirm": {
+    "title": "Emin misiniz?",
+    "description": "Bu işlem geri alınamayabilir."
+  },
+  "timeline": {
+    "title": "Zaman çizelgesi",
+    "created": "Talep oluşturuldu",
+    "quoted": "Teklif hazırlandı",
+    "confirmed": "Sipariş onaylandı",
+    "pickedUp": "Kargo alındı",
+    "inTransit": "Taşıma başladı",
+    "delivered": "Teslim edildi"
+  },
+  "steps": {
+    "details": "Detaylar",
+    "quote": "Teklif",
+    "payment": "Ödeme",
+    "tracking": "Takip"
+  },
+  "designSystem": {
+    "title": "Tasarım sistemi",
+    "subtitle": "Gönder ortak bileşenleri ve tasarım tokenları",
+    "buttons": "Butonlar",
+    "inputs": "Form alanları",
+    "badges": "Rozetler",
+    "feedback": "Geri bildirim",
+    "dataDisplay": "Veri gösterimi",
+    "overlays": "Overlay ve paneller",
+    "layout": "Yerleşim",
+    "primary": "Birincil",
+    "secondary": "İkincil",
+    "ghost": "Metin",
+    "destructive": "Tehlikeli",
+    "tokens": "Tokenlar"
+  }
+}

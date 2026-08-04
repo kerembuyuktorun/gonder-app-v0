@@ -1,0 +1,198 @@
+{
+  "meta": {
+    "appName": "Gönder",
+    "tagline": "Logistics, parcel and courier super platform",
+    "operatedBy": "Operated by Arf"
+  },
+  "common": {
+    "loading": "Loading…",
+    "retry": "Retry",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "continue": "Continue",
+    "back": "Back",
+    "search": "Search",
+    "filter": "Filter",
+    "reset": "Reset",
+    "actions": "Actions",
+    "details": "Details",
+    "close": "Close",
+    "yes": "Yes",
+    "no": "No",
+    "optional": "Optional",
+    "required": "Required",
+    "notFound": "Not found",
+    "viewAll": "View all",
+    "theme": "Theme",
+    "language": "Language",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "nav": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "shipments": "Shipments",
+    "quotes": "Quotes",
+    "services": "Services",
+    "designSystem": "Design system",
+    "customerPanel": "Customer panel",
+    "opsPanel": "Operations panel",
+    "settings": "Settings",
+    "help": "Help",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "auth": {
+    "signIn": "Sign in",
+    "signOut": "Sign out",
+    "account": "Account"
+  },
+  "home": {
+    "title": "Manage shipments with Gönder",
+    "subtitle": "Create, quote, pay for and track courier, parcel, XL, FTL, LTL and spot requests in one platform.",
+    "ctaCustomer": "Go to customer panel",
+    "ctaOps": "Go to operations panel",
+    "ctaDesign": "Browse components"
+  },
+  "customer": {
+    "title": "Customer panel",
+    "subtitle": "Your requests, quotes and shipments",
+    "emptyTitle": "No shipments yet",
+    "emptyDescription": "Your first transport request will appear here once created."
+  },
+  "ops": {
+    "title": "Operations panel",
+    "subtitle": "Internal operations and tracking screens",
+    "emptyTitle": "Operations queue is empty",
+    "emptyDescription": "New requests will be listed here as they arrive."
+  },
+  "services": {
+    "courier": "Courier",
+    "parcel_1_30": "1-30 Deci Parcel",
+    "gonder_xl": "Gönder XL",
+    "ftl": "FTL",
+    "ltl": "LTL",
+    "spot": "Spot Quote",
+    "courierDesc": "Same-day and fast urban delivery",
+    "parcelDesc": "Standard parcel for 1-30 deci",
+    "xlDesc": "Bulky and oversized parcel shipments",
+    "ftlDesc": "Full truckload transportation",
+    "ltlDesc": "Less-than-truckload transportation",
+    "spotDesc": "Custom-priced spot quote request",
+    "etaSameDay": "Same day",
+    "eta1_3": "1-3 business days",
+    "eta2_5": "2-5 business days",
+    "etaOnDemand": "On demand"
+  },
+  "channels": {
+    "b2b": "B2B",
+    "b2c": "B2C",
+    "ops": "Operations"
+  },
+  "status": {
+    "draft": "Draft",
+    "quoted": "Quoted",
+    "confirmed": "Confirmed",
+    "picked_up": "Picked up",
+    "in_transit": "In transit",
+    "out_for_delivery": "Out for delivery",
+    "delivered": "Delivered",
+    "cancelled": "Cancelled",
+    "failed": "Failed",
+    "pending": "Pending",
+    "ready": "Ready",
+    "accepted": "Accepted",
+    "expired": "Expired",
+    "rejected": "Rejected"
+  },
+  "fields": {
+    "searchPlaceholder": "Search…",
+    "email": "Email",
+    "password": "Password",
+    "fullName": "Full name",
+    "phone": "Phone",
+    "address": "Address",
+    "addressLine1": "Address line 1",
+    "addressLine2": "Address line 2",
+    "city": "City",
+    "district": "District",
+    "postalCode": "Postal code",
+    "country": "Country",
+    "notes": "Notes",
+    "date": "Date",
+    "dateTime": "Date and time",
+    "selectPlaceholder": "Select",
+    "upload": "Upload file",
+    "uploadHint": "Drag and drop or browse",
+    "from": "From",
+    "to": "To"
+  },
+  "price": {
+    "summary": "Price summary",
+    "subtotal": "Subtotal",
+    "tax": "VAT",
+    "discount": "Discount",
+    "total": "Total",
+    "shipping": "Shipping fee",
+    "serviceFee": "Service fee"
+  },
+  "table": {
+    "noResults": "No results found",
+    "rowsSelected": "{count} rows selected",
+    "reference": "Reference",
+    "tracking": "Tracking no",
+    "service": "Service",
+    "status": "Status",
+    "channel": "Channel",
+    "origin": "Origin",
+    "destination": "Destination",
+    "amount": "Amount",
+    "createdAt": "Created"
+  },
+  "empty": {
+    "defaultTitle": "Nothing here yet",
+    "defaultDescription": "No data is available to display."
+  },
+  "error": {
+    "defaultTitle": "Something went wrong",
+    "defaultDescription": "Your request could not be completed. Please try again.",
+    "network": "Connection error"
+  },
+  "confirm": {
+    "title": "Are you sure?",
+    "description": "This action may not be reversible."
+  },
+  "timeline": {
+    "title": "Timeline",
+    "created": "Request created",
+    "quoted": "Quote prepared",
+    "confirmed": "Order confirmed",
+    "pickedUp": "Parcel picked up",
+    "inTransit": "Transport started",
+    "delivered": "Delivered"
+  },
+  "steps": {
+    "details": "Details",
+    "quote": "Quote",
+    "payment": "Payment",
+    "tracking": "Tracking"
+  },
+  "designSystem": {
+    "title": "Design system",
+    "subtitle": "Gönder shared components and design tokens",
+    "buttons": "Buttons",
+    "inputs": "Form fields",
+    "badges": "Badges",
+    "feedback": "Feedback",
+    "dataDisplay": "Data display",
+    "overlays": "Overlays and panels",
+    "layout": "Layout",
+    "primary": "Primary",
+    "secondary": "Secondary",
+    "ghost": "Text",
+    "destructive": "Destructive",
+    "tokens": "Tokens"
+  }
+}
