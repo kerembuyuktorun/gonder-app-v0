@@ -28,7 +28,8 @@
     "language": "Language",
     "light": "Light",
     "dark": "Dark",
-    "system": "System"
+    "system": "System",
+    "skipToContent": "Skip to content"
   },
   "nav": {
     "home": "Home",

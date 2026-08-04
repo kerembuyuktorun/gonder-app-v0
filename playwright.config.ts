@@ -1,12 +1,16 @@
 import { defineConfig, devices } from "@playwright/test";
 
+const externalBaseURL = process.env.PLAYWRIGHT_TEST_BASE_URL;
+const port = Number(process.env.E2E_PORT ?? 3100);
+const baseURL = externalBaseURL ?? `http://127.0.0.1:${port}`;
+
 export default defineConfig({
   testDir: "./tests/e2e",
   fullyParallel: true,
   forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI ? 2 : 0,
   use: {
-    baseURL: "http://127.0.0.1:3000",
+    baseURL,
     trace: "on-first-retry",
   },
   projects: [
@@ -15,10 +19,13 @@ export default defineConfig({
       use: { ...devices["Desktop Chrome"] },
     },
   ],
-  webServer: {
-    command: "pnpm start",
-    url: "http://127.0.0.1:3000",
-    reuseExistingServer: !process.env.CI,
-    timeout: 120_000,
-  },
+  // Against a deployed origin (PLAYWRIGHT_TEST_BASE_URL) no local server is started.
+  webServer: externalBaseURL
+    ? undefined
+    : {
+        command: `pnpm start --port ${port}`,
+        url: baseURL,
+        reuseExistingServer: false,
+        timeout: 120_000,
+      },
 });

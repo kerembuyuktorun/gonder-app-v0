@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/lib/i18n/navigation";
@@ -49,7 +49,7 @@ function PhoneLoginContent() {
     }
   }
 
-  const phoneValue = form.watch("phone");
+  const phoneValue = useWatch({ control: form.control, name: "phone" });
 
   return (
     <AuthPageFrame>

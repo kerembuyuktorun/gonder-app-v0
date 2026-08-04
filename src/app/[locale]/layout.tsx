@@ -1,7 +1,8 @@
+import type { Metadata } from "next";
 import { DM_Sans, Geist_Mono, Source_Serif_4 } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { getMessages, setRequestLocale } from "next-intl/server";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { AppProviders } from "@/providers/app-providers";
 import { AuthBootstrap } from "@/lib/auth/auth-bootstrap";
 import { routing } from "@/lib/i18n/routing";
@@ -24,6 +25,27 @@ const geistMono = Geist_Mono({
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const activeLocale = hasLocale(routing.locales, locale)
+    ? locale
+    : routing.defaultLocale;
+  const t = await getTranslations({ locale: activeLocale, namespace: "meta" });
+
+  return {
+    title: {
+      default: `${t("appName")} — ${t("tagline")}`,
+      template: `%s · ${t("appName")}`,
+    },
+    description: t("tagline"),
+    applicationName: t("appName"),
+  };
 }
 
 export default async function LocaleLayout({

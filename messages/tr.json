@@ -28,7 +28,8 @@
     "language": "Dil",
     "light": "Açık",
     "dark": "Koyu",
-    "system": "Sistem"
+    "system": "Sistem",
+    "skipToContent": "İçeriğe geç"
   },
   "nav": {
     "home": "Ana Sayfa",

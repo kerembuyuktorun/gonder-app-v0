@@ -43,7 +43,9 @@ export function AuthPageFrame({ children }: { children: React.ReactNode }) {
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,var(--gonder-brand-100),transparent_55%)] dark:bg-[radial-gradient(ellipse_at_top,var(--gonder-brand-800),transparent_55%)]"
       />
-      <div className="relative z-10 w-full">{children}</div>
+      <main id="main-content" className="relative z-10 w-full">
+        {children}
+      </main>
     </div>
   );
 }
