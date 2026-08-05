@@ -505,6 +505,7 @@ export function OrdersWorkspace() {
               onChange={(e) =>
                 setState({ pageSize: Number(e.target.value), page: 1 })
               }
+              aria-label={t("pagination.pageSize")}
             >
               {[5, 10, 20, 50].map((n) => (
                 <option key={n} value={n}>

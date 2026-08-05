@@ -1419,7 +1419,8 @@
     "pagination": {
       "summary": "{from}–{to} of {total}",
       "prev": "Previous",
-      "next": "Next"
+      "next": "Next",
+      "pageSize": "Page size"
     },
     "notifications": {
       "title": "Notifications",

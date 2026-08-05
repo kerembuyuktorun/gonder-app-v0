@@ -1419,7 +1419,8 @@
     "pagination": {
       "summary": "{from}–{to} / {total}",
       "prev": "Önceki",
-      "next": "Sonraki"
+      "next": "Sonraki",
+      "pageSize": "Sayfa boyutu"
     },
     "notifications": {
       "title": "Bildirimler",
