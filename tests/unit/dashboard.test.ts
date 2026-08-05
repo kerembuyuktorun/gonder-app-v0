@@ -33,10 +33,11 @@ describe("dashboard repository", () => {
   it("exposes operational widgets and quick actions", async () => {
     const snapshot = await mockDashboardRepository.getDashboard();
     expect(snapshot.activeShipments.length).toBeGreaterThan(0);
+    expect(snapshot.ordersNeedingShipment.length).toBeGreaterThan(0);
     expect(snapshot.pendingQuoteRequests.length).toBeGreaterThan(0);
     expect(snapshot.awaitingUserApproval.length).toBeGreaterThan(0);
     expect(snapshot.awaitingPayment.length).toBeGreaterThan(0);
-    expect(snapshot.quickActions).toHaveLength(7);
+    expect(snapshot.quickActions).toHaveLength(8);
     expect(snapshot.integrations.length).toBeGreaterThan(0);
     expect(snapshot.usage.shipmentCount).toBeGreaterThan(0);
   });

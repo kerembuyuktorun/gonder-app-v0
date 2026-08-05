@@ -1,7 +1,16 @@
-import type { OrderLifecycleStatus, OrderListView } from "@/types/orders";
+import type {
+  OrderLifecycleStatus,
+  OrderListView,
+  OrderShipmentConversion,
+} from "@/types/orders";
 
-export const STATUS_BY_VIEW: Record<OrderListView, OrderLifecycleStatus[] | "all"> = {
+export const STATUS_BY_VIEW: Record<
+  OrderListView,
+  OrderLifecycleStatus[] | "all"
+> = {
   all: "all",
+  needs_shipment: "all",
+  converted: "all",
   awaiting_quote: ["quote_pending"],
   awaiting_approval: ["awaiting_approval"],
   awaiting_payment: ["awaiting_payment"],
@@ -11,8 +20,23 @@ export const STATUS_BY_VIEW: Record<OrderListView, OrderLifecycleStatus[] | "all
   problematic: ["issue"],
 };
 
-export function statusesForView(view: OrderListView): OrderLifecycleStatus[] | "all" {
+export const CONVERSION_BY_VIEW: Partial<
+  Record<OrderListView, OrderShipmentConversion>
+> = {
+  needs_shipment: "not_converted",
+  converted: "converted",
+};
+
+export function statusesForView(
+  view: OrderListView,
+): OrderLifecycleStatus[] | "all" {
   return STATUS_BY_VIEW[view];
+}
+
+export function conversionForView(
+  view: OrderListView,
+): OrderShipmentConversion | undefined {
+  return CONVERSION_BY_VIEW[view];
 }
 
 /** Map provider-specific raw statuses into Gönder lifecycle. */
@@ -47,25 +71,28 @@ export function mapProviderStatus(
 
 export const DEFAULT_ORDER_COLUMNS = [
   "reference",
-  "tracking",
+  "source",
+  "externalRef",
+  "conversion",
   "service",
   "status",
   "route",
-  "provider",
   "amount",
   "updatedAt",
 ] as const;
 
 export const ALL_ORDER_COLUMNS = [
   ...DEFAULT_ORDER_COLUMNS,
+  "tracking",
+  "provider",
   "createdAt",
   "eta",
 ] as const;
 
 export const ORDER_LIST_VIEWS: OrderListView[] = [
   "all",
-  "awaiting_quote",
-  "awaiting_approval",
+  "needs_shipment",
+  "converted",
   "awaiting_payment",
   "active",
   "completed",

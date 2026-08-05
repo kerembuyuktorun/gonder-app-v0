@@ -29,6 +29,8 @@ export type OrdersUrlState = {
 
 const VIEWS: OrderListView[] = [
   "all",
+  "needs_shipment",
+  "converted",
   "awaiting_quote",
   "awaiting_approval",
   "awaiting_payment",

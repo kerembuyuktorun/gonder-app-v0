@@ -86,6 +86,22 @@ export function OrderDetailSections({
             <dd className="font-medium">{order.reference}</dd>
           </div>
           <div>
+            <dt className="text-muted-foreground">{t("columns.source")}</dt>
+            <dd className="font-medium">
+              {order.integrationName
+                ? `${order.integrationName} · ${t(`source.${order.source}`)}`
+                : t(`source.${order.source}`)}
+            </dd>
+          </div>
+          <div>
+            <dt className="text-muted-foreground">{t("columns.externalRef")}</dt>
+            <dd className="font-mono text-xs">{order.externalRef ?? "—"}</dd>
+          </div>
+          <div>
+            <dt className="text-muted-foreground">{t("columns.conversion")}</dt>
+            <dd>{t(`conversion.${order.shipmentConversion}`)}</dd>
+          </div>
+          <div>
             <dt className="text-muted-foreground">{t("fields.tracking")}</dt>
             <dd className="font-medium">{order.trackingNumber}</dd>
           </div>
@@ -111,6 +127,14 @@ export function OrderDetailSections({
             </div>
           ) : null}
         </dl>
+        {order.shipmentConversion === "not_converted" &&
+        order.status !== "cancelled" ? (
+          <Link href={`/create-shipment?fromOrder=${order.id}`}>
+            <AppButton size="sm" className="mt-3">
+              {t("actions.convert")}
+            </AppButton>
+          </Link>
+        ) : null}
         {compact ? (
           <Link href={`/orders/${order.id}`}>
             <AppButton variant="secondary" size="sm" className="mt-2">

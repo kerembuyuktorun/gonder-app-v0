@@ -91,6 +91,17 @@ export default function AppHomePage() {
 
         <div className="grid gap-4 xl:grid-cols-2">
           <DashboardWidget
+            title={t("dashboard.widgets.ordersNeedingShipment")}
+            href="/orders?view=needs_shipment"
+            count={data.ordersNeedingShipment.length}
+            isEmpty={data.ordersNeedingShipment.length === 0}
+            emptyTitle={t("dashboard.empty.ordersNeedingShipment")}
+            dense
+          >
+            <PaymentList items={data.ordersNeedingShipment} />
+          </DashboardWidget>
+
+          <DashboardWidget
             title={t("dashboard.widgets.activeShipments")}
             href="/shipments"
             count={data.activeShipments.length}
