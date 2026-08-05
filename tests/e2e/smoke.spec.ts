@@ -16,6 +16,6 @@ test.describe("Gönder auth foundation", () => {
     await page.getByLabel(/E-posta|Email/i).fill("ayse@example.com");
     await page.getByLabel(/Şifre|Password/i).fill("Password1!");
     await page.getByRole("button", { name: /Giriş yap|Sign in/i }).click();
-    await expect(page).toHaveURL(/\/tr\/app\/home/);
+    await expect(page).toHaveURL(/\/tr\/dashboard/);
   });
 });

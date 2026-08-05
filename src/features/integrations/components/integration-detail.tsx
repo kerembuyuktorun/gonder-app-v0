@@ -40,7 +40,7 @@ export function IntegrationDetailView({ providerId }: { providerId: string }) {
           title={data.name}
           description={tRoot(data.descriptionKey)}
         />
-        <Link href="/app/integrations">
+        <Link href="/integrations">
           <AppButton variant="secondary" size="sm">
             {t("back")}
           </AppButton>

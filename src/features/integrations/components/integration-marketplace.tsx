@@ -109,7 +109,7 @@ export function IntegrationMarketplace() {
               <p className="flex-1 text-sm text-muted-foreground">
                 {tRoot(p.descriptionKey)}
               </p>
-              <Link href={`/app/integrations/${p.id}`}>
+              <Link href={`/integrations/${p.id}`}>
                 <AppButton
                   size="sm"
                   variant={conn ? "secondary" : "primary"}

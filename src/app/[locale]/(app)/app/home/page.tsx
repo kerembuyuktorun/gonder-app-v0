@@ -72,9 +72,16 @@ export default function AppHomePage() {
           title={t("dashboard.title")}
           description={welcomeDescription}
           actions={
-            <Link href="/app/requests/new">
-              <AppButton>{t("shell.newRequest")}</AppButton>
-            </Link>
+            <>
+              <Link href="/price-calculation">
+                <AppButton variant="secondary">
+                  {t("redesign.nav.price")}
+                </AppButton>
+              </Link>
+              <Link href="/create-shipment">
+                <AppButton>{t("redesign.nav.create")}</AppButton>
+              </Link>
+            </>
           }
         />
 
@@ -85,7 +92,7 @@ export default function AppHomePage() {
         <div className="grid gap-4 xl:grid-cols-2">
           <DashboardWidget
             title={t("dashboard.widgets.activeShipments")}
-            href="/app/orders?view=active"
+            href="/shipments"
             count={data.activeShipments.length}
             isLoading={isFetching && !data.activeShipments.length}
             isError={false}
@@ -98,7 +105,7 @@ export default function AppHomePage() {
 
           <DashboardWidget
             title={t("dashboard.widgets.pendingQuotes")}
-            href="/app/orders?view=awaiting_quote"
+            href="/quotes"
             count={data.pendingQuoteRequests.length}
             isEmpty={data.pendingQuoteRequests.length === 0}
             emptyTitle={t("dashboard.empty.pendingQuotes")}
@@ -109,7 +116,7 @@ export default function AppHomePage() {
 
           <DashboardWidget
             title={t("dashboard.widgets.awaitingApproval")}
-            href="/app/orders?view=awaiting_approval"
+            href="/quotes"
             count={data.awaitingUserApproval.length}
             isEmpty={data.awaitingUserApproval.length === 0}
             emptyTitle={t("dashboard.empty.awaitingApproval")}
@@ -120,7 +127,7 @@ export default function AppHomePage() {
 
           <DashboardWidget
             title={t("dashboard.widgets.awaitingPayment")}
-            href="/app/orders?view=awaiting_payment"
+            href="/orders?view=awaiting_payment"
             count={data.awaitingPayment.length}
             isEmpty={data.awaitingPayment.length === 0}
             emptyTitle={t("dashboard.empty.awaitingPayment")}
@@ -137,7 +144,7 @@ export default function AppHomePage() {
       <div className="grid gap-4 lg:grid-cols-2 xl:grid-cols-3">
         <DashboardWidget
           title={t("dashboard.widgets.completed")}
-          href="/app/orders?view=completed"
+          href="/orders?view=completed"
           count={data.recentlyCompleted.length}
           isEmpty={data.recentlyCompleted.length === 0}
           emptyTitle={t("dashboard.empty.completed")}
@@ -149,7 +156,7 @@ export default function AppHomePage() {
 
         <DashboardWidget
           title={t("dashboard.widgets.integrations")}
-          href="/app/integrations"
+          href="/integrations"
           count={data.integrations.length}
           isEmpty={data.integrations.length === 0}
           emptyTitle={t("dashboard.empty.integrations")}

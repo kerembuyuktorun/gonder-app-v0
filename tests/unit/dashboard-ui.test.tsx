@@ -69,8 +69,7 @@ describe("dashboard UI", () => {
 
     expect(pushMock).toHaveBeenCalled();
     const href = String(pushMock.mock.calls[0]?.[0] ?? "");
-    expect(href).toContain("/app/requests/new");
-    expect(href).toContain("mode=ai");
+    expect(href).toContain("/create-with-ai");
     expect(href).toContain("prompt=");
   });
 });

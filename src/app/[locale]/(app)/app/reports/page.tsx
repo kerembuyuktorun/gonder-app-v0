@@ -46,7 +46,7 @@ export default function ReportsPage() {
           {dashboard.data && dashboard.data.usage.shipmentCount === 0 ? (
             <EmptyState title={t("emptyTitle")} description={t("emptyDescription")} />
           ) : null}
-          <Link href="/app/orders">
+          <Link href="/orders">
             <AppButton variant="secondary" size="sm">
               {t("openOrders")}
             </AppButton>

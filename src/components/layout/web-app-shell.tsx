@@ -4,9 +4,11 @@ import {
   ChevronDown,
   Home,
   BarChart3,
-  Package,
   FileText,
-  Plus,
+  Calculator,
+  ClipboardPlus,
+  ShoppingCart,
+  Truck,
   Link2,
   Settings,
   LifeBuoy,
@@ -28,14 +30,28 @@ import { useUiStore } from "@/stores/ui-store";
 import * as React from "react";
 
 const navItems = [
-  { href: "/app/home", labelKey: "shell.home", icon: Home },
-  { href: "/app/orders", labelKey: "shell.shipments", icon: Package },
-  { href: "/app/quotes", labelKey: "shell.quotes", icon: FileText },
-  { href: "/app/requests/new", labelKey: "shell.newRequest", icon: Plus },
-  { href: "/app/integrations", labelKey: "shell.integrations", icon: Link2 },
-  { href: "/app/reports", labelKey: "shell.reports", icon: BarChart3 },
-  { href: "/app/settings", labelKey: "shell.settings", icon: Settings },
-  { href: "/app/support", labelKey: "shell.support", icon: LifeBuoy },
+  { href: "/dashboard", labelKey: "redesign.nav.dashboard", icon: Home },
+  {
+    href: "/price-calculation",
+    labelKey: "redesign.nav.price",
+    icon: Calculator,
+  },
+  {
+    href: "/create-shipment",
+    labelKey: "redesign.nav.create",
+    icon: ClipboardPlus,
+  },
+  { href: "/orders", labelKey: "redesign.nav.orders", icon: ShoppingCart },
+  { href: "/quotes", labelKey: "redesign.nav.quotes", icon: FileText },
+  { href: "/shipments", labelKey: "redesign.nav.shipments", icon: Truck },
+  {
+    href: "/integrations",
+    labelKey: "redesign.nav.integrations",
+    icon: Link2,
+  },
+  { href: "/reports", labelKey: "redesign.nav.reports", icon: BarChart3 },
+  { href: "/settings", labelKey: "redesign.nav.settings", icon: Settings },
+  { href: "/support", labelKey: "redesign.nav.support", icon: LifeBuoy },
 ] as const;
 
 function ShellNavLinks({
@@ -117,7 +133,7 @@ export function WebAppShell({ children }: { children: React.ReactNode }) {
         )}
       >
         <div className="flex h-[var(--topbar-height)] items-center border-b border-border px-4">
-          <Link href="/app/home" className="flex min-w-0 items-center gap-2">
+          <Link href="/dashboard" className="flex min-w-0 items-center gap-2">
             <span className="flex size-8 shrink-0 items-center justify-center rounded-md bg-primary text-xs font-bold text-primary-foreground">
               G
             </span>
@@ -207,10 +223,18 @@ export function WebAppShell({ children }: { children: React.ReactNode }) {
           </div>
 
           <div className="ml-auto flex items-center gap-1 md:gap-2">
-            <Link href="/app/requests/new">
+            <Link href="/price-calculation" className="hidden lg:block">
+              <AppButton size="sm" variant="secondary" className="gap-1.5">
+                <Calculator className="size-4" />
+                <span>{t("redesign.nav.price")}</span>
+              </AppButton>
+            </Link>
+            <Link href="/create-shipment">
               <AppButton size="sm" className="gap-1.5">
-                <Plus className="size-4" />
-                <span className="hidden sm:inline">{t("auth.newRequest")}</span>
+                <ClipboardPlus className="size-4" />
+                <span className="hidden sm:inline">
+                  {t("redesign.nav.create")}
+                </span>
               </AppButton>
             </Link>
             <NotificationCenter />

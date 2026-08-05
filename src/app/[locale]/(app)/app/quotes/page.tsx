@@ -37,7 +37,7 @@ export default function AppQuotesPage() {
           title={t("shell.quotes")}
           description={t("quotesPage.subtitle")}
           actions={
-            <Link href="/app/orders?view=awaiting_approval">
+            <Link href="/orders?view=awaiting_approval">
               <AppButton size="sm" variant="secondary">
                 {t("quotesPage.openOrders")}
               </AppButton>
@@ -65,7 +65,7 @@ export default function AppQuotesPage() {
                 header: t("table.reference"),
                 accessor: (row) => (
                   <Link
-                    href={`/app/orders/${row.id}`}
+                    href={`/orders/${row.id}`}
                     className="font-medium text-primary hover:underline"
                   >
                     {row.reference}

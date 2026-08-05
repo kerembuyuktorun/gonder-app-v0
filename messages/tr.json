@@ -1419,7 +1419,8 @@
     "pagination": {
       "summary": "{from}–{to} / {total}",
       "prev": "Önceki",
-      "next": "Sonraki"
+      "next": "Sonraki",
+      "pageSize": "Sayfa boyutu"
     },
     "notifications": {
       "title": "Bildirimler",
@@ -1434,7 +1435,9 @@
     },
     "copyBanner": "Önceki gönderiyi kopyalamak için örnek sipariş açıldı. Parcel sihirbazına devam edebilirsiniz.",
     "copyContinue": "Parcel’a devam",
-    "copyDismiss": "Kapat"
+    "copyDismiss": "Kapat",
+    "createdBannerTitle": "Sipariş taslağınız oluşturuldu",
+    "createdBannerDescription": "Seçtiğiniz teklif ve taşıma bilgileri korundu. Ödeme onayı sonrasında fiziksel gönderi kaydı açılır."
   },
   "integrations": {
     "title": "Entegrasyon merkezi",
@@ -1903,5 +1906,284 @@
     "openOrders": "Sipariş görünümü",
     "emptyTitle": "Bekleyen teklif yok",
     "emptyDescription": "Yeni talep oluşturduğunuzda teklifler burada listelenir."
+  },
+  "redesign": {
+    "nav": {
+      "dashboard": "Ana Sayfa",
+      "price": "Fiyat Hesaplama",
+      "create": "Gönderi Oluştur",
+      "orders": "Siparişler",
+      "quotes": "Teklifler",
+      "shipments": "Gönderiler",
+      "integrations": "Entegrasyon",
+      "reports": "Raporlar",
+      "settings": "Ayarlar",
+      "support": "Destek"
+    },
+    "landing": {
+      "brandLine": "Lojistik süper platformu",
+      "signIn": "Giriş yap",
+      "register": "Ücretsiz hesap oluştur",
+      "theme": "Temayı değiştir",
+      "nav": {
+        "services": "Hizmetler",
+        "how": "Nasıl çalışır?",
+        "enterprise": "Kurumsal",
+        "ai": "AI ile oluştur",
+        "support": "Destek"
+      },
+      "eyebrow": "Kargo, kurye ve lojistik tek yerde",
+      "headline": "Tüm kargo ve lojistik ihtiyaçlarınız için tek platform",
+      "description": "Kargo, kurye ve lojistik seçeneklerini karşılaştırın, teklif alın ve taşımanızı tek yerden yönetin.",
+      "proof": {
+        "compare": "Doğrulanmış hizmetleri karşılaştırın",
+        "singlePanel": "Tek panelden yönetin",
+        "support": "Operasyon desteği alın"
+      },
+      "trustTitle": "3.500+ işletmenin tercihi",
+      "trustDescription": "KOBİ'den kurumsala güvenli lojistik yönetimi",
+      "formTitle": "Hemen fiyat veya teklif alın",
+      "formDescription": "Minimum bilgileri girin, uygun hizmetleri birlikte görelim.",
+      "guestBadge": "Üyeliksiz başlayın",
+      "services": {
+        "eyebrow": "Hizmetler",
+        "title": "Her taşıma ihtiyacı için doğru akış",
+        "description": "Küçük bir paketten komple araca kadar ihtiyacınıza göre dinamikleşen tek bir talep motoru.",
+        "parcel": {
+          "title": "Kargo",
+          "description": "1–30 desi koli ve paketler için fiyatları karşılaştırın.",
+          "item1": "Hazır paket ölçüleri",
+          "item2": "Adresten alım seçenekleri",
+          "item3": "Taşıyıcı karşılaştırma"
+        },
+        "courier": {
+          "title": "Kurye",
+          "description": "Şehir içi express, aynı gün veya planlı teslimat.",
+          "item1": "Moto ve araçlı kurye",
+          "item2": "Canlı kurye takibi",
+          "item3": "Çok noktalı teslimat"
+        },
+        "logistics": {
+          "title": "Lojistik",
+          "description": "Komple ve parsiyel yükler için doğrulanmış teklifler.",
+          "item1": "FTL komple araç",
+          "item2": "LTL parsiyel yük",
+          "item3": "Operasyon uzmanı desteği"
+        }
+      },
+      "how": {
+        "eyebrow": "Nasıl çalışır?",
+        "title": "Talebinizden teslimata dört net adım",
+        "description": "Aynı bilgiler farklı formlarda tekrar istenmez; fiyat aramasından sipariş ve takibe kesintisiz ilerlersiniz.",
+        "request": {
+          "title": "İhtiyacınızı girin",
+          "description": "Operasyon tipini, rotayı ve yük özetini paylaşın."
+        },
+        "compare": {
+          "title": "Seçenekleri karşılaştırın",
+          "description": "Fiyat, süre, hizmet ve koşulları yan yana görün."
+        },
+        "pay": {
+          "title": "Güvenle onaylayın",
+          "description": "Teklifi siparişe dönüştürün ve ödemenizi tamamlayın."
+        },
+        "track": {
+          "title": "Uçtan uca takip edin",
+          "description": "Gönderi hareketlerini ve belgeleri tek ekrandan yönetin."
+        }
+      },
+      "enterprise": {
+        "title": "Lojistik operasyonunuzu parçalı araçlardan kurtarın",
+        "description": "E-ticaret, ERP, WMS ve API bağlantılarıyla siparişlerinizi otomatik aktarın; kuralları, maliyetleri ve performansı aynı panelden yönetin.",
+        "cta": "Kurumsal hesap aç",
+        "aiCta": "AI talep demosunu dene",
+        "api": "API ve webhook",
+        "support": "Operasyon uzmanı",
+        "control": "Rol ve harcama kontrolü"
+      },
+      "footer": "Arf tarafından işletilir"
+    },
+    "operationTypes": {
+      "label": "Operasyon tipi",
+      "parcel": {
+        "title": "Kargo",
+        "short": "1–30 desi paket ve koli"
+      },
+      "courier": {
+        "title": "Kurye",
+        "short": "Şehir içi hızlı teslimat"
+      },
+      "logistics": {
+        "title": "Lojistik",
+        "short": "FTL ve LTL yük taşıma"
+      }
+    },
+    "request": {
+      "logisticsMode": "Taşıma modeli",
+      "logistics": {
+        "ftl": {
+          "title": "FTL · Komple",
+          "description": "Yüke özel araç"
+        },
+        "ltl": {
+          "title": "LTL · Parsiyel",
+          "description": "Paylaşımlı araç kapasitesi"
+        }
+      },
+      "origin": "Nereden",
+      "destination": "Nereye",
+      "originPlaceholder": "İl veya ilçe",
+      "destinationPlaceholder": "İl veya ilçe",
+      "packagePreset": "Paket özeti",
+      "courierService": "Teslimat tipi",
+      "calculatedDesi": "Hesaplanan hacim",
+      "vehicleType": "Araç tipi",
+      "bodyType": "Kasa tipi",
+      "loadType": "Yük tipi",
+      "weight": "Ağırlık (kg)",
+      "width": "En (cm)",
+      "length": "Boy (cm)",
+      "height": "Yükseklik (cm)",
+      "quantity": "Adet",
+      "date": "Gönderi tarihi",
+      "contactTitle": "Gönderici ve alıcı bilgileri",
+      "senderName": "Gönderici adı",
+      "senderPhone": "Gönderici telefonu",
+      "receiverName": "Alıcı adı",
+      "receiverPhone": "Alıcı telefonu",
+      "draftSaved": "Taslak otomatik kaydedildi",
+      "autoSave": "Bilgileriniz otomatik kaydedilir",
+      "showPrices": "Fiyatları Gör",
+      "continueShipment": "Siparişi oluştur",
+      "overLimitTitle": "Bu paket 30 desi sınırını aşıyor",
+      "overLimitDescription": "Uygun araç ve fiyat için Gönder XL / lojistik akışına geçin.",
+      "switchToLogistics": "Lojistik akışına geç",
+      "validation": {
+        "origin": "Çıkış noktası zorunludur.",
+        "destination": "Varış noktası zorunludur.",
+        "date": "Tarih seçin."
+      },
+      "presets": {
+        "document": "Evrak",
+        "small": "Küçük paket",
+        "medium": "Orta koli",
+        "large": "Büyük koli",
+        "custom": "Özel ölçü"
+      },
+      "courier": {
+        "express": "Express",
+        "same_day": "Aynı gün",
+        "scheduled": "Planlı teslimat"
+      },
+      "vehicles": {
+        "van": "Kamyonet",
+        "truck": "Kamyon",
+        "semi": "Tır",
+        "other": "Diğer"
+      },
+      "bodies": {
+        "closed": "Kapalı kasa",
+        "curtain": "Tenteli",
+        "reefer": "Frigorifik",
+        "open": "Açık kasa"
+      },
+      "loads": {
+        "pallet": "Palet",
+        "box": "Koli",
+        "ibc": "IBC",
+        "barrel": "Varil",
+        "other": "Diğer"
+      }
+    },
+    "results": {
+      "title": "Uygun hizmetler",
+      "subtitle": "Fiyat, teslimat süresi ve hizmet koşullarını karşılaştırın.",
+      "back": "Ana sayfa",
+      "signIn": "Giriş yap",
+      "route": "Rota",
+      "date": "Tarih",
+      "operation": "Operasyon",
+      "types": {
+        "parcel": "Kargo",
+        "courier": "Kurye",
+        "logistics": "Lojistik"
+      },
+      "edit": "Aramayı düzenle",
+      "count": "{count} uygun seçenek",
+      "filters": "Filtre ve sıralama",
+      "sort": "Sıralama",
+      "sortOptions": {
+        "recommended": "Önerilen",
+        "price": "En düşük fiyat",
+        "speed": "En hızlı"
+      },
+      "pickupOnly": "Adresten alım",
+      "pickupOnlyDescription": "Planlı şube teslimlerini gizle",
+      "recommended": "Gönder önerisi · Fiyat ve hizmet dengesi",
+      "delivery": "Teslimat",
+      "pickup": "Alım",
+      "insurance": "Güvence",
+      "preparing": "Teklif hazırlanıyor",
+      "firstQuote": "İlk teklif yaklaşık 45 dk",
+      "total": "Toplam fiyat",
+      "taxIncluded": "KDV ve temel ücretler dahil",
+      "select": "Seç ve devam et",
+      "requestQuote": "Teklif talebi oluştur",
+      "details": "Koşulları görüntüle",
+      "hideDetails": "Koşulları kapat",
+      "termsTitle": "Hizmet koşulları",
+      "termsDescription": "Fiyata temel taşıma, takip ve belirtilen güvence dahildir. Kesin kapsam sipariş onayından önce yeniden gösterilir."
+    },
+    "summary": {
+      "eyebrow": "Canlı özet",
+      "title": "Talep özeti",
+      "reset": "Taslağı sıfırla",
+      "route": "Çıkış ve varış",
+      "date": "Tarih",
+      "load": "Paket veya yük",
+      "notSet": "Henüz girilmedi",
+      "selectedQuote": "Seçilen teklif",
+      "preparing": "Hazırlanıyor",
+      "noQuote": "Fiyat aramasında seçtiğiniz teklif burada görünür.",
+      "autoSave": "Taslağınız bu cihazda otomatik saklanır.",
+      "secure": "Kesin sipariş ve ödeme yalnızca açık onayınızla başlatılır."
+    },
+    "pricePage": {
+      "title": "Fiyat Hesaplama",
+      "description": "Minimum bilgileri girin; uygun hizmetleri ve tahmini fiyatları karşılaştırın.",
+      "formTitle": "Taşıma bilgileri",
+      "formHint": "Alanlar seçtiğiniz operasyon tipine göre güncellenir."
+    },
+    "createPage": {
+      "title": "Gönderi Oluştur",
+      "description": "Fiyat aramasındaki bilgileriniz korundu. İletişim ve gönderi detaylarını tamamlayın.",
+      "formTitle": "Sipariş bilgilerini tamamlayın",
+      "formHint": "Özet paneli her değişiklikte otomatik güncellenir."
+    },
+    "shipments": {
+      "title": "Gönderiler",
+      "description": "Kesinleşmiş siparişler kapsamındaki aktif fiziksel taşıma ve takip kayıtları.",
+      "empty": "Aktif gönderi yok",
+      "emptyDescription": "Siparişiniz taşıma aşamasına geçtiğinde burada görünür.",
+      "tracking": "Takip numarası",
+      "order": "Sipariş",
+      "service": "Hizmet",
+      "route": "Rota",
+      "status": "Güncel durum",
+      "eta": "Tahmini teslimat"
+    },
+    "register": {
+      "title": "Gönder hesabınızı oluşturun",
+      "subtitle": "Fiyat aramanız korunur; hesap sonrası kaldığınız yerden devam edersiniz.",
+      "name": "Ad soyad",
+      "email": "E-posta",
+      "phone": "Telefon",
+      "password": "Şifre",
+      "submit": "Hesap oluştur ve devam et",
+      "hasAccount": "Zaten hesabınız var mı?",
+      "signIn": "Giriş yap",
+      "validation": "Ad, geçerli e-posta ve en az 8 karakterli şifre girin.",
+      "terms": "Devam ederek kullanım koşullarını ve gizlilik politikasını kabul etmiş olursunuz."
+    }
   }
 }

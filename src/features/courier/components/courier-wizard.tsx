@@ -66,7 +66,7 @@ export function CourierWizard() {
         </p>
         <p className="text-xs text-muted-foreground">{submitted.requestId}</p>
         <div className="flex flex-wrap justify-center gap-2 pt-2">
-          <Link href="/app/home">
+          <Link href="/dashboard">
             <AppButton type="button">{t("backHome")}</AppButton>
           </Link>
           <AppButton type="button" variant="secondary" onClick={reset}>

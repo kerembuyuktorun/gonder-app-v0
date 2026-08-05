@@ -54,7 +54,8 @@ export function UnauthenticatedGuard({ children }: GuardProps) {
 
   React.useEffect(() => {
     if (status === "authenticated") {
-      router.replace(postAuthRedirectPath());
+      const returnTo = sessionStorage.getItem("gonder.auth.returnTo");
+      router.replace(returnTo ?? postAuthRedirectPath());
     }
   }, [status, router, postAuthRedirectPath]);
 
@@ -80,7 +81,7 @@ export function OnboardingGuard({ children }: GuardProps) {
       return;
     }
     if (status === "authenticated" && user?.onboarding.status === "completed") {
-      router.replace("/app/home");
+      router.replace("/dashboard");
     }
   }, [status, user, router]);
 

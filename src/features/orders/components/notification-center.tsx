@@ -71,7 +71,7 @@ export function NotificationCenter() {
               data.map((n) => (
                 <li key={n.id}>
                   <Link
-                    href={`/app/orders/${n.orderId}`}
+                    href={`/orders/${n.orderId}`}
                     onClick={() => {
                       if (!n.read) markRead.mutate(n.id);
                       setOpen(false);

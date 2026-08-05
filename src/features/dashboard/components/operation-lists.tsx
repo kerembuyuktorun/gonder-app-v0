@@ -60,7 +60,7 @@ function RefLink({
   if (!orderId) return <span className="font-medium">{label}</span>;
   return (
     <Link
-      href={`/app/orders/${orderId}`}
+      href={`/orders/${orderId}`}
       className="font-medium text-primary hover:underline"
     >
       {label}

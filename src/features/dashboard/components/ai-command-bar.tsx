@@ -16,8 +16,8 @@ export function AiCommandBar() {
     e.preventDefault();
     const query = prompt.trim();
     const href = query
-      ? `/app/requests/new?mode=ai&prompt=${encodeURIComponent(query)}`
-      : "/app/requests/new?mode=ai";
+      ? `/create-with-ai?prompt=${encodeURIComponent(query)}`
+      : "/create-with-ai";
     router.push(href);
   }
 

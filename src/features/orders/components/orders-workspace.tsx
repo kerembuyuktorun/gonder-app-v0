@@ -73,6 +73,7 @@ export function OrdersWorkspace() {
   const searchParams = useSearchParams();
   const copyBanner =
     !copyDismissed && searchParams.get("action") === "copy";
+  const createdBanner = searchParams.get("created") === "true";
 
   const items = data?.items ?? [];
   const total = data?.total ?? 0;
@@ -193,6 +194,16 @@ export function OrdersWorkspace() {
               {t("copyDismiss")}
             </AppButton>
           </div>
+        </div>
+      ) : null}
+
+      {createdBanner ? (
+        <div
+          className="rounded-xl border border-success/35 bg-status-success-bg px-4 py-3 text-sm text-status-success-fg"
+          role="status"
+        >
+          <p className="font-semibold">{t("createdBannerTitle")}</p>
+          <p className="mt-0.5">{t("createdBannerDescription")}</p>
         </div>
       ) : null}
 
@@ -460,7 +471,7 @@ export function OrdersWorkspace() {
                       >
                         <Eye className="size-4" />
                       </AppButton>
-                      <Link href={`/app/orders/${row.id}`}>
+                      <Link href={`/orders/${row.id}`}>
                         <AppButton
                           variant="ghost"
                           size="icon"
@@ -494,6 +505,7 @@ export function OrdersWorkspace() {
               onChange={(e) =>
                 setState({ pageSize: Number(e.target.value), page: 1 })
               }
+              aria-label={t("pagination.pageSize")}
             >
               {[5, 10, 20, 50].map((n) => (
                 <option key={n} value={n}>

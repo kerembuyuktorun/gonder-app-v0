@@ -14,8 +14,8 @@ test.skip(
 );
 
 const SHOTS = [
-  { name: "home", route: "/tr/app/home" },
-  { name: "orders", route: "/tr/app/orders" },
+  { name: "home", route: "/tr/dashboard" },
+  { name: "orders", route: "/tr/orders" },
   { name: "agent", route: "/tr/app/agent" },
   { name: "operations", route: "/tr/operations" },
 ] as const;
@@ -31,10 +31,33 @@ async function login(page: Page, email: string) {
   await page.getByLabel(/E-posta|Email/i).fill(email);
   await page.getByLabel(/Şifre|Password/i).fill("Password1!");
   await page.getByRole("button", { name: /Giriş yap|Sign in/i }).click();
-  await page.waitForURL(/\/tr\/(app\/home|operations)/);
+  await page.waitForURL(/\/tr\/(dashboard|operations)/);
 }
 
 test.describe.configure({ mode: "serial" });
+
+test("capture public landing", async ({ page }) => {
+  for (const theme of ["light", "dark"] as const) {
+    await page.setViewportSize({ width: 1440, height: 1000 });
+    await page.goto("/tr");
+    if (theme === "dark") {
+      await page
+        .getByRole("button", { name: /Temayı değiştir|Change theme/i })
+        .click();
+    }
+    await page.waitForLoadState("networkidle");
+    await page.screenshot({
+      path: path.join(OUT, `landing-1440-${theme}.png`),
+      fullPage: true,
+    });
+
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.screenshot({
+      path: path.join(OUT, `landing-390-${theme}.png`),
+      fullPage: false,
+    });
+  }
+});
 
 test("capture light and dark screenshots", async ({ page }) => {
   test.slow();
