@@ -25,7 +25,7 @@ export function OrderDetailPage({ orderId }: { orderId: string }) {
               : t("detailSubtitle")
           }
         />
-        <Link href="/app/orders">
+        <Link href="/orders">
           <AppButton variant="secondary" size="sm">
             {t("backToList")}
           </AppButton>

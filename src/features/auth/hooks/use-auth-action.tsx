@@ -31,6 +31,11 @@ export function useAuthAction() {
 
   async function completeAuth(snapshot: SessionSnapshot) {
     applySnapshot(snapshot);
+    const returnTo = sessionStorage.getItem("gonder.auth.returnTo");
+    if (returnTo && snapshot.user.onboarding.status === "completed") {
+      router.replace(returnTo);
+      return;
+    }
     router.replace(postAuthRedirectPath());
   }
 

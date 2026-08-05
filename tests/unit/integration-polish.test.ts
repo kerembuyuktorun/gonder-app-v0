@@ -32,7 +32,7 @@ describe("mock data consistency", () => {
 
   it("quick actions point at live routes", () => {
     const hrefs = mockDashboardSnapshot.quickActions.map((a) => a.href);
-    expect(hrefs.some((h) => h.startsWith("/app/orders"))).toBe(true);
+    expect(hrefs.some((h) => h.startsWith("/orders"))).toBe(true);
     expect(hrefs.some((h) => h.includes("integrations"))).toBe(true);
     expect(hrefs.every((h) => !h.includes("/app/shipments?"))).toBe(true);
   });

@@ -1434,7 +1434,9 @@
     },
     "copyBanner": "Sample order opened for copy. Continue in the parcel wizard.",
     "copyContinue": "Continue to parcel",
-    "copyDismiss": "Dismiss"
+    "copyDismiss": "Dismiss",
+    "createdBannerTitle": "Your order draft was created",
+    "createdBannerDescription": "The selected quote and transport details were preserved. A physical shipment record is opened after payment approval."
   },
   "integrations": {
     "title": "Integration center",
@@ -1903,5 +1905,284 @@
     "openOrders": "Orders view",
     "emptyTitle": "No pending quotes",
     "emptyDescription": "Quotes appear here after you create requests."
+  },
+  "redesign": {
+    "nav": {
+      "dashboard": "Home",
+      "price": "Price Calculation",
+      "create": "Create Shipment",
+      "orders": "Orders",
+      "quotes": "Quotes",
+      "shipments": "Shipments",
+      "integrations": "Integrations",
+      "reports": "Reports",
+      "settings": "Settings",
+      "support": "Support"
+    },
+    "landing": {
+      "brandLine": "Logistics super platform",
+      "signIn": "Sign in",
+      "register": "Create free account",
+      "theme": "Change theme",
+      "nav": {
+        "services": "Services",
+        "how": "How it works",
+        "enterprise": "Enterprise",
+        "ai": "Create with AI",
+        "support": "Support"
+      },
+      "eyebrow": "Parcel, courier and logistics in one place",
+      "headline": "One platform for all your parcel and logistics needs",
+      "description": "Compare parcel, courier and logistics options, get quotes and manage transportation from one place.",
+      "proof": {
+        "compare": "Compare verified services",
+        "singlePanel": "Manage from one panel",
+        "support": "Get operational support"
+      },
+      "trustTitle": "Trusted by 3,500+ businesses",
+      "trustDescription": "Secure logistics management from SMBs to enterprises",
+      "formTitle": "Get a price or quote now",
+      "formDescription": "Enter the minimum details and see suitable services.",
+      "guestBadge": "Start as a guest",
+      "services": {
+        "eyebrow": "Services",
+        "title": "The right flow for every transport need",
+        "description": "One request engine that adapts from a small parcel to a full truck load.",
+        "parcel": {
+          "title": "Parcel",
+          "description": "Compare prices for parcels and boxes from 1–30 volumetric weight.",
+          "item1": "Ready package presets",
+          "item2": "Door pickup options",
+          "item3": "Carrier comparison"
+        },
+        "courier": {
+          "title": "Courier",
+          "description": "In-city express, same-day or scheduled delivery.",
+          "item1": "Motorbike and car courier",
+          "item2": "Live courier tracking",
+          "item3": "Multi-stop delivery"
+        },
+        "logistics": {
+          "title": "Logistics",
+          "description": "Verified quotes for full and partial loads.",
+          "item1": "FTL full truck",
+          "item2": "LTL partial load",
+          "item3": "Operations expert support"
+        }
+      },
+      "how": {
+        "eyebrow": "How it works",
+        "title": "Four clear steps from request to delivery",
+        "description": "The same information is never requested in separate forms; move seamlessly from price search to order and tracking.",
+        "request": {
+          "title": "Enter your need",
+          "description": "Share the operation type, route and load summary."
+        },
+        "compare": {
+          "title": "Compare options",
+          "description": "See price, time, service and terms side by side."
+        },
+        "pay": {
+          "title": "Confirm securely",
+          "description": "Turn the quote into an order and complete payment."
+        },
+        "track": {
+          "title": "Track end to end",
+          "description": "Manage movements and documents from one screen."
+        }
+      },
+      "enterprise": {
+        "title": "Replace fragmented tools in your logistics operation",
+        "description": "Connect ecommerce, ERP, WMS and APIs; manage orders, rules, costs and performance in one panel.",
+        "cta": "Create enterprise account",
+        "aiCta": "Try the AI request demo",
+        "api": "API and webhooks",
+        "support": "Operations expert",
+        "control": "Role and spend controls"
+      },
+      "footer": "Operated by Arf"
+    },
+    "operationTypes": {
+      "label": "Operation type",
+      "parcel": {
+        "title": "Parcel",
+        "short": "1–30 volumetric weight boxes"
+      },
+      "courier": {
+        "title": "Courier",
+        "short": "Fast in-city delivery"
+      },
+      "logistics": {
+        "title": "Logistics",
+        "short": "FTL and LTL transport"
+      }
+    },
+    "request": {
+      "logisticsMode": "Transport model",
+      "logistics": {
+        "ftl": {
+          "title": "FTL · Full",
+          "description": "Dedicated vehicle"
+        },
+        "ltl": {
+          "title": "LTL · Partial",
+          "description": "Shared vehicle capacity"
+        }
+      },
+      "origin": "From",
+      "destination": "To",
+      "originPlaceholder": "City or district",
+      "destinationPlaceholder": "City or district",
+      "packagePreset": "Package summary",
+      "courierService": "Delivery type",
+      "calculatedDesi": "Calculated volume",
+      "vehicleType": "Vehicle type",
+      "bodyType": "Body type",
+      "loadType": "Load type",
+      "weight": "Weight (kg)",
+      "width": "Width (cm)",
+      "length": "Length (cm)",
+      "height": "Height (cm)",
+      "quantity": "Quantity",
+      "date": "Shipment date",
+      "contactTitle": "Sender and recipient",
+      "senderName": "Sender name",
+      "senderPhone": "Sender phone",
+      "receiverName": "Recipient name",
+      "receiverPhone": "Recipient phone",
+      "draftSaved": "Draft saved automatically",
+      "autoSave": "Your details are saved automatically",
+      "showPrices": "Show Prices",
+      "continueShipment": "Create order",
+      "overLimitTitle": "This package exceeds the 30 volumetric weight limit",
+      "overLimitDescription": "Switch to Gönder XL / logistics for a suitable vehicle and price.",
+      "switchToLogistics": "Switch to logistics",
+      "validation": {
+        "origin": "Origin is required.",
+        "destination": "Destination is required.",
+        "date": "Select a date."
+      },
+      "presets": {
+        "document": "Document",
+        "small": "Small package",
+        "medium": "Medium box",
+        "large": "Large box",
+        "custom": "Custom dimensions"
+      },
+      "courier": {
+        "express": "Express",
+        "same_day": "Same day",
+        "scheduled": "Scheduled"
+      },
+      "vehicles": {
+        "van": "Van",
+        "truck": "Truck",
+        "semi": "Semi truck",
+        "other": "Other"
+      },
+      "bodies": {
+        "closed": "Closed body",
+        "curtain": "Curtainsider",
+        "reefer": "Refrigerated",
+        "open": "Open body"
+      },
+      "loads": {
+        "pallet": "Pallet",
+        "box": "Box",
+        "ibc": "IBC",
+        "barrel": "Barrel",
+        "other": "Other"
+      }
+    },
+    "results": {
+      "title": "Suitable services",
+      "subtitle": "Compare price, delivery time and service terms.",
+      "back": "Home",
+      "signIn": "Sign in",
+      "route": "Route",
+      "date": "Date",
+      "operation": "Operation",
+      "types": {
+        "parcel": "Parcel",
+        "courier": "Courier",
+        "logistics": "Logistics"
+      },
+      "edit": "Edit search",
+      "count": "{count} suitable options",
+      "filters": "Filter and sort",
+      "sort": "Sort",
+      "sortOptions": {
+        "recommended": "Recommended",
+        "price": "Lowest price",
+        "speed": "Fastest"
+      },
+      "pickupOnly": "Door pickup",
+      "pickupOnlyDescription": "Hide scheduled branch drop-offs",
+      "recommended": "Gönder recommendation · Price and service balance",
+      "delivery": "Delivery",
+      "pickup": "Pickup",
+      "insurance": "Coverage",
+      "preparing": "Quote preparing",
+      "firstQuote": "First quote in about 45 min",
+      "total": "Total price",
+      "taxIncluded": "Tax and base fees included",
+      "select": "Select and continue",
+      "requestQuote": "Create quote request",
+      "details": "View terms",
+      "hideDetails": "Hide terms",
+      "termsTitle": "Service terms",
+      "termsDescription": "The price includes base transport, tracking and the listed coverage. Final scope is shown again before order confirmation."
+    },
+    "summary": {
+      "eyebrow": "Live summary",
+      "title": "Request summary",
+      "reset": "Reset draft",
+      "route": "Origin and destination",
+      "date": "Date",
+      "load": "Package or load",
+      "notSet": "Not entered yet",
+      "selectedQuote": "Selected quote",
+      "preparing": "Preparing",
+      "noQuote": "The quote selected during price search will appear here.",
+      "autoSave": "Your draft is stored automatically on this device.",
+      "secure": "Orders and payments only start after your explicit confirmation."
+    },
+    "pricePage": {
+      "title": "Price Calculation",
+      "description": "Enter minimum details and compare suitable services and estimates.",
+      "formTitle": "Transport details",
+      "formHint": "Fields update based on the selected operation type."
+    },
+    "createPage": {
+      "title": "Create Shipment",
+      "description": "Your price search details are preserved. Complete contact and shipment details.",
+      "formTitle": "Complete order details",
+      "formHint": "The summary panel updates automatically."
+    },
+    "shipments": {
+      "title": "Shipments",
+      "description": "Active physical transport and tracking records under confirmed orders.",
+      "empty": "No active shipments",
+      "emptyDescription": "Orders appear here when physical transport begins.",
+      "tracking": "Tracking number",
+      "order": "Order",
+      "service": "Service",
+      "route": "Route",
+      "status": "Current status",
+      "eta": "Estimated delivery"
+    },
+    "register": {
+      "title": "Create your Gönder account",
+      "subtitle": "Your price search is preserved so you can continue after signup.",
+      "name": "Full name",
+      "email": "Email",
+      "phone": "Phone",
+      "password": "Password",
+      "submit": "Create account and continue",
+      "hasAccount": "Already have an account?",
+      "signIn": "Sign in",
+      "validation": "Enter a name, valid email and password of at least 8 characters.",
+      "terms": "By continuing, you agree to the terms of use and privacy policy."
+    }
   }
 }

@@ -35,6 +35,16 @@ function CompleteContent() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  function continueToApp() {
+    const returnTo = sessionStorage.getItem("gonder.auth.returnTo");
+    if (returnTo) {
+      sessionStorage.removeItem("gonder.auth.returnTo");
+      router.replace(returnTo);
+      return;
+    }
+    router.replace("/dashboard");
+  }
+
   return (
     <AuthPageFrame>
       <AuthCard
@@ -47,7 +57,7 @@ function CompleteContent() {
           <AppButton
             className="w-full"
             loading={loading}
-            onClick={() => router.replace("/app/home")}
+            onClick={continueToApp}
           >
             {t("goToApp")}
           </AppButton>

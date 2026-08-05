@@ -407,7 +407,7 @@ export function SpotPaymentResult({
 
       {intent.status === "succeeded" ? (
         <div className="flex flex-wrap justify-center gap-2">
-          <Link href="/app/home">
+          <Link href="/dashboard">
             <AppButton type="button">{t("backHome")}</AppButton>
           </Link>
           <AppButton type="button" variant="secondary" onClick={onReset}>

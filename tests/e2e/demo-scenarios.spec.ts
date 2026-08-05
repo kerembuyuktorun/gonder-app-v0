@@ -5,7 +5,7 @@ async function loginCustomer(page: import("@playwright/test").Page) {
   await page.getByLabel(/E-posta|Email/i).fill("ayse@example.com");
   await page.getByLabel(/Şifre|Password/i).fill("Password1!");
   await page.getByRole("button", { name: /Giriş yap|Sign in/i }).click();
-  await expect(page).toHaveURL(/\/tr\/app\/home/);
+  await expect(page).toHaveURL(/\/tr\/dashboard/);
 }
 
 async function loginOps(page: import("@playwright/test").Page) {
@@ -20,7 +20,7 @@ test.describe("Gönder demo scenarios", () => {
   test("customer home widgets deep-link to orders", async ({ page }) => {
     await loginCustomer(page);
     await page.getByRole("link", { name: /Tümünü gör|View all/i }).first().click();
-    await expect(page).toHaveURL(/\/tr\/app\/orders/);
+    await expect(page).toHaveURL(/\/tr\/shipments/);
   });
 
   test("AI agent and courier request routes load", async ({ page }) => {
@@ -47,7 +47,7 @@ test.describe("Gönder demo scenarios", () => {
       "/tr/app/requests/ftl",
       "/tr/app/requests/ltl",
       "/tr/app/requests/spot",
-      "/tr/app/orders?view=active",
+      "/tr/shipments",
     ]) {
       await page.goto(path);
       await expect(page.getByRole("heading").first()).toBeVisible();

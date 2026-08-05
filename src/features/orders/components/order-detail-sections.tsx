@@ -112,7 +112,7 @@ export function OrderDetailSections({
           ) : null}
         </dl>
         {compact ? (
-          <Link href={`/app/orders/${order.id}`}>
+          <Link href={`/orders/${order.id}`}>
             <AppButton variant="secondary" size="sm" className="mt-2">
               {t("openFull")}
             </AppButton>

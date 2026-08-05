@@ -64,7 +64,7 @@ export function OperationsShell({ children }: { children: React.ReactNode }) {
             {user?.staffRole ? ` · ${t(`operations.staffRoles.${user.staffRole}`)}` : ""}
           </p>
           <div className="flex gap-2">
-            <Link href="/app/home">
+            <Link href="/dashboard">
               <AppButton size="sm" variant="ghost">
                 {t("operations.customerApp")}
               </AppButton>

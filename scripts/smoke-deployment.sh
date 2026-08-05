@@ -14,7 +14,21 @@ ROUTES=(
   /tr/welcome
   /tr/login/email
   /tr/login/phone
+  /tr/register
+  /tr/results
+  /tr/create-with-ai
   /tr/onboarding/account-type
+  /tr/dashboard
+  /tr/price-calculation
+  /tr/create-shipment
+  /tr/orders
+  /tr/orders/ord_c1
+  /tr/quotes
+  /tr/shipments
+  /tr/integrations
+  /tr/reports
+  /tr/settings
+  /tr/support
   /tr/app/home
   /tr/app/agent
   /tr/app/requests/new

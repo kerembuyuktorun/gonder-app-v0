@@ -81,7 +81,7 @@ export function FreightWizard({
         <p className="text-sm text-muted-foreground">{t("successBody")}</p>
         <p className="text-sm font-medium">{w.request.reference}</p>
         <div className="flex flex-wrap justify-center gap-2">
-          <Link href="/app/home">
+          <Link href="/dashboard">
             <AppButton type="button">{t("backHome")}</AppButton>
           </Link>
           <AppButton type="button" variant="secondary" onClick={w.reset}>

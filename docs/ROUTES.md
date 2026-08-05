@@ -7,6 +7,9 @@ All paths are locale-prefixed (`/tr` default, `/en`).
 | Route | Notes |
 | --- | --- |
 | `/` | Marketing home |
+| `/results` | Public price / quote results |
+| `/create-with-ai` | Public AI request demo |
+| `/register` | Mock account creation |
 | `/splash` | Splash → redirect |
 | `/welcome` | Auth welcome |
 | `/login/email` | Email/password |
@@ -15,11 +18,27 @@ All paths are locale-prefixed (`/tr` default, `/en`).
 | `/login/forgot-password` | Reset |
 | `/onboarding/*` | Account type → complete |
 
-## Customer app (`/app`)
+## Customer app
 
 | Route | Notes |
 | --- | --- |
-| `/app/home` | Dashboard |
+| `/dashboard` | Dashboard |
+| `/price-calculation` | Shared request engine · quote mode |
+| `/create-shipment` | Shared request engine · order completion mode |
+| `/orders` | Commercial order records |
+| `/orders/[id]` | Order detail |
+| `/quotes` | Pre-order quote records |
+| `/shipments` | Active physical transport records |
+| `/integrations` | Marketplace / Excel / templates |
+| `/integrations/[id]` | Integration detail |
+| `/reports` | Usage summary |
+| `/settings` | Organization and preferences |
+| `/support` | Support entry points |
+
+### Specialized / legacy-compatible flows
+
+| Route | Notes |
+| --- | --- |
 | `/app/agent` | AI Logistics Agent |
 | `/app/requests/new` | New request (AI) |
 | `/app/requests/new/form` | Manual form → wizard |
@@ -30,15 +49,8 @@ All paths are locale-prefixed (`/tr` default, `/en`).
 | `/app/requests/ftl` | FTL |
 | `/app/requests/ltl` | LTL |
 | `/app/requests/spot` | Spot + payment |
-| `/app/orders` | Order management |
-| `/app/orders/[id]` | Order detail |
-| `/app/shipments` | → `/app/orders` |
-| `/app/quotes` | Quote queue (orders-backed) |
-| `/app/reports` | Usage summary |
-| `/app/support` | Help links |
-| `/app/integrations` | Marketplace / Excel / templates |
-| `/app/integrations/[id]` | Connect |
-| `/app/settings` | Org & preferences |
+| `/app/orders`, `/app/quotes`, `/app/integrations/*` | Compatibility routes |
+| `/app/shipments` | → legacy order view |
 
 ## Operations (`/operations`)
 

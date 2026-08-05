@@ -10,7 +10,15 @@ const VIEWPORTS = [
 ] as const;
 
 const CUSTOMER_ROUTES = [
-  "/tr/app/home",
+  "/tr/dashboard",
+  "/tr/price-calculation",
+  "/tr/create-shipment",
+  "/tr/quotes",
+  "/tr/shipments",
+  "/tr/integrations",
+  "/tr/reports",
+  "/tr/settings",
+  "/tr/support",
   "/tr/app/agent",
   "/tr/app/requests/courier",
   "/tr/app/requests/parcel",
@@ -19,13 +27,8 @@ const CUSTOMER_ROUTES = [
   "/tr/app/requests/ftl",
   "/tr/app/requests/ltl",
   "/tr/app/requests/spot",
-  "/tr/app/orders",
-  "/tr/app/orders/ord_c1",
-  "/tr/app/quotes",
-  "/tr/app/reports",
-  "/tr/app/support",
-  "/tr/app/integrations",
-  "/tr/app/settings",
+  "/tr/orders",
+  "/tr/orders/ord_c1",
 ];
 
 const OPS_ROUTES = [
@@ -48,7 +51,7 @@ async function login(page: Page, email: string, expected: RegExp) {
 }
 
 const loginCustomer = (page: Page) =>
-  login(page, "ayse@example.com", /\/tr\/app\/home/);
+  login(page, "ayse@example.com", /\/tr\/dashboard/);
 const loginOps = (page: Page) =>
   login(page, "ops@gonder.com", /\/tr\/operations/);
 
@@ -93,6 +96,26 @@ test.describe("route coverage", () => {
 
 test.describe("responsive", () => {
   for (const viewport of VIEWPORTS) {
+    test(`landing fits ${viewport.name} (${viewport.width}px)`, async ({
+      page,
+    }) => {
+      await page.setViewportSize({
+        width: viewport.width,
+        height: viewport.height,
+      });
+      await page.goto("/tr");
+      await expect(page.getByRole("main")).toBeVisible();
+      await expect(page.getByLabel(/Nereden|From/i)).toBeVisible();
+      const overflow = await page.evaluate(
+        () =>
+          document.documentElement.scrollWidth -
+          document.documentElement.clientWidth,
+      );
+      expect(overflow, "landing horizontal overflow").toBeLessThanOrEqual(2);
+    });
+  }
+
+  for (const viewport of VIEWPORTS) {
     test(`home and orders fit ${viewport.name} (${viewport.width}px)`, async ({
       page,
     }) => {
@@ -102,7 +125,7 @@ test.describe("responsive", () => {
       });
       await loginCustomer(page);
 
-      for (const route of ["/tr/app/home", "/tr/app/orders"]) {
+      for (const route of ["/tr/dashboard", "/tr/orders"]) {
         await page.goto(route);
         await expect(page.getByRole("main")).toBeVisible();
         const overflow = await page.evaluate(
@@ -152,12 +175,12 @@ test.describe("keyboard and focus", () => {
     await page.keyboard.press("ControlOrMeta+a");
     await page.keyboard.type("Password1!");
     await page.keyboard.press("Enter");
-    await expect(page).toHaveURL(/\/tr\/app\/home/);
+    await expect(page).toHaveURL(/\/tr\/dashboard/);
   });
 
   test("focus is visible on interactive elements", async ({ page }) => {
     await loginCustomer(page);
-    await page.goto("/tr/app/orders");
+    await page.goto("/tr/orders");
     await page.keyboard.press("Tab");
     await page.keyboard.press("Tab");
     const outline = await page.evaluate(() => {
@@ -175,7 +198,7 @@ test.describe("theme", () => {
     await loginCustomer(page);
     await page.getByRole("button", { name: /Tema|Theme/i }).first().click();
     await expect(page.locator("html")).toHaveClass(/dark/);
-    await page.goto("/tr/app/orders");
+    await page.goto("/tr/orders");
     await expect(page.locator("html")).toHaveClass(/dark/);
     await expect(page.getByRole("main")).toBeVisible();
   });
@@ -183,15 +206,19 @@ test.describe("theme", () => {
 
 test.describe("accessibility", () => {
   const A11Y_ROUTES = [
+    "/tr",
+    "/tr/results",
     "/tr/login/email",
-    "/tr/app/home",
-    "/tr/app/orders",
-    "/tr/app/settings",
+    "/tr/dashboard",
+    "/tr/orders",
+    "/tr/settings",
   ];
 
   for (const route of A11Y_ROUTES) {
     test(`no critical axe violations on ${route}`, async ({ page }) => {
-      if (route.startsWith("/tr/app")) await loginCustomer(page);
+      if (!["/tr", "/tr/results", "/tr/login/email"].includes(route)) {
+        await loginCustomer(page);
+      }
       await page.goto(route);
       await expect(page.getByRole("main")).toBeVisible();
 
@@ -212,9 +239,9 @@ test.describe("accessibility", () => {
 test.describe("localization", () => {
   test("english locale renders the app shell", async ({ page }) => {
     await loginCustomer(page);
-    await page.goto("/en/app/home");
+    await page.goto("/en/dashboard");
     await expect(page.getByRole("main")).toBeVisible();
-    await page.goto("/en/app/orders");
+    await page.goto("/en/orders");
     await expect(page.getByRole("main")).toBeVisible();
   });
 });

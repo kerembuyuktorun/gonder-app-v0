@@ -102,7 +102,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     if (user.onboarding.status !== "completed") {
       return pathForOnboardingStep(user.onboarding.step);
     }
-    return "/app/home";
+    return "/dashboard";
   },
 
   activeMembership: () => {

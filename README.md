@@ -2,7 +2,7 @@
 
 B2B / B2C logistics, parcel and courier **web** platform operated by **Arf**.
 
-This repository is an integrated Next.js frontend demo covering authentication through the internal operations panel (Steps 1–13), with typed mock repositories ready to swap for real APIs.
+This repository is an integrated Next.js frontend demo covering public acquisition, shared price-to-order journeys, authenticated logistics management, and the internal operations panel, with typed mock repositories ready to swap for real APIs.
 
 ## Stack
 
@@ -102,7 +102,7 @@ Feature code depends on repositories / query hooks — never raw `fetch` in comp
 
 | User | Email | Password | Notes |
 | --- | --- | --- | --- |
-| Customer | `ayse@example.com` | `Password1!` | Completed onboarding → `/app/home` |
+| Customer | `ayse@example.com` | `Password1!` | Completed onboarding → `/dashboard` |
 | Onboarding | `mehmet@example.com` | `Password1!` | Resumes at company tax step |
 | Ops staff | `ops@gonder.com` | `Password1!` | → `/operations` |
 | OTP | — | `123456` valid / `000000` expired | Phone login |
@@ -139,18 +139,37 @@ Cross-module quality pass:
 - Expanded unit, a11y smoke, responsive breakpoint, and Playwright demo-scenario coverage
 - Full technical docs under `docs/`
 
+## Web platform redesign
+
+The primary conversion journey is now:
+
+```text
+/tr landing form → /tr/results → login/register → /tr/create-shipment → /tr/orders
+```
+
+- Public landing starts a Kargo, Kurye, FTL or LTL search without requiring an account.
+- `RequestForm` and `useRequestDraftStore` are shared by landing, price calculation and shipment creation.
+- The draft is persisted locally and survives route changes, login and onboarding.
+- Instant prices and asynchronous “quote preparing” states share one results surface.
+- Quote, order and shipment concepts have distinct routes and UI responsibilities.
+- 30+ volumetric-weight parcels are redirected into the logistics/XL-compatible flow.
+- The new sidebar follows the product IA: Home, Price Calculation, Create Shipment, Orders, Quotes, Shipments, Integrations, Reports, Settings, Support.
+
 ## Key routes (summary)
 
 See [`docs/ROUTES.md`](docs/ROUTES.md). Highlights:
 
 | Path | Purpose |
 | --- | --- |
-| `/tr/app/home` | Customer dashboard |
-| `/tr/app/agent` | AI agent (+ WhatsApp handoff query) |
+| `/tr` | Transaction-first public landing |
+| `/tr/results` | Public service and quote comparison |
+| `/tr/dashboard` | Customer dashboard |
+| `/tr/price-calculation` | Shared request engine · quote mode |
+| `/tr/create-shipment` | Shared request engine · order mode |
+| `/tr/orders`, `/tr/quotes`, `/tr/shipments` | Commercial / quote / physical lifecycle views |
+| `/tr/create-with-ai` | AI request demo |
 | `/tr/app/requests/*` | Service wizards |
-| `/tr/app/orders` | Shared order management |
-| `/tr/app/integrations` | Marketplace / Excel / templates |
-| `/tr/app/settings` | Org & preferences |
+| `/tr/integrations`, `/tr/settings` | Marketplace and organization settings |
 | `/tr/operations` | Internal ops panel |
 
 ## Shared components
