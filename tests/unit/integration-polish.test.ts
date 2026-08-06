@@ -75,5 +75,9 @@ describe("route inventories", () => {
   it("exposes all order list views", () => {
     expect(ORDER_LIST_VIEWS).toContain("problematic");
     expect(ORDER_LIST_VIEWS).toContain("awaiting_payment");
+    expect(ORDER_LIST_VIEWS).toContain("needs_shipment");
+    expect(ORDER_LIST_VIEWS).toContain("converted");
+    expect(ORDER_LIST_VIEWS[0]).toBe("all");
+    expect(ORDER_LIST_VIEWS[1]).toBe("needs_shipment");
   });
 });

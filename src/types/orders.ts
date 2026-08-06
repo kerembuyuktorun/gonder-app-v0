@@ -16,6 +16,8 @@ export type OrderLifecycleStatus =
 
 export type OrderListView =
   | "all"
+  | "needs_shipment"
+  | "converted"
   | "awaiting_quote"
   | "awaiting_approval"
   | "awaiting_payment"
@@ -23,6 +25,12 @@ export type OrderListView =
   | "completed"
   | "cancelled"
   | "problematic";
+
+/** Where the commercial order entered Gönder. */
+export type OrderSource = "integration" | "manual" | "excel" | "api";
+
+/** Whether the order already has a physical shipment record. */
+export type OrderShipmentConversion = "not_converted" | "converted";
 
 export type OrderDocumentType =
   | "label"
@@ -129,6 +137,12 @@ export type OrderSummary = {
   providerName?: string;
   critical?: boolean;
   hasIssue?: boolean;
+  /** Integration / channel provenance */
+  source: OrderSource;
+  integrationName?: string;
+  externalRef?: string;
+  shipmentConversion: OrderShipmentConversion;
+  shipmentId?: string;
 };
 
 export type OrderDetail = OrderSummary & {

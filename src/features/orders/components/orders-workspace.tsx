@@ -130,6 +130,36 @@ export function OrdersWorkspace() {
             {row.reference}
           </button>
         );
+      case "source":
+        return (
+          <span className="inline-flex flex-col gap-0.5">
+            <span className="font-medium">
+              {row.integrationName ?? t(`source.${row.source}`)}
+            </span>
+            <span className="text-xs text-muted-foreground">
+              {t(`source.${row.source}`)}
+            </span>
+          </span>
+        );
+      case "externalRef":
+        return (
+          <span className="font-mono text-xs">
+            {row.externalRef ?? "—"}
+          </span>
+        );
+      case "conversion":
+        return (
+          <span
+            className={cn(
+              "inline-flex rounded-md px-2 py-0.5 text-xs font-medium",
+              row.shipmentConversion === "converted"
+                ? "bg-status-success-bg text-status-success-fg"
+                : "bg-status-warning-bg text-status-warning-fg",
+            )}
+          >
+            {t(`conversion.${row.shipmentConversion}`)}
+          </span>
+        );
       case "tracking":
         return row.trackingNumber;
       case "service":
@@ -206,6 +236,11 @@ export function OrdersWorkspace() {
           <p className="mt-0.5">{t("createdBannerDescription")}</p>
         </div>
       ) : null}
+
+      <div className="rounded-xl border border-border bg-muted/30 px-4 py-3 text-sm">
+        <p className="font-medium text-foreground">{t("focusTitle")}</p>
+        <p className="mt-1 text-muted-foreground">{t("focusDescription")}</p>
+      </div>
 
       <FilterBar
         search={state.search}
@@ -463,6 +498,16 @@ export function OrdersWorkspace() {
                   ))}
                   <td className="px-3 py-2.5">
                     <div className="flex items-center gap-1">
+                      {row.shipmentConversion === "not_converted" &&
+                      row.status !== "cancelled" ? (
+                        <Link
+                          href={`/create-shipment?fromOrder=${row.id}`}
+                        >
+                          <AppButton size="sm" variant="secondary">
+                            {t("actions.convert")}
+                          </AppButton>
+                        </Link>
+                      ) : null}
                       <AppButton
                         variant="ghost"
                         size="icon"

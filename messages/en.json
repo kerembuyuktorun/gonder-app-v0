@@ -317,6 +317,7 @@
     },
     "startService": "Start",
     "widgets": {
+      "ordersNeedingShipment": "Orders needing shipment",
       "activeShipments": "Active shipments",
       "pendingQuotes": "Requests awaiting quotes",
       "awaitingApproval": "Quotes awaiting your approval",
@@ -327,6 +328,7 @@
       "quickActions": "Quick actions"
     },
     "empty": {
+      "ordersNeedingShipment": "No orders waiting to become shipments",
       "activeShipments": "No active shipments",
       "pendingQuotes": "No requests awaiting quotes",
       "awaitingApproval": "No quotes awaiting approval",
@@ -340,6 +342,7 @@
       "uploadExcel": "Upload Excel",
       "copyPrevious": "Copy previous shipment",
       "viewQuotes": "View quotes",
+      "viewOrders": "Orders needing shipment",
       "trackShipment": "Track shipment",
       "connectIntegration": "Connect integration"
     },
@@ -1209,20 +1212,25 @@
   },
   "orders": {
     "title": "Orders",
-    "subtitle": "Manage courier, parcel, XL, FTL, LTL and spot requests in one place",
+    "subtitle": "Manage orders from your integrations — whether or not they have been converted into shipments",
+    "focusTitle": "Focus: integration orders",
+    "focusDescription": "Orders synced from Shopify, Trendyol, Excel and other channels appear here. Create a shipment for unconverted orders; converted ones also show up under Shipments for tracking.",
+    "openIntegrations": "Manage integrations",
     "detailTitle": "Order detail",
-    "detailSubtitle": "Tracking, documents and proof of delivery",
+    "detailSubtitle": "Source, conversion status, tracking and documents",
     "drawerTitle": "Quick preview",
     "backToList": "Back to list",
     "openFull": "Open full page",
     "emptyTitle": "No orders found",
-    "emptyDescription": "Change filters or create a new request.",
+    "emptyDescription": "Change filters or connect an integration to sync orders.",
     "notFoundTitle": "Order not found",
     "notFoundDescription": "This order does not exist or you lack access.",
     "errorTitle": "Could not load order",
     "errorDescription": "Please try again.",
     "views": {
-      "all": "All requests",
+      "all": "All orders",
+      "needs_shipment": "Needs shipment",
+      "converted": "Converted to shipment",
       "awaiting_quote": "Awaiting quote",
       "awaiting_approval": "Awaiting approval",
       "awaiting_payment": "Awaiting payment",
@@ -1230,6 +1238,16 @@
       "completed": "Completed",
       "cancelled": "Cancelled",
       "problematic": "Problematic"
+    },
+    "source": {
+      "integration": "Integration",
+      "manual": "Manual",
+      "excel": "Excel",
+      "api": "API"
+    },
+    "conversion": {
+      "not_converted": "Not converted",
+      "converted": "Converted"
     },
     "status": {
       "draft": "Draft",
@@ -1390,7 +1408,10 @@
     },
     "columns": {
       "title": "Columns",
-      "reference": "Reference",
+      "reference": "Order no",
+      "source": "Source",
+      "externalRef": "External ref",
+      "conversion": "Shipment status",
       "tracking": "Tracking",
       "service": "Service",
       "status": "Status",
@@ -1414,7 +1435,8 @@
     },
     "actions": {
       "peek": "Quick peek",
-      "open": "Open"
+      "open": "Open",
+      "convert": "Create shipment"
     },
     "pagination": {
       "summary": "{from}–{to} of {total}",
@@ -1436,8 +1458,8 @@
     "copyBanner": "Sample order opened for copy. Continue in the parcel wizard.",
     "copyContinue": "Continue to parcel",
     "copyDismiss": "Dismiss",
-    "createdBannerTitle": "Your order draft was created",
-    "createdBannerDescription": "The selected quote and transport details were preserved. A physical shipment record is opened after payment approval."
+    "createdBannerTitle": "Order record is ready",
+    "createdBannerDescription": "Your order is on the list. If it is not converted yet, continue with “Create shipment”; converted records are also tracked under Shipments."
   },
   "integrations": {
     "title": "Integration center",
@@ -2162,9 +2184,9 @@
     },
     "shipments": {
       "title": "Shipments",
-      "description": "Active physical transport and tracking records under confirmed orders.",
+      "description": "Physical transport and tracking records converted from orders. Use Orders for the source commercial records.",
       "empty": "No active shipments",
-      "emptyDescription": "Orders appear here when physical transport begins.",
+      "emptyDescription": "Orders appear here after they are converted into shipments.",
       "tracking": "Tracking number",
       "order": "Order",
       "service": "Service",

@@ -14,6 +14,7 @@ describe("order status mapping", () => {
     expect(statusesForView("active")).toContain("in_transit");
     expect(statusesForView("problematic")).toEqual(["issue"]);
     expect(statusesForView("all")).toBe("all");
+    expect(statusesForView("needs_shipment")).toBe("all");
   });
 });
 
@@ -31,6 +32,8 @@ describe("mock orders repository", () => {
     expect(result.total).toBeGreaterThanOrEqual(9);
     expect(result.items).toHaveLength(5);
     expect(result.items[0]).toHaveProperty("reference");
+    expect(result.items[0]).toHaveProperty("shipmentConversion");
+    expect(result.items[0]).toHaveProperty("source");
   });
 
   it("filters by list view", async () => {
@@ -55,6 +58,39 @@ describe("mock orders repository", () => {
         ),
       ),
     ).toBe(true);
+  });
+
+  it("filters integration orders by shipment conversion", async () => {
+    const needs = await mockOrdersRepository.list({
+      view: "needs_shipment",
+      page: 1,
+      pageSize: 50,
+    });
+    expect(needs.total).toBeGreaterThan(0);
+    expect(
+      needs.items.every((o) => o.shipmentConversion === "not_converted"),
+    ).toBe(true);
+
+    const converted = await mockOrdersRepository.list({
+      view: "converted",
+      page: 1,
+      pageSize: 50,
+    });
+    expect(converted.total).toBeGreaterThan(0);
+    expect(
+      converted.items.every((o) => o.shipmentConversion === "converted"),
+    ).toBe(true);
+  });
+
+  it("searches by external integration reference", async () => {
+    const search = await mockOrdersRepository.list({
+      view: "all",
+      search: "TY-44120",
+      page: 1,
+      pageSize: 20,
+    });
+    expect(search.items.length).toBeGreaterThan(0);
+    expect(search.items[0]?.externalRef).toBe("TY-44120");
   });
 
   it("supports global search and critical filter", async () => {

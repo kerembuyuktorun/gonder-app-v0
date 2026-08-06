@@ -35,6 +35,16 @@
   --destructive: #c62828;
   --destructive-foreground: #ffffff;
 
+  /* Sidebar — Gönder navy/indigo (not ARF lime) */
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0b1a33;
+  --sidebar-primary: #152f57;
+  --sidebar-primary-foreground: #f7f8fb;
+  --sidebar-accent: #e4ebf6;
+  --sidebar-accent-foreground: #152f57;
+  --sidebar-border: #d5deee;
+  --sidebar-ring: #4f74ab;
+
   /* Status */
   --status-success: #1b7a4e;
   --status-success-bg: #e6f5ee;
@@ -177,6 +187,15 @@
   --ring: #7a98c4;
   --destructive: #ef5350;
   --destructive-foreground: #071122;
+
+  --sidebar: #0f2342;
+  --sidebar-foreground: #eef2f8;
+  --sidebar-primary: #7a98c4;
+  --sidebar-primary-foreground: #071122;
+  --sidebar-accent: #1e3f72;
+  --sidebar-accent-foreground: #eef2f8;
+  --sidebar-border: #1e3f72;
+  --sidebar-ring: #7a98c4;
 
   --status-success: #4caf7a;
   --status-success-bg: #0f2a1c;

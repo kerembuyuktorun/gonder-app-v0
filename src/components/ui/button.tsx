@@ -10,6 +10,8 @@ const buttonVariants = cva(
       variant: {
         primary:
           "bg-primary text-primary-foreground hover:bg-brand-600 dark:hover:bg-brand-300",
+        default:
+          "bg-primary text-primary-foreground hover:bg-brand-600 dark:hover:bg-brand-300",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-accent border border-border",
         ghost: "hover:bg-accent hover:text-accent-foreground",
@@ -21,6 +23,7 @@ const buttonVariants = cva(
       size: {
         sm: "h-9 px-3 text-sm",
         md: "h-11 px-4",
+        default: "h-11 px-4",
         lg: "h-12 px-6 text-base",
         icon: "h-11 w-11",
       },
