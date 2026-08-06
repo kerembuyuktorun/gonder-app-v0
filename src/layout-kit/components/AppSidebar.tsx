@@ -358,7 +358,9 @@ export function AppSidebar({
                         <div
                           className={cn(
                             "flex size-10 items-center justify-center rounded-xl border bg-background text-foreground",
-                            isActiveBrand && !isDisabled && "rounded-full border-transparent bg-lime-300 text-black",
+                            isActiveBrand &&
+                              !isDisabled &&
+                              "rounded-full border-transparent bg-sidebar-primary text-sidebar-primary-foreground",
                             isDisabled && "border-muted bg-muted/40 text-muted-foreground"
                           )}
                         >
