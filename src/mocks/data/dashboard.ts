@@ -47,6 +47,10 @@ const AWAITING_APPROVAL = MOCK_ORDERS.filter(
 const AWAITING_PAYMENT = MOCK_ORDERS.filter(
   (o) => o.status === "awaiting_payment",
 );
+const NEEDS_SHIPMENT = MOCK_ORDERS.filter(
+  (o) =>
+    o.shipmentConversion === "not_converted" && o.status !== "cancelled",
+);
 
 export const mockDashboardSnapshot: DashboardSnapshot = {
   greetingName: "Ayşe",
@@ -129,6 +133,12 @@ export const mockDashboardSnapshot: DashboardSnapshot = {
       icon: "quotes",
     },
     {
+      id: "qa-orders",
+      labelKey: "dashboard.quickActions.viewOrders",
+      href: "/orders?view=needs_shipment",
+      icon: "quotes",
+    },
+    {
       id: "qa-track",
       labelKey: "dashboard.quickActions.trackShipment",
       href: "/shipments",
@@ -142,6 +152,14 @@ export const mockDashboardSnapshot: DashboardSnapshot = {
     },
   ],
   activeShipments: ACTIVE.map(toActive),
+  ordersNeedingShipment: NEEDS_SHIPMENT.map((o) => ({
+    id: o.id,
+    orderId: o.id,
+    reference: o.externalRef ?? o.reference,
+    serviceType: o.serviceType,
+    amount: o.total,
+    dueAt: o.updatedAt,
+  })),
   pendingQuoteRequests: QUOTE_PENDING.map((o) => ({
     id: o.id,
     orderId: o.id,
@@ -223,6 +241,7 @@ export const mockEmptyDashboardSnapshot: DashboardSnapshot = {
   ...mockDashboardSnapshot,
   greetingName: "Yeni kullanıcı",
   contextLabel: "",
+  ordersNeedingShipment: [],
   activeShipments: [],
   pendingQuoteRequests: [],
   awaitingUserApproval: [],

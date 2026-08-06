@@ -81,6 +81,7 @@ export type DashboardQuickAction = {
 export type DashboardSnapshot = {
   greetingName: string;
   contextLabel: string;
+  ordersNeedingShipment: DashboardPaymentItem[];
   activeShipments: DashboardShipmentItem[];
   pendingQuoteRequests: DashboardQuoteItem[];
   awaitingUserApproval: DashboardQuoteItem[];

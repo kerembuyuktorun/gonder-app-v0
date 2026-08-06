@@ -18,7 +18,7 @@ import {
   MOCK_ORDERS,
   toSummary,
 } from "@/mocks/data/orders";
-import { STATUS_BY_VIEW } from "@/features/orders/lib/status";
+import { STATUS_BY_VIEW, conversionForView } from "@/features/orders/lib/status";
 import { paginate, withMockLatency } from "@/mocks/repositories/helpers";
 
 let idSeq = 1000;
@@ -37,6 +37,9 @@ function matchesSearch(order: OrderDetail, q: string): boolean {
     order.serviceType,
     order.sender.name,
     order.recipient.name,
+    order.integrationName ?? "",
+    order.externalRef ?? "",
+    order.source,
   ]
     .join(" ")
     .toLocaleLowerCase("tr-TR");
@@ -47,6 +50,9 @@ function matchesFilters(order: OrderDetail, params: OrderListParams): boolean {
   const view = params.view ?? "all";
   const viewStatuses = STATUS_BY_VIEW[view];
   if (viewStatuses !== "all" && !viewStatuses.includes(order.status)) return false;
+
+  const conversion = conversionForView(view);
+  if (conversion && order.shipmentConversion !== conversion) return false;
 
   if (params.serviceType && params.serviceType !== "all") {
     if (order.serviceType !== params.serviceType) return false;
@@ -211,6 +217,10 @@ export class MockOrdersRepository implements OrdersRepository {
     const all = await this.list({ ...params, page: 1, pageSize: 10_000 });
     const header = [
       "reference",
+      "externalRef",
+      "integrationName",
+      "source",
+      "shipmentConversion",
       "trackingNumber",
       "serviceType",
       "status",
@@ -225,6 +235,10 @@ export class MockOrdersRepository implements OrdersRepository {
     const rows = all.items.map((o) =>
       [
         o.reference,
+        o.externalRef ?? "",
+        o.integrationName ?? "",
+        o.source,
+        o.shipmentConversion,
         o.trackingNumber,
         o.serviceType,
         o.status,
