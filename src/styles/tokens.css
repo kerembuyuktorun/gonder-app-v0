@@ -15,22 +15,22 @@
   --gonder-brand-950: #071122;
 
   /* Semantic surfaces (light) */
-  --background: #f7f8fb;
+  --background: #f8fafc;
   --foreground: #0b1a33;
   --card: #ffffff;
   --card-foreground: #0b1a33;
   --popover: #ffffff;
   --popover-foreground: #0b1a33;
   --primary: #152f57;
-  --primary-foreground: #f7f8fb;
-  --secondary: #eef2f8;
+  --primary-foreground: #f8fafc;
+  --secondary: #f1f5f9;
   --secondary-foreground: #152f57;
-  --muted: #e8ecf3;
-  --muted-foreground: #5a6b85;
-  --accent: #e4ebf6;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --accent: #edf3fb;
   --accent-foreground: #152f57;
-  --border: #d5deee;
-  --input: #d5deee;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
   --ring: #4f74ab;
   --destructive: #c62828;
   --destructive-foreground: #ffffff;
@@ -39,10 +39,10 @@
   --sidebar: #ffffff;
   --sidebar-foreground: #0b1a33;
   --sidebar-primary: #152f57;
-  --sidebar-primary-foreground: #f7f8fb;
-  --sidebar-accent: #e4ebf6;
+  --sidebar-primary-foreground: #f8fafc;
+  --sidebar-accent: #f1f5f9;
   --sidebar-accent-foreground: #152f57;
-  --sidebar-border: #d5deee;
+  --sidebar-border: #e2e8f0;
   --sidebar-ring: #4f74ab;
 
   /* Status */
@@ -114,23 +114,29 @@
 
   /* Radius */
   --radius-none: 0;
-  --radius-sm: 0.25rem;
-  --radius-md: 0.375rem;
-  --radius-lg: 0.5rem;
-  --radius-xl: 0.75rem;
-  --radius-2xl: 1rem;
+  --radius-sm: 0.75rem;
+  --radius-md: 0.875rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.75rem;
+  --radius-3xl: 2.2rem;
+  --radius-4xl: 2.6rem;
   --radius-full: 9999px;
-  --radius: var(--radius-lg);
+  --radius: 1rem;
 
   /* Borders */
   --border-width: 1px;
   --border-width-thick: 2px;
 
-  /* Shadows — restrained */
-  --shadow-xs: 0 1px 2px rgb(11 26 51 / 0.04);
-  --shadow-sm: 0 1px 3px rgb(11 26 51 / 0.06), 0 1px 2px rgb(11 26 51 / 0.04);
-  --shadow-md: 0 4px 8px rgb(11 26 51 / 0.06), 0 1px 3px rgb(11 26 51 / 0.04);
-  --shadow-lg: 0 10px 20px rgb(11 26 51 / 0.08), 0 2px 6px rgb(11 26 51 / 0.04);
+  /* Shadows — ARF surface rhythm, tinted for Gönder navy */
+  --shadow-2xs: 0 8px 20px rgb(11 26 51 / 0.025);
+  --shadow-xs: 0 8px 20px rgb(11 26 51 / 0.03);
+  --shadow-sm: 0 8px 20px rgb(11 26 51 / 0.05), 0 1px 2px -1px rgb(11 26 51 / 0.05);
+  --shadow: 0 8px 20px rgb(11 26 51 / 0.05), 0 1px 2px -1px rgb(11 26 51 / 0.05);
+  --shadow-md: 0 8px 20px rgb(11 26 51 / 0.055), 0 2px 4px -1px rgb(11 26 51 / 0.05);
+  --shadow-lg: 0 8px 20px rgb(11 26 51 / 0.06), 0 4px 6px -1px rgb(11 26 51 / 0.05);
+  --shadow-xl: 0 12px 28px rgb(11 26 51 / 0.09);
+  --shadow-2xl: 0 18px 40px rgb(11 26 51 / 0.14);
   --shadow-none: none;
 
   /* Z-index */
@@ -182,8 +188,8 @@
   --muted-foreground: #aabddc;
   --accent: #1e3f72;
   --accent-foreground: #eef2f8;
-  --border: #1e3f72;
-  --input: #1e3f72;
+  --border: #203a60;
+  --input: #203a60;
   --ring: #7a98c4;
   --destructive: #ef5350;
   --destructive-foreground: #071122;
@@ -194,7 +200,7 @@
   --sidebar-primary-foreground: #071122;
   --sidebar-accent: #1e3f72;
   --sidebar-accent-foreground: #eef2f8;
-  --sidebar-border: #1e3f72;
+  --sidebar-border: #203a60;
   --sidebar-ring: #7a98c4;
 
   --status-success: #4caf7a;
@@ -220,8 +226,12 @@
   --chart-5: #aabddc;
   --chart-6: #ef5350;
 
-  --shadow-xs: 0 1px 2px rgb(0 0 0 / 0.25);
-  --shadow-sm: 0 1px 3px rgb(0 0 0 / 0.3), 0 1px 2px rgb(0 0 0 / 0.2);
-  --shadow-md: 0 4px 8px rgb(0 0 0 / 0.35), 0 1px 3px rgb(0 0 0 / 0.25);
-  --shadow-lg: 0 10px 20px rgb(0 0 0 / 0.4), 0 2px 6px rgb(0 0 0 / 0.3);
+  --shadow-2xs: 0 10px 25px rgb(0 0 0 / 0.16);
+  --shadow-xs: 0 10px 25px rgb(0 0 0 / 0.2);
+  --shadow-sm: 0 10px 25px rgb(0 0 0 / 0.3), 0 1px 2px -1px rgb(0 0 0 / 0.3);
+  --shadow: 0 10px 25px rgb(0 0 0 / 0.3), 0 1px 2px -1px rgb(0 0 0 / 0.3);
+  --shadow-md: 0 10px 25px rgb(0 0 0 / 0.34), 0 2px 4px -1px rgb(0 0 0 / 0.3);
+  --shadow-lg: 0 10px 25px rgb(0 0 0 / 0.38), 0 4px 6px -1px rgb(0 0 0 / 0.3);
+  --shadow-xl: 0 14px 32px rgb(0 0 0 / 0.42);
+  --shadow-2xl: 0 20px 48px rgb(0 0 0 / 0.5);
 }

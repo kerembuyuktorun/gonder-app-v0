@@ -1,15 +1,43 @@
 import * as React from 'react'
+import { cva, type VariantProps } from 'class-variance-authority'
 
 import { cn } from '@/lib/utils'
 
-function Card({ className, ...props }: React.ComponentProps<'div'>) {
+const cardVariants = cva(
+  'text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm',
+  {
+    variants: {
+      tone: {
+        default: 'border-border/80 bg-card',
+        subtle: 'border-border/70 bg-muted/40',
+        primary: 'border-primary/20 bg-accent/55',
+        success: 'border-success/25 bg-success-bg/70',
+        warning: 'border-warning/25 bg-warning-bg/70',
+        info: 'border-info/25 bg-info-bg/70',
+        danger: 'border-error/25 bg-error-bg/70',
+      },
+      interactive: {
+        true: 'transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-md',
+        false: '',
+      },
+    },
+    defaultVariants: {
+      tone: 'default',
+      interactive: false,
+    },
+  },
+)
+
+function Card({
+  className,
+  tone,
+  interactive,
+  ...props
+}: React.ComponentProps<'div'> & VariantProps<typeof cardVariants>) {
   return (
     <div
       data-slot="card"
-      className={cn(
-        'bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm',
-        className,
-      )}
+      className={cn(cardVariants({ tone, interactive }), className)}
       {...props}
     />
   )
@@ -20,7 +48,7 @@ function CardHeader({ className, ...props }: React.ComponentProps<'div'>) {
     <div
       data-slot="card-header"
       className={cn(
-        '@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-2 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6',
+        '@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-2 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-5',
         className,
       )}
       {...props}
@@ -89,4 +117,5 @@ export {
   CardAction,
   CardDescription,
   CardContent,
+  cardVariants,
 }

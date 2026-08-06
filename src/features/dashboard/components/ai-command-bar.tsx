@@ -22,9 +22,9 @@ export function AiCommandBar() {
   }
 
   return (
-    <section className="rounded-xl border border-border bg-card p-4 md:p-5">
+    <section className="rounded-xl border border-border/80 bg-card p-5 shadow-sm md:p-6">
       <div className="mb-3 flex items-center gap-2">
-        <span className="flex size-8 items-center justify-center rounded-md bg-brand-100 text-brand-800 dark:bg-brand-800 dark:text-brand-100">
+        <span className="flex size-9 items-center justify-center rounded-lg border border-brand-200/70 bg-brand-50 text-brand-800 shadow-xs dark:border-brand-700 dark:bg-brand-800 dark:text-brand-100">
           <Sparkles className="size-4" />
         </span>
         <div>

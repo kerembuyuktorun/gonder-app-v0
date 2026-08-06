@@ -44,7 +44,7 @@ export function QuickActions({
               key={action.id}
               href={action.href}
               className={cn(
-                "inline-flex min-h-11 items-center gap-2 rounded-lg border border-border bg-card px-3 py-2.5 text-sm font-medium hover:bg-accent touch-target",
+                "inline-flex min-h-11 items-center gap-2 rounded-lg border border-border/80 bg-card px-3.5 py-3 text-sm font-medium shadow-xs transition-[border-color,box-shadow,transform] hover:-translate-y-0.5 hover:border-primary/25 hover:shadow-sm touch-target",
               )}
             >
               <Icon className="size-4 shrink-0 text-brand-600 dark:text-brand-300" />
