@@ -1,12 +1,12 @@
 "use client";
 
-import { WebAppShell } from "@/components/layout/web-app-shell";
+import { PanelLayoutShell } from "@/components/layout/panel-layout-shell";
 import { CompletedOnboardingGuard } from "@/lib/auth/guards";
 
 export function AppLayoutShell({ children }: { children: React.ReactNode }) {
   return (
     <CompletedOnboardingGuard>
-      <WebAppShell>{children}</WebAppShell>
+      <PanelLayoutShell>{children}</PanelLayoutShell>
     </CompletedOnboardingGuard>
   );
 }

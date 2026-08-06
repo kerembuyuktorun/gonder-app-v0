@@ -142,12 +142,11 @@ test.describe("responsive", () => {
     await page.setViewportSize({ width: 390, height: 844 });
     await loginCustomer(page);
     await page
-      .getByRole("button", { name: /Menüyü aç|Open menu/i })
+      .getByRole("button", { name: /Menüyü aç|Kenar çubuğu|Toggle Sidebar/i })
       .first()
       .click();
-    await expect(
-      page.getByRole("button", { name: /Menüyü kapat|Close menu/i }).first(),
-    ).toBeVisible();
+    await expect(page.getByRole("link", { name: /Ana Sayfa|Home/i })).toBeVisible();
+    await expect(page.getByRole("link", { name: /Siparişler|Orders/i }).first()).toBeVisible();
   });
 });
 
@@ -158,7 +157,7 @@ test.describe("keyboard and focus", () => {
     await loginCustomer(page);
     await page.keyboard.press("Tab");
     const skipLink = page.getByRole("link", {
-      name: /İçeriğe geç|Skip to content/i,
+      name: /Ana içeriğe geç|içeriğe geç|Skip to content/i,
     });
     await expect(skipLink).toBeFocused();
     await page.keyboard.press("Enter");
