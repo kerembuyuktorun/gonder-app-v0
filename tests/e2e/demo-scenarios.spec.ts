@@ -20,7 +20,7 @@ test.describe("Gönder demo scenarios", () => {
   test("customer home widgets deep-link to orders", async ({ page }) => {
     await loginCustomer(page);
     await page.getByRole("link", { name: /Tümünü gör|View all/i }).first().click();
-    await expect(page).toHaveURL(/\/tr\/shipments/);
+    await expect(page).toHaveURL(/\/tr\/orders\?view=needs_shipment/);
   });
 
   test("AI agent and courier request routes load", async ({ page }) => {

@@ -66,15 +66,13 @@ const NON_CLICKABLE_BREADCRUMB_HREFS = new Set([
   "/cargo/settings",
 ])
 
+const subscribeToClient = () => () => {}
+
 export function AppHeader(props: AppHeaderProps) {
   const headerDefaults = useAppHeaderDefaults()
   const router = useRouter()
   const { theme, setTheme } = useTheme()
-  const [mounted, setMounted] = React.useState(false)
-
-  React.useEffect(() => {
-    setMounted(true)
-  }, [])
+  const mounted = React.useSyncExternalStore(subscribeToClient, () => true, () => false)
 
   const {
     breadcrumbs,
@@ -97,10 +95,9 @@ export function AppHeader(props: AppHeaderProps) {
     onNotificationClick,
   } = props
 
-  const resolvedBreadcrumbs = breadcrumbs ?? headerDefaults.breadcrumbs ?? []
   const normalizedBreadcrumbs = React.useMemo(
     () =>
-      resolvedBreadcrumbs.map((crumb) => {
+      (breadcrumbs ?? headerDefaults.breadcrumbs ?? []).map((crumb) => {
         if (crumb.label === "Ana Sayfa" && crumb.href === "/") {
           return { ...crumb, href: "/cargo" }
         }
@@ -115,7 +112,7 @@ export function AppHeader(props: AppHeaderProps) {
 
         return crumb
       }),
-    [resolvedBreadcrumbs],
+    [breadcrumbs, headerDefaults.breadcrumbs],
   )
   const resolvedSearchPlaceholder = searchPlaceholder ?? headerDefaults.searchPlaceholder ?? "Search..."
   const resolvedSearchShortcut = searchShortcut ?? headerDefaults.searchShortcut
