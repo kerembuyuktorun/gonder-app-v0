@@ -35,7 +35,7 @@ export function UsageSummaryCard({ usage }: { usage: DashboardUsageSummary }) {
         {stats.map((stat) => (
           <div
             key={stat.label}
-            className="rounded-lg border border-border bg-muted/40 px-3 py-3"
+            className="rounded-lg border border-border/70 bg-muted/45 px-4 py-3.5"
           >
             <dt className="text-xs text-muted-foreground">{stat.label}</dt>
             <dd className="mt-1 text-base font-semibold tabular-nums">

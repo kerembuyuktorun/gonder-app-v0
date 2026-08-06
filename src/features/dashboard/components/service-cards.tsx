@@ -29,7 +29,7 @@ export function ServiceCards({
             key={service.id}
             href={service.href}
             className={cn(
-              "group flex min-h-[7.5rem] flex-col justify-between rounded-xl border border-border bg-card p-4 transition-colors hover:border-brand-400 hover:bg-accent/40 focus-visible:outline-none",
+              "group flex min-h-[8rem] flex-col justify-between rounded-xl border border-border/80 bg-card p-5 shadow-sm transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md focus-visible:outline-none",
             )}
           >
             <div className="space-y-2">

@@ -136,16 +136,15 @@ export function AppSidebar({
   const [activeSettingsSectionId, setActiveSettingsSectionId] = React.useState<string>(
     defaultSettingsSectionId
   )
-
-  React.useEffect(() => {
-    if (!resolvedSettingsSections.some((section) => section.id === activeSettingsSectionId)) {
-      setActiveSettingsSectionId(defaultSettingsSectionId)
-    }
-  }, [activeSettingsSectionId, defaultSettingsSectionId, resolvedSettingsSections])
+  const resolvedActiveSettingsSectionId = resolvedSettingsSections.some(
+    (section) => section.id === activeSettingsSectionId,
+  )
+    ? activeSettingsSectionId
+    : defaultSettingsSectionId
 
   const activeSettingsSection = React.useMemo(
-    () => resolvedSettingsSections.find((section) => section.id === activeSettingsSectionId) ?? resolvedSettingsSections[0],
-    [activeSettingsSectionId, resolvedSettingsSections]
+    () => resolvedSettingsSections.find((section) => section.id === resolvedActiveSettingsSectionId) ?? resolvedSettingsSections[0],
+    [resolvedActiveSettingsSectionId, resolvedSettingsSections]
   )
 
   const openSettingsModal = React.useCallback((sectionId?: string) => {
@@ -250,7 +249,10 @@ export function AppSidebar({
     )
   }
 
-  const renderCollapsedFlyoutItems = React.useCallback((items: NavSubItem[], level = 0): React.ReactNode => {
+  const renderCollapsedFlyoutItems = React.useCallback(function renderItems(
+    items: NavSubItem[],
+    level = 0,
+  ): React.ReactNode {
     const collectMatchedUrls = (subItems: NavSubItem[]): string[] => {
       const matches: string[] = []
 
@@ -304,7 +306,7 @@ export function AppSidebar({
           <div className="px-2 pt-1 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground/85">
             {subItem.title}
           </div>
-          <div className="space-y-1">{renderCollapsedFlyoutItems(subItem.items || [], level + 1)}</div>
+          <div className="space-y-1">{renderItems(subItem.items || [], level + 1)}</div>
         </div>
       )
     })
@@ -574,7 +576,7 @@ export function AppSidebar({
               <div className="space-y-1">
                 {resolvedSettingsSections.map((section) => {
                   const Icon = section.icon
-                  const isActive = section.id === activeSettingsSectionId
+                  const isActive = section.id === resolvedActiveSettingsSectionId
 
                   return (
                     <button

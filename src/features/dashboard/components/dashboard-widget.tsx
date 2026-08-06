@@ -39,11 +39,11 @@ export function DashboardWidget({
   return (
     <section
       className={cn(
-        "flex min-h-0 flex-col rounded-xl border border-border bg-card",
+        "flex min-h-0 flex-col overflow-hidden rounded-xl border border-border/80 bg-card shadow-sm",
         className,
       )}
     >
-      <div className="flex items-center justify-between gap-3 border-b border-border px-4 py-3">
+      <div className="flex items-center justify-between gap-3 border-b border-border/60 bg-muted/35 px-5 py-4">
         <div className="flex min-w-0 items-center gap-2">
           <h2 className="truncate text-sm font-semibold">{title}</h2>
           {typeof count === "number" ? (
@@ -61,7 +61,7 @@ export function DashboardWidget({
           </Link>
         ) : null}
       </div>
-      <div className={cn("flex-1 p-3", dense && "p-0")}>
+      <div className={cn("flex-1 p-4", dense && "p-0")}>
         {isLoading ? <LoadingSkeleton rows={3} /> : null}
         {isError ? (
           <ErrorState

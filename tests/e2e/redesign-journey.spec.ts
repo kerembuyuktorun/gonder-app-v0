@@ -35,9 +35,7 @@ test.describe("landing → quote → authenticated shipment", () => {
     await page.getByRole("button", { name: "Siparişi oluştur" }).click();
 
     await expect(page).toHaveURL(/\/tr\/orders\?created=true/);
-    await expect(
-      page.getByText("Sipariş taslağınız oluşturuldu"),
-    ).toBeVisible();
+    await expect(page.getByText("Sipariş kaydı hazır")).toBeVisible();
   });
 
   test("shows dynamic FTL fields and asynchronous quote state", async ({

@@ -77,11 +77,17 @@
   --radius-lg: var(--radius-lg);
   --radius-xl: var(--radius-xl);
   --radius-2xl: var(--radius-2xl);
+  --radius-3xl: var(--radius-3xl);
+  --radius-4xl: var(--radius-4xl);
 
+  --shadow-2xs: var(--shadow-2xs);
   --shadow-xs: var(--shadow-xs);
   --shadow-sm: var(--shadow-sm);
+  --shadow: var(--shadow);
   --shadow-md: var(--shadow-md);
   --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
+  --shadow-2xl: var(--shadow-2xl);
 
   --breakpoint-xs: 390px;
   --breakpoint-sm: 640px;
@@ -119,6 +125,25 @@
 
   ::selection {
     background: color-mix(in srgb, var(--primary) 18%, transparent);
+  }
+}
+
+@layer components {
+  .surface-card {
+    @apply rounded-xl border border-border/80 bg-card text-card-foreground shadow-sm;
+  }
+
+  .surface-card-header {
+    @apply border-b border-border/60 bg-muted/35;
+  }
+
+  .surface-inset {
+    @apply rounded-lg border border-border/80 bg-muted/45;
+  }
+
+  :where(.bg-card.rounded-xl.border, .bg-card.rounded-2xl.border) {
+    border-color: color-mix(in srgb, var(--border) 80%, transparent);
+    box-shadow: var(--shadow-sm);
   }
 }
 
